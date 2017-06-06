@@ -88,7 +88,7 @@
       </v-ons-list-item>
     </v-ons-list>
     <section style="margin: 16px">
-      <v-ons-button modifier="large" v-bind:disabled="!signUpIsPermitted" @click="signUp()">Sign up</v-ons-button>
+      <v-ons-button modifier="large" v-bind:disabled="!this.signUpIsPermitted" @click="signUp()">Sign up</v-ons-button>
     </section>
   </v-ons-page>
 </template>
@@ -133,7 +133,7 @@ export default {
     },
     signUpIsPermitted() {
       return this.validation.emailRequired && this.validation.emailFormat
-             && this.validation.passwordRequired && this.validation.emailLength
+             && this.validation.passwordRequired && this.validation.passwordLength
              && this.validation.confirmPasswordMatch;
     },
   },
