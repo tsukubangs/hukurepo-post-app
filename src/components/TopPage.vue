@@ -6,6 +6,7 @@
       <v-ons-button @click="push">POST</v-ons-button>
     </p>
     <p>Log in!</p>
+    <v-ons-button @click="logout">logout</v-ons-button>
   </v-ons-page>
 </template>
 
@@ -15,6 +16,12 @@ import ons from 'onsenui';
 import CustomToolbar from './CustomToolbar';
 import CameraPage from './CameraPage';
 import { WEB_API_URL } from '../../.env';
+import router from '../router';
+
+function logout() {
+  window.localStorage.removeItem('access_token');
+  router.push('/login');
+}
 
 function getUser() {
   const token = window.localStorage.getItem('access_token');
@@ -50,6 +57,7 @@ export default {
       this.pageStack.push(CameraPage);
     },
     getUser,
+    logout,
   },
   props: ['pageStack'],
 };
