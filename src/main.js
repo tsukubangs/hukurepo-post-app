@@ -33,3 +33,46 @@ new Vue({
   template: '<App/>',
   components: { App },
 });
+
+const app = {
+// Application Constructor
+  initialize() {
+    document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+  },
+
+// deviceready Event Handler
+//
+// Bind any cordova events here. Common events are:
+// 'pause', 'resume', etc.
+  onDeviceReady() {
+    this.initPushNotification();
+  },
+
+  /* eslint-disable no-undef */
+  initPushNotification() {
+    const push = PushNotification.init({
+      ios: { alert: 'true', badge: 'true', sound: 'true' } });
+
+    push.on('registration', (data) => {
+        // data.registrationId
+      console.log(data);
+    });
+
+    push.on('notification', (data) => {
+      console.log(data);
+        // data.message,
+        // data.title,
+        // data.count,
+        // data.sound,
+        // data.image,
+        // data.additionalData
+    });
+
+    push.on('error', (e) => {
+      console.log(e);
+        // e.message
+    });
+  },
+};
+
+app.initialize();
