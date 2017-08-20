@@ -15,6 +15,7 @@ import App from './App';
 import { GOOGLE_MAP_API } from '../.env';
 import store from './vuex/store';
 
+
 Vue.use(VueOnsen);
 ons.forcePlatformStyling('ios');
 

@@ -27,6 +27,7 @@ import CustomToolbar from './CustomToolbar';
 import CameraPage from './CameraPage';
 import ProblemCard from './ProblemCard';
 import ResponsePage from './ResponsePage';
+import notification from '../function/notification';
 import { FETCH_PROBLEMS, REFETCH_PROBLEMS, SELECT_PROBLEM, SAW_RESPONSES_OF_PROBLEM } from '../vuex/mutation-types';
 
 export default {
@@ -36,6 +37,7 @@ export default {
     ProblemCard,
   },
   created() {
+    notification.initialize();
     this.$store.watch(state => state.fetchProblemsStatus.isError, (isError) => {
       if (isError) {
         ons.notification.alert({

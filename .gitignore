@@ -16,3 +16,7 @@ bin/*
 !/plugins/fetch.json
 plugins/*
 platforms/*
+
+# FCM setting files
+google-services.json
+GoogleService-Info.plist
