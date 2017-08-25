@@ -20,3 +20,6 @@ platforms/*
 # FCM setting files
 google-services.json
 GoogleService-Info.plist
+
+# keystore file
+.keystore

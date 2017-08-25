@@ -12,7 +12,7 @@ export default {
   created() {
     const hasToken = window.localStorage.getItem('access_token');
     if (!hasToken) {
-      router.push('login');
+      router.push('init');
     } else {
       router.push('/');
     }

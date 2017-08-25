@@ -1,5 +1,6 @@
 <template>
   <v-ons-page>
+    <div class="background"></div>
     <div id="login-form">
       <p><v-ons-input id="email" modifier="underbar" placeholder="Email" v-ons-model="email" float></v-ons-input></p>
       <p><v-ons-input id="password" modifier="underbar" type="password" placeholder="Password" v-ons-model="password" float></v-ons-input></p>
@@ -58,4 +59,9 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.background {
+  background-color: #01a8ec;
+}
+
 </style>
