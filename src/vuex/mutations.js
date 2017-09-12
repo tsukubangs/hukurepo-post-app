@@ -31,17 +31,18 @@ export default {
     state.problems = problems;
   },
   [FETCH_ALL_PROBLEMS_START](state) {
-    state.fetchAllProblemsStatus = {
-      isError: false,
-      isCompleted: false,
-    };
+    state.allProblems.isError = false;
+    state.allProblems.loading = true;
+    // state.fetchAllProblemsStatus = {
+    //   isError: false,
+    //   isCompleted: false,
+    // };
   },
-  [FETCH_ALL_PROBLEMS_FINISH](state, allProblems) {
-    state.allProblems = allProblems;
-    state.fetchAllProblemsStatus = {
-      isError: false,
-      isCompleted: true,
-    };
+  [FETCH_ALL_PROBLEMS_FINISH](state, allProblemsData) {
+    state.allProblems.data.concat(allProblemsData);
+    state.allProblems.page += 1;
+    state.allProblems.isError = false;
+    state.allProblems.loading = false;
   },
   [FETCH_ALL_PROBLEMS_ERROR](state) {
     state.fetchAllProblemsStatus = {
@@ -49,8 +50,8 @@ export default {
       isCompleted: false,
     };
   },
-  [REFETCH_ALL_PROBLEMS](state, allProblems) {
-    state.allProblems = allProblems;
+  [REFETCH_ALL_PROBLEMS](state, allProblemsData) {
+    state.allProblems.data = allProblemsData;
   },
   [SELECT_PROBLEM](state, problem) {
     state.selectedProblem = problem;
