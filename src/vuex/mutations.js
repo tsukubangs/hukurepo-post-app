@@ -33,25 +33,22 @@ export default {
   [FETCH_ALL_PROBLEMS_START](state) {
     state.allProblems.isError = false;
     state.allProblems.loading = true;
-    // state.fetchAllProblemsStatus = {
-    //   isError: false,
-    //   isCompleted: false,
-    // };
   },
   [FETCH_ALL_PROBLEMS_FINISH](state, allProblemsData) {
-    state.allProblems.data.concat(allProblemsData);
+    state.allProblems.data = state.allProblems.data.concat(allProblemsData);
     state.allProblems.page += 1;
     state.allProblems.isError = false;
     state.allProblems.loading = false;
   },
   [FETCH_ALL_PROBLEMS_ERROR](state) {
-    state.fetchAllProblemsStatus = {
-      isError: true,
-      isCompleted: false,
-    };
+    state.allProblems.isError = true;
+    state.allProblems.loading = false;
   },
   [REFETCH_ALL_PROBLEMS](state, allProblemsData) {
     state.allProblems.data = allProblemsData;
+    state.allProblems.isError = false;
+    state.allProblems.loading = false;
+    state.allProblems.page = 1;
   },
   [SELECT_PROBLEM](state, problem) {
     state.selectedProblem = problem;

@@ -14,13 +14,9 @@ export default new Vuex.Store({
     },
     allProblems: {
       data: [],
-      page: 1,
+      page: 0,
       loading: false,
       isError: false,
-    },
-    fetchAllProblemsStatus: {
-      isError: false,
-      isCompleted: false,
     },
     selectedProblem: { },
   },
@@ -28,7 +24,6 @@ export default new Vuex.Store({
     problems: state => state.problems,
     fetchProblemsStatus: state => state.fetchProblemsStatus,
     allProblems: state => state.allProblems,
-    fetchAllProblemsStatus: state => state.fetchAllProblemsStatus,
     selectedProblem: state => state.selectedProblem,
   },
   actions,
