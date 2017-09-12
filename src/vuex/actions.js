@@ -33,15 +33,18 @@ export default {
               commit(REFETCH_PROBLEMS, response.data);
             }).catch(() => {});
   },
-  [FETCH_ALL_PROBLEMS]({ commit }) {
+  [FETCH_ALL_PROBLEMS]({ commit, state }, option = {}) {
     commit(FETCH_ALL_PROBLEMS_START);
     const token = window.localStorage.getItem('access_token');
     const config = {
       headers: { Authorization: token },
     };
-    axios.get(`${WEB_API_URL}/v1/problems/?page=1&per=10`, config)
+    const queryPage = option.page || state.allProblems.page + 1;
+    const callback = option.callback || (() => {});
+    axios.get(`${WEB_API_URL}/v1/problems/?page=${queryPage}&per=10`, config)
             .then((response) => {
               commit(FETCH_ALL_PROBLEMS_FINISH, response.data);
+              callback();
             }).catch(() => {
               commit(FETCH_ALL_PROBLEMS_ERROR);
             });
