@@ -77,12 +77,12 @@
         </div>
       </v-ons-list-item>
       <v-ons-list-header>
-        Nationality
+        Country of Residence
       </v-ons-list-header>
       <v-ons-list-item>
         <div class="center">
-          <v-ons-select class="width100" v-model="selectedNationality">
-            <option v-for="Nationality in countries" :value="Nationality.name">{{ Nationality.name }}</option>
+          <v-ons-select class="width100" v-model="selectedCountryOfResidence">
+            <option v-for="Country in countries" :value="Country.name">{{ Country.name }}</option>
           </v-ons-select>
         </div>
       </v-ons-list-item>
@@ -94,7 +94,7 @@
       Email: {{this.email}}<br />
       Gender: {{this.selectedGender}}<br />
       Age: {{this.selectedAge.slice(1)}}<br />
-      Nationality: {{this.selectedNationality}}
+      Nationality: {{this.selectedCountryOfResidence}}
 
       <template slot="footer">
         <button class="alert-dialog-button" @click="confirmDialogVisible = false">Edit</button>
@@ -121,7 +121,7 @@ function postSignUp() {
     email: this.email,
     password: this.password,
     gender: this.selectedGender,
-    nationality: this.selectedNationality,
+    country_of_residence: this.selectedCountryOfResidence,
     age: this.selectedAge.split('-')[0].slice(1),
   };
   this.confirmDialogVisible = false;
@@ -161,7 +161,7 @@ export default {
       selectedGender: 'male',
       genders: ['male', 'female'],
       countries,
-      selectedNationality: 'Japan',
+      selectedCountryOfResidence: 'Japan',
       ages,
       selectedAge: 'a20-29',
       email: '',
