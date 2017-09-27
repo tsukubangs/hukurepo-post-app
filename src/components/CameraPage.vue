@@ -119,9 +119,9 @@ function postProblem() {
                     ons.notification.confirm({
                       title: 'Please cooperate with the questionnaire.',
                       message: ' ',
-                      buttonLabels: ['Yes', 'No'],
+                      buttonLabels: ['No', 'Yes'],
                       callback(index) {
-                        if (index === 0) {
+                        if (index === 1) {
                           window.open(QUESTIONNAIRE_URL);
                         }
                       },
