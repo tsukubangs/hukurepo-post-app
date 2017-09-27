@@ -36,7 +36,7 @@ import ons from 'onsenui';
 import CustomToolbar from './CustomToolbar';
 import GoogleMap from './GoogleMap';
 import CameraButton from './CameraButton';
-import { WEB_API_URL } from '../../.env';
+import { WEB_API_URL, QUESTIONNAIRE_URL } from '../../.env';
 import { FETCH_PROBLEMS } from '../vuex/mutation-types';
 
 const focus = {
@@ -112,6 +112,23 @@ function postProblem() {
           callback: () => {
             // post後にトップページに戻る
             this.pageStack.splice(1, this.pageStack.length - 1);
+            setTimeout(() => {
+              axios.get(`${WEB_API_URL}/v1/problems/me/count`, config)
+                .then((response) => {
+                  if (response.data.count === 5) {
+                    ons.notification.confirm({
+                      title: 'Please cooperate with the questionnaire.',
+                      message: ' ',
+                      buttonLabels: ['Yes', 'No'],
+                      callback(index) {
+                        if (index === 0) {
+                          window.open(QUESTIONNAIRE_URL);
+                        }
+                      },
+                    });
+                  }
+                });
+            }, 200);
           },
         });
       }).catch((error) => {
