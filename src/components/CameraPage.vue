@@ -122,6 +122,7 @@ function postProblem() {
                       buttonLabels: ['No', 'Yes'],
                       callback(index) {
                         if (index === 1) {
+                          window.localStorage.setItem('complete_questionnaire', true);
                           window.open(QUESTIONNAIRE_URL);
                         }
                       },
