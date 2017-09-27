@@ -5,6 +5,7 @@
       <span v-show="state === 'preaction'"> Release </span>
       <span v-show="state === 'action'"> Loading... </span>
     </v-ons-pull-hook>
+    <a href="http://www.city.tsukuba.ibaraki.jp/mobile/"><img src="./../../res/banner.jpg" alt="BANNER"  width="100%" border="0"></a>
     <main class="h100">
       <div class="centering h100" v-if="!fetchProblemsStatus.isCompleted">
         <v-ons-progress-circular indeterminate ></v-ons-progress-circular>
