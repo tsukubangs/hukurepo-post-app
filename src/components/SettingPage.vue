@@ -10,7 +10,7 @@
           Privacy Policy
         </div>
       </v-ons-list-item>
-      <v-ons-list-item tappable  @click="toPrivacy()">
+      <v-ons-list-item tappable  @click="toPresent()">
         <div class="left">
           <v-ons-icon icon="fa-gift" class="list-item__icon"></v-ons-icon>
         </div>
@@ -24,6 +24,7 @@
 
 <script>
 import PrivacyPolicy from './PrivacyPolicy';
+import PresentPage from './PresentPage';
 import CustomToolbar from './CustomToolbar';
 
 export default {
@@ -35,6 +36,9 @@ export default {
   methods: {
     toPrivacy() {
       this.pageStack.push(PrivacyPolicy);
+    },
+    toPresent() {
+      this.pageStack.push(PresentPage);
     },
   },
 };
