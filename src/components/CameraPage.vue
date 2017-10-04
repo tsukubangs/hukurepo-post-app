@@ -112,10 +112,11 @@ function postProblem() {
           callback: () => {
             // post後にトップページに戻る
             this.pageStack.splice(1, this.pageStack.length - 1);
-            setTimeout(() => {
-              axios.get(`${WEB_API_URL}/v1/problems/me/count`, config)
+            if (!window.localStorage.getItem('complete_questionnaire')) {
+              setTimeout(() => {
+                axios.get(`${WEB_API_URL}/v1/problems/me/count`, config)
                 .then((response) => {
-                  if (response.data.count === 5) {
+                  if (response.data.count % 5 === 0) {
                     ons.notification.confirm({
                       title: 'Please cooperate with the questionnaire.',
                       message: ' ',
@@ -129,7 +130,8 @@ function postProblem() {
                     });
                   }
                 });
-            }, 200);
+              }, 200);
+            }
           },
         });
       }).catch((error) => {
