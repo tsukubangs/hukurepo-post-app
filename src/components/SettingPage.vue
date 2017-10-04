@@ -10,6 +10,14 @@
           Privacy Policy
         </div>
       </v-ons-list-item>
+      <v-ons-list-item tappable  @click="toPrivacy()">
+        <div class="left">
+          <v-ons-icon icon="fa-gift" class="list-item__icon"></v-ons-icon>
+        </div>
+        <div class="center">
+          Get Present
+        </div>
+      </v-ons-list-item>
     </v-ons-list>
   </v-ons-page>
 </template>
