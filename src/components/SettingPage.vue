@@ -38,6 +38,7 @@ export default {
       this.pageStack.push(PrivacyPolicy);
     },
     toQuestionnaire() {
+      window.localStorage.setItem('complete_questionnaire', true);
       window.open(QUESTIONNAIRE_URL);
     },
   },
