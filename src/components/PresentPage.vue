@@ -1,16 +1,39 @@
 <template>
   <v-ons-page>
     <custom-toolbar></custom-toolbar>
-    <div class="">
-      <p>Please, Post your problems 5 times.</p>
-      <p v-if="!this.isPostCountDone">not clear post count: {{ this.count }}</p>
-      <p v-else>clear</p>
-      <p>Please, answer the questionnaire.</p>
-      <v-ons-button v-if="!this.isQuestionnareDone" @click="toQuestionnaire()" modifier="outline" style="margin: 6px 0">click here!</v-ons-button>
-      <!-- <a v-if="!this.isQuestionnareDone" href="this.questionnaire_url">click here!</a> -->
-      <p v-else>clear</p>
+    <div class="box">
+      <p class="campaign-title">
+        "Hukurepo Present Campaign"
+      </p>
+      <p class="campaign-detail">
+        Thank you for using "HukuRepo"</br>
+        The problem posted by everyone will be used to make Tsukuba city better. </br>
+        Thank you for your cooperation.</br>
+        With a gratitude feeling, we prepared gift for everyone who has used it.
+        Please clear the following conditions and receive the gift by all means.</p>
+      <v-ons-list-item>
+        <div class="left">
+          <v-ons-icon icon="fa-check-circle" class="list-item__icon" v-if="isPostCountDone"></v-ons-icon>
+          <v-ons-icon icon="fa-check-circle" class="list-item__icon" style="color:white" v-else></v-ons-icon>
+        </div>
+        <div class="center">
+          Post 5 times
+        </div>
+      </v-ons-list-item>
+      <v-ons-list-item>
+        <div class="left">
+          <v-ons-icon icon="fa-check-circle" class="list-item__icon" v-if="isQuestionnareDone"></v-ons-icon>
+          <v-ons-icon icon="fa-check-circle" class="list-item__icon" style="color:white" v-else></v-ons-icon>
+        </div>
+        <div class="center">
+          Answer the questionnaire
+        </div>
+      </v-ons-list-item>
+
+      <p class="campaign-map">The exchange place for gifts is <a v-bind:href="questionnaire_url">here</a>.</p>
+
       <div class="">
-        <v-ons-button v-if="this.isPostCountDone && this.isQuestionnareDone"
+        <v-ons-button v-if="isPostCountDone && isQuestionnareDone"
                     @click="toGetPresent()"
                     modifier="large"
                     style="margin: 6px 0">
@@ -40,6 +63,7 @@ export default {
       count: 0,
       isPostCountDone: true,
       isQuestionnareDone: true,
+      questionnaire_url: QUESTIONNAIRE_URL,
     };
   },
   created() {
@@ -52,7 +76,7 @@ export default {
     .then((response) => {
       this.count = response.data.count;
       if (this.count >= 5) {
-        this.isPostCountClear = true;
+        this.isPostCountDone = true;
       }
     })
     .catch((error) => {
