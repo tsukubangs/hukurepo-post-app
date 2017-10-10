@@ -48,7 +48,7 @@ export default {
   methods: {
     checkPass() {
       ons.notification.prompt({
-        inputType: 'password',
+        inputType: 'number',
         title: 'パスワードを入力してください',
         message: 'Input Password.',
       })
@@ -62,7 +62,7 @@ export default {
             });
           } else {
             ons.notification.alert({
-              title: 'パスワーがまちがっています',
+              title: 'パスワードが違います',
               message: 'incorrect password',
             });
           }
