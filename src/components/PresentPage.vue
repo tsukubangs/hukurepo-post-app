@@ -87,12 +87,29 @@ export default {
     toGetPresent() {
       this.pageStack.push(GetPresentPage);
     },
-    toQuestionnaire() {
-      window.open(QUESTIONNAIRE_URL);
-    },
   },
 };
 </script>
 
 <style scoped>
+.box {
+  width: 80%;
+  margin: auto;
+}
+.campaign-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top:20px;
+}
+.campaign-detail {
+  font-size: 14px;
+  font-weight: 300;
+  text-align: left;
+  line-height: 1.5;
+}
+.campaign-map {
+  font-size: 14px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 </style>
