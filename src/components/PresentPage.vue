@@ -30,7 +30,7 @@
         </div>
       </v-ons-list-item>
 
-      <p class="campaign-map">The exchange place for gifts is <a v-bind:href="questionnaire_url">here</a>.</p>
+      <p class="campaign-map">The exchange place for gifts is <a v-bind:href="present_exchange_place">here</a>.</p>
 
       <div class="">
         <v-ons-button v-if="isPostCountDone && isQuestionnareDone"
@@ -49,7 +49,7 @@
 import axios from 'axios';
 import CustomToolbar from './CustomToolbar';
 import GetPresentPage from './GetPresentPage';
-import { WEB_API_URL, QUESTIONNAIRE_URL } from '../../.env';
+import { WEB_API_URL, PRESENT_EXCHANGE_PLACE } from '../../.env';
 
 export default {
   name: 'present-page',
@@ -61,9 +61,9 @@ export default {
   data() {
     return {
       count: 0,
-      isPostCountDone: true,
-      isQuestionnareDone: true,
-      questionnaire_url: QUESTIONNAIRE_URL,
+      isPostCountDone: false,
+      isQuestionnareDone: false,
+      present_exchange_place: PRESENT_EXCHANGE_PLACE,
     };
   },
   created() {
