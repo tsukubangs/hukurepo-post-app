@@ -6,22 +6,17 @@
         "Hukurepo Present Campaign"
       </p>
       <img id="thanks-img" src="../assets/thanks.png" alt="thanks">
-      <div class="">
-        <p class='note-title'>Notes</p>
-        <p class="note-detail">
-          ・Please show this screen to Tsukuba City staff.</br>
-          ・Please do not touch the button. (Tsukuba staff will use it)</p>
-
-      </div>
-      <div class="">
-        <v-ons-button v-if="!isPresentReceived"
-                    @click="checkPass()"
-                    modifier="large"
-                    style="margin: 6px 0">
-                    交換する
-        </v-ons-button>
-        <v-ons-button v-else disabled modifier="large" style="margin: 6px 0">You already got a present.</v-ons-button>
-      </div>
+      <p class='note-title'>Notes</p>
+      <p class="note-detail">
+        ・Please show this screen to Tsukuba City staff.</br>
+        ・Please do not touch the button. (Tsukuba staff will use it)</p>
+      <v-ons-button v-if="!isPresentReceived"
+                  @click="checkPass()"
+                  modifier="large"
+                  style="margin: 6px 0">
+                  交換する
+      </v-ons-button>
+      <v-ons-button v-else disabled modifier="large" style="margin: 6px 0">You already got a present.</v-ons-button>
     </div>
   </v-ons-page>
 </template>
