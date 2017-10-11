@@ -32,21 +32,20 @@
 
       <p class="campaign-map">The exchange place for gifts is <a v-bind:href="present_exchange_place">here</a>.</p>
 
-      <div class="">
-        <v-ons-button v-if="isPostCountDone && isQuestionnareDone"
-                    @click="toGetPresent()"
-                    modifier="large"
-                    style="margin: 6px 0">
-                    Get present!
-        </v-ons-button>
-        <v-ons-button v-else disabled modifier="large" style="margin: 6px 0">Get present!</v-ons-button>
-      </div>
+      <v-ons-button v-if="isPostCountDone && isQuestionnareDone"
+                  @click="toGetPresent()"
+                  modifier="large"
+                  style="margin: 6px 0">
+                  Get present!
+      </v-ons-button>
+      <v-ons-button v-else disabled modifier="large" style="margin: 6px 0">Get present!</v-ons-button>
     </div>
   </v-ons-page>
 </template>
 
 <script>
 import axios from 'axios';
+import ons from 'onsenui';
 import CustomToolbar from './CustomToolbar';
 import GetPresentPage from './GetPresentPage';
 import { WEB_API_URL, PRESENT_EXCHANGE_PLACE } from '../../.env';
@@ -81,6 +80,10 @@ export default {
     })
     .catch((error) => {
       console.log(error);
+      ons.notification.alert({
+        title: '',
+        message: 'Sorry. Please, check network.',
+      });
     });
   },
   methods: {
