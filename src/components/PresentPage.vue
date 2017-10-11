@@ -9,8 +9,8 @@
         Thank you for using "HukuRepo"</br>
         The problem posted by everyone will be used to make Tsukuba city better. </br>
         Thank you for your cooperation.</br>
-        With a gratitude feeling, we prepared gift for everyone who has used it.
-        Please clear the following conditions and receive the gift by all means.</p>
+        With all my gratitude, we prepared gift for everyone who has used it.
+        Please clear the following conditions and receive the gift.</p>
       <v-ons-list-item>
         <div class="left">
           <v-ons-icon icon="fa-check-circle" class="list-item__icon" v-if="isPostCountDone"></v-ons-icon>
