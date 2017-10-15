@@ -110,7 +110,7 @@ import ons from 'onsenui';
 import countries from '../assets/countries';
 import ages from '../assets/ages';
 import router from '../router';
-import { WEB_API_URL } from '../../.env';
+import { WEB_API_URL, USER_ROLE } from '../../.env';
 
 const emailRegExp = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/;
 const passwordMinLength = 6;
@@ -123,6 +123,7 @@ function postSignUp() {
     gender: this.selectedGender,
     country_of_residence: this.selectedCountryOfResidence,
     age: this.selectedAge.split('-')[0].slice(1),
+    role: USER_ROLE,
   };
   this.confirmDialogVisible = false;
   this.signUpPosting = true;
