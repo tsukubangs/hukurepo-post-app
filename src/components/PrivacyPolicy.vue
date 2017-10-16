@@ -2,7 +2,7 @@
   <v-ons-page>
     <custom-toolbar></custom-toolbar>
     <div id="privacy" style="margin: 5%">
-      <h1>﻿HukuRepo Terrms of Service</h1>
+      <h1>﻿HukuRepo Terms of Service</h1>
       <p>This application "HukuRepo" is provided by Kitagawa-Amagasa Data
       Engineering Lab. (<a href="http://www.kde.cs.tsukuba.ac.jp/">KDE Lab.</a>) at
       University of Tsukuba as a part of <a href="http://bigclout.eu/">BigClouT</a>, an
