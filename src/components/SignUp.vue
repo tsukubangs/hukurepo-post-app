@@ -110,7 +110,8 @@ import ons from 'onsenui';
 import countries from '../assets/countries';
 import ages from '../assets/ages';
 import router from '../router';
-import { WEB_API_URL, USER_ROLE } from '../../.env';
+import { WEB_API_URL } from '../../.env';
+import { USER_ROLE } from '../constants';
 
 const emailRegExp = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/;
 const passwordMinLength = 6;

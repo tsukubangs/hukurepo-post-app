@@ -1,6 +1,7 @@
 import axios from 'axios';
 import ons from 'onsenui';
-import { WEB_API_URL, USER_ROLE } from '../../.env';
+import { WEB_API_URL } from '../../.env';
+import { USER_ROLE } from '../constants';
 
 /* global FCMPlugin */
 const app = {
