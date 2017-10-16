@@ -194,9 +194,9 @@ export default {
     selectPriority() {
       const self = this;
       ons.notification.confirm({
-        title: 'Do you need help for each problems?',
+        title: 'Do you need help for this problem?',
         messageHTML: ' ',
-        buttonLabels: ['Immediately required', 'required', 'unnecessary'],
+        buttonLabels: ['Yes, immediately', 'Yes', 'No'],
         animation: 'default',
         cancelable: true,
         callback(index) {
