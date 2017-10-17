@@ -23,11 +23,16 @@ HukuRepo -> "◯◯"
 
 >7行目 メールアドレス
 
->8行目 団体名
+>8行目　団体名
 
 
 ## アプリ見た目編
 [style.css](https://github.com/TetsuyaNegishi/ngs-ichikawa/blob/master/src/style.css)を変更します
+[config.scss]()の各項目を変更します
+```
+1 $main-color: #01a8ec;
+```
+>1行目 アプリ全体のメインカラーを指定
 
 **あとで追加**
 ____
