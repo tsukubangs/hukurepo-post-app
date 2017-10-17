@@ -1,4 +1,10 @@
 # 変更箇所の説明
+ユーザが変更しなければいけない３つの仕組み．
+- アプリ設定 (Bundle IDなど)
+- アプリの見た目
+- アプリのアイコンの設定
+
+
 
 ## アプリ設定編
 [Config.xml](https://github.com/TetsuyaNegishi/ngs-ichikawa/blob/master/config.xml)を変更します
