@@ -23,8 +23,15 @@ HukuRepo -> "◯◯"
 
 >7行目 メールアドレス
 
->8行目　団体名
+>8行目 団体名
 
 
-## 見た目編
+## アプリ見た目編
 [style.css](https://github.com/TetsuyaNegishi/ngs-ichikawa/blob/master/src/style.css)を変更します
+
+**あとで追加**
+____
+
+## アイコン編
+[App Icon Resizer](https://resizeappicon.com/)
+好きな画像でアプリのアイコンを生成しましょう
