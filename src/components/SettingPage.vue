@@ -31,10 +31,13 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import PrivacyPolicy from './PrivacyPolicy';
 import PresentPage from './PresentPage';
 import CustomToolbar from './CustomToolbar';
 import { QUESTIONNAIRE_URL } from '../../.env';
+
+import { FETCH_USER_INFO } from '../vuex/mutation-types';
 
 export default {
   name: 'setting-page',
@@ -42,7 +45,18 @@ export default {
     CustomToolbar,
   },
   props: ['pageStack'],
+  created() {
+    this.FETCH_USER_INFO();
+  },
+  computed: {
+    ...mapGetters([
+      'userInfo',
+    ]),
+  },
   methods: {
+    ...mapActions([
+      FETCH_USER_INFO,
+    ]),
     toPrivacy() {
       this.pageStack.push(PrivacyPolicy);
     },

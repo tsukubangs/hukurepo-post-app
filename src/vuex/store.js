@@ -19,12 +19,18 @@ export default new Vuex.Store({
       isError: false,
     },
     selectedProblem: { },
+    userInfo: {
+      data: {},
+      isError: false,
+      isCompleted: false,
+    },
   },
   getters: {
     problems: state => state.problems,
     fetchProblemsStatus: state => state.fetchProblemsStatus,
     allProblems: state => state.allProblems,
     selectedProblem: state => state.selectedProblem,
+    userInfo: state => state.userInfo,
   },
   actions,
   mutations,
