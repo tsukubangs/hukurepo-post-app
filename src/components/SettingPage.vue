@@ -10,7 +10,7 @@
           Privacy Policy
         </div>
       </v-ons-list-item>
-      <v-ons-list-item tappable  @click="toQuestionnaire()">
+      <v-ons-list-item tappable  @click="toQuestionnaire(userInfo.data.email)">
         <div class="left">
           <v-ons-icon icon="ion-clipboard" class="list-item__icon"></v-ons-icon>
         </div>
@@ -63,7 +63,8 @@ export default {
     toPresent() {
       this.pageStack.push(PresentPage);
     },
-    toQuestionnaire() {
+    toQuestionnaire(email) {
+      console.log(email);
       window.localStorage.setItem('complete_questionnaire', true);
       window.open(QUESTIONNAIRE_URL);
     },
