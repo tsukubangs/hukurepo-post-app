@@ -244,7 +244,9 @@ export default {
 
 </script>
 
-<style scoped >
+<style lang="scss" scoped >
+@import "./../../config.scss";
+
  #text-form {
    width: 100%;
    margin: 10px 0;
@@ -293,7 +295,7 @@ export default {
   bottom: 0;
 }
 .post-problem-btn {
-  background-color: #01a8ec;
+  background-color: $main-color;
   color: #fff;
   padding-left: 15px;
   padding-right: 15px;

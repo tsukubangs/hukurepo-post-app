@@ -1,6 +1,6 @@
 <template>
     <div class="frame">
-        <v-ons-icon icon="ion-ios-camera-outline" size="200px" style="margin: -20px 0; color: #01a8ec;"></v-ons-icon>
+        <v-ons-icon icon="ion-ios-camera-outline" size="200px" style="margin: -20px 0;" class="style"></v-ons-icon>
         <p>Add Photo</p>
     </div>
 </template>
@@ -11,12 +11,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../config.scss";
+
 .frame {
   border:solid 1px rgba(127, 127, 127, 0.5);
   padding:0 20px;
   border-radius:60px;
   display:inline-block;
+}
+
+.style{
+  color: $main-color;
 }
 
 p {

@@ -35,7 +35,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../config.scss";
 .response-card {
   position: relative;
   display: flex;
@@ -53,7 +54,7 @@ export default {
   width: 50px;
 }
 .tsukuba-icon {
-  background-color: #01a8ec;
+  background-color: $main-color;
   border-radius: 50%;
   display: flex;
   justify-content: center;
