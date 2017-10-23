@@ -2,65 +2,131 @@
   <v-ons-page>
     <custom-toolbar></custom-toolbar>
     <div id="privacy" style="margin: 5%">
-      <h1>Fukurepo Privacy Policy</h1>
-        <p>Our service is for collecting problems in the city. The problems gathered will be used to improve the city.</p>
-        <p>The problem you posted is useful for the city and for people.You are a hero!<br></p>
-        <p>This Privacy Policy describes how and when we collect, use, and
-          share your information across our APIs, email notifications, applications, and from our partners and other third parties.
-          For example, you send us information when you use our Services on Fukurepo for Android or iOS.
-          When using any of our Services you consent to the collection, transfer, storage, disclosure, and use of your information as described in this Privacy Policy.
-          This includes any information you choose to provide that is deemed sensitive under applicable law.
-        </p>
-      <p>If you have any questions or comments about this privacy policy, please email to tsukuba.ngs#gmail.com(please convert # to @)</a>.<br>
-      </p>
-
-      <h3>Information Collection and Use</h3>
-      <p>We collect and use your information below to provide, understand, and improve our Services.</p>
-      <p><b>Basic Account Information:</b>&nbsp;
-        When creating a Fukurepo account, you need to provide us with personal information such as password, e-mail address, gender, nationality, age.
-        On Fukurepo, your posted problem are always listed publicly,including on your profile (not included email address).
-      </p>
-
-      <p><b>Location Information:</b>&nbsp;
-         Location Information: We receive your location when you post a problem.
-         We may also determine location by using other data from your device, such as precise location information from GPS, information
-         about wireless networks or cell towers near your mobile device, or your IP address.
-      </p>
-
-      <h3>Information Sharing and Disclosure</h3>
-      <p>We do not disclose your private personal information except in the limited circumstances described here.<br>
-      </p>
-      <p><b>Law and Harm:</b>&nbsp;
-        Notwithstanding anything to the contrary in this Privacy Policy,
-        we may preserve or disclose your information if we believe that it is reasonably necessary to comply with a law,
-        regulation, legal process, or governmental request;
-        to protect the safety of any person; to address fraud, security or technical issues; or to protect our or our users’ rights or property.
-        However, nothing in this Privacy Policy is intended to limit any legal defenses or objections
-        that you may have to a third party’s, including a government’s, request to disclose your information.
-      </p>
-      <p><b style="font-family: inherit;font-style: inherit;">Non-Personal, Aggregated, or Device-Level Information:</b>&nbsp;
-        We may share or disclose non-personal, aggregated, or device-level information.This information does not include your profile.<br>
-      </p>
-
-      <h3>Changes to this Policy</h3>
-      <p>We may revise this Privacy Policy from time to time. The most current version of the policy will govern our use of your information and will always be at this page.
-         If we make a change to this policy that, in our sole discretion, is material, we will notify you via an email or push notification.
-         By continuing to access or use the Services after those changes become effective, you agree to be bound by the revised Privacy Policy.
-      </p>
-
-      <p><b>Effective</b>: August 25, 2017</p>
-
-      <!-- <p><a href="previous">Archive of Previous Privacy Policies</a></p> -->
-
-      <p>Thoughts or questions about this Privacy Policy?&nbsp;Please, let us know by contacting us&nbsp; tsukuba.ngs#gmail.com(please convert # to @) &nbsp;or  the appropriate address below</p>
-
-      <p><b style="font-family: inherit;font-style: inherit;">For accounts based in Japan</b><br></p>
-
-      <p>Team. NGS<br> Attn: Privacy Policy Inquiry<br> 1-1-1 3F817, Tennoudai<br> Tsukuba, Ibaraki,Japan</p>
-
-      <p>Kitagawa and Amagasa Data Engineering Lab<br> Attn: Privacy Policy Inquiry<br> 1-1-1 SB0912, Tennoudai<br> Tsukuba, Ibaraki,Japan</p>
-
-      <div class="">© 2017 Kitagawa and Amagasa Data Enginieering Lab</div>
+      <h1>﻿HukuRepo Terms of Service</h1>
+      <p>This application "HukuRepo" is provided by Kitagawa-Amagasa Data
+      Engineering Lab. (<a href="http://www.kde.cs.tsukuba.ac.jp/">KDE Lab.</a>) at
+      University of Tsukuba as a part of <a href="http://bigclout.eu/">BigClouT</a>, an
+      EU-Japan collaborative research project supported by NICT (National
+      Institute of Information and Communications Technology).  As this
+      terms of service is applied, please read through this document, and
+      use the application only if you agree on it.  In addition, the terms
+      of service may be changed as necessary.</p>
+      <h2>Article 1. (Objective)</h2>
+      <ol>
+      <li>This terms of service defines necessary matters for the users who
+         use and enjoy the functionality of the application, which has been
+         developed by Kitagawa-Amagasa Data Engineering Lab., University of
+         Tsukuba (hereafter called "application provider") and provided as a
+         part of substantiative experiment of participatory sensing in
+         BigClouT project supported by NICT (National Institute of
+         Information and Communications Technology).</li>
+      <li>The application provider provides the functionality of the
+         application only for the users who agreed on this term of service.
+         The users may not be able to use it if he/she does not agree on it.</li>
+      </ol>
+      <h2>Article 2. (Handling of private information)</h2>
+      <ol>
+      <li>At the first execution of the application, it collects the
+         following information and send them to the server: 1) living
+         country, 2) gender, 3) age, and 4) contact information (e-mail
+         address).  Besides, when the user wants to submit a problem
+         (hereafter called "task reply"), the application collects the
+         following information and sends them to the server: 1) internet
+         domain name, 2) IP address, 3) the username that the user
+         registered at the first execution, 4) password, 5) the photo that
+         the user took, 6) the geographic location of the user when the user
+         submitted the task reply, and 7) the text description of the task
+         reply.</li>
+      <li>The information collected by the application will be handled in
+         accordance with the separately defined "privacy policy."</li>
+      </ol>
+      <h2>Article 3. (Copyright)</h2>
+      <ol>
+      <li>The copyright of images or texts acquired by the application is
+         owned by the original author and is protected by laws of Japan,
+         international treaties, etc.</li>
+      </ol>
+      <h2>Article 4. (Disclaimer)</h2>
+      <ol>
+      <li>The application provider assumes no responsibility for any acts
+         that the user makes based on the information provided by the
+         application except when it shoold be attributed to the application
+         provider.</li>
+      <li>This application provider assumes no responsibility for any damage
+         or loss caused by the user's access of the application, etc. by the user.</li>
+      <li>A content (photo or text) registered by the application may be
+         eliminated without notice under the decision of the application
+         provider when it falls under the following cases: 1) those contrary
+         to public order and morals, 2) those irrelevant to the purpose of
+         the application, 3) those containing harmfol programs or scripts,
+         4) contents for the purpose of profit, contents to offer personal
+         trading / transfer or advertisement 5) anything else that the
+         application provider deems inappropriate, such as disturbing the
+         administration and operation of the application.  The application
+         provider is not responsible for any damage caused by elimination of
+         these contents, suspension or suspension of operation.</li>
+      </ol>
+      Last update: October 12th, 2017.
+      <hr width="100%">
+      <!-- ---------------------------------------------------------------------- -->
+      <h1>Privacy Policy</h1>
+      <p>Kitagawa-Amagasa Data Engineering Lab. (KDE Lab.)
+      (http://www.kde.cs.tsukuba.ac.jp/) at University of Tsukuba (hereafter
+      called "application provider") takes care of the privacy of the users
+      of "HukuRepo" (hereafter called "application"), and stipolates the
+      privacy policy as follows.</p>
+      <h2>Article 1. (Basic policy)</h2>
+      <p>The application provider respects the privacy of the users of the
+      application and strives to let the users use the application safely.
+      Regarding the collected data, the application provider will comply
+      with related laws and other norms and handle them appropriately.</p>
+      <h2>Article 2. (Scope of information to be collected)</h2>
+      <p>In this application, when the users take part in participatory
+      sensing, the application provider will collect the problems (photos,
+      text, tag, etc.)</p>
+      <h2>Article 3. (Objective of use)</h2>
+      <p>The collected information is used only for academic research and not
+      for other purposes.  If personal information is included in the
+      collected information, it is processed into a form that an individual
+      is not identified, and the part necessary for research purpose will be
+      used.  In addition, data processed into an unidentifiable form may be
+      provided to other organizations within the same research project
+      (Commissariat a l‘energie atomique et aux energies alternatives -
+      Laboratoire d’electronique des technologies de l‘information
+      (CEA-Leti) (France), Engineering Ingegneria Informatica SpA (Italy),
+      ABSISKEY Collaborative Project (France), School of Computing and
+      Communications, Lancaster University (UK), Institute of Communication
+      and Computer System, National Technical University of Athens (Greece),
+      NTT East (Japan), Keio University (Japan), National Institute of
+      Inforamatics (NII) (Japan), or NTT R & D (Japan)) or cities that
+      participate in the project (Tsukuba (Japan), Fujisawa (Japan),
+      Grenoble (France), or Bristol (UK)).</p>
+      <h2>Article 4. (Use and provision of personal information)</h2>
+      <p>The application provider will use the collected personal information
+      within the range of purpose of use specified above, and
+      will not use for other purposes or provide to third parties except
+      that the application provider obtains the consent of the user or when
+      there is a provision of laws or regolations, etc.  Note that, after
+      statistically processed, the application provider can freely select,
+      modify, edit, delete such information within the scope of research,
+      and may disclose / publish without the user's consent.</p>
+      <h2>Article 5. (Management of private information)</h2>
+      <p>The collected personal information is strictly managed by the
+      application provider and measures are taken to prevent leakage, loss,
+      falsification, etc.  The information provider deletes personal
+      information responsibly with one year after the end of the research
+      project BigClouT (June 30, 2020).</p>
+      <h2>Article 6. (Disclosure of personal information)</h2>
+      <p>The application provider will disclose the collected personal
+      information in response to requests from the principal or the agent
+      designated by the principal.</p>
+      <h2>Article 7. (Change of privacy policy)</h2>
+      <p>To change the contents of this privacy policy, we will pre-post its
+      contents in the application and will not contact you individually.</p>
+      <h2>Article 8. (Inquiries about personal information)</h2>
+      <p>For inquiries about personal information, its handling and deletion,
+      please contact by email at <a href="bigclout@kde.cs.tsukuba.ac.jp">bigclout@kde.cs.tsukuba.ac.jp</a>.</p>
+      Last update: October 12th, 2017.
     </div>
   </v-ons-page>
 </template>

@@ -15,7 +15,7 @@
         <div class="toolbar__center">
         </div>
         <div class="toolbar__right mr10">
-            <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postProblem"><ons-icon icon="ion-compose" size="25px"></ons-icon> Post</span>
+            <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="selectPriority"><ons-icon icon="ion-compose" size="25px"></ons-icon> Post</span>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
       <div class="left"></div>
       <div class="center"></div>
       <div class="right">
-          <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postProblem"><ons-icon icon="ion-compose" size="25px"></ons-icon> Post</span>
+          <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="selectPriority"><ons-icon icon="ion-compose" size="25px"></ons-icon> Post</span>
       </div>
     </v-ons-toolbar>
   </v-ons-page>
@@ -85,12 +85,13 @@ function takePhoto() {
   });
 }
 
-function postProblem() {
+function postProblem(priority) {
   this.isPosting = true;
   const data = new FormData();
   data.append('problem[comment]', this.postComment);
   data.append('problem[latitude]', this.latitude);
   data.append('problem[longitude]', this.longitude);
+  data.append('problem[response_priority]', priority);
 
   if (this.imageData !== '') {
     const dataURL = this.imageData;
@@ -190,6 +191,25 @@ export default {
     ...mapActions([
       FETCH_PROBLEMS,
     ]),
+    selectPriority() {
+      const self = this;
+      ons.notification.confirm({
+        title: 'Do you need help for this problem?',
+        messageHTML: ' ',
+        buttonLabels: ['Yes, immediately', 'Yes', 'No'],
+        animation: 'default',
+        cancelable: true,
+        callback(index) {
+          let priority = 'default';
+          if (index === 0) {
+            priority = 'high';
+          } else if (index === 2) {
+            priority = 'low';
+          }
+          postProblem.call(self, priority);
+        },
+      });
+    },
   },
   created() {
     navigator.geolocation.getCurrentPosition(
@@ -224,7 +244,9 @@ export default {
 
 </script>
 
-<style scoped >
+<style lang="scss" scoped >
+@import "./../../config.scss";
+
  #text-form {
    width: 100%;
    margin: 10px 0;
@@ -273,7 +295,7 @@ export default {
   bottom: 0;
 }
 .post-problem-btn {
-  background-color: #01a8ec;
+  background-color: $main-color;
   color: #fff;
   padding-left: 15px;
   padding-right: 15px;

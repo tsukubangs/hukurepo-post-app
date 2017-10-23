@@ -5,7 +5,7 @@
       <span v-show="state === 'preaction'"> Release </span>
       <span v-show="state === 'action'"> Loading... </span>
     </v-ons-pull-hook>
-    <a href="http://www.city.tsukuba.ibaraki.jp/mobile/"><img src="./../../res/banner.jpg" alt="BANNER"  width="100%" border="0"></a>
+    <a href="http://www.ttca.jp/?p=2346"><img src="./../assets/banner.png" alt="BANNER"  width="100%" border="0"></a>
     <main class="h100">
       <div class="centering h100" v-if="!fetchProblemsStatus.isCompleted">
         <v-ons-progress-circular indeterminate ></v-ons-progress-circular>
@@ -16,7 +16,7 @@
         </li>
       </ul>
     </main>
-    <v-ons-fab position="bottom right" id="postButton" :style="{ backgroundColor: '#01a8ec'}" :visible="fetchProblemsStatus.isCompleted" @click="push"><v-ons-icon icon="md-edit"></v-ons-icon></v-ons-fab>
+    <v-ons-fab position="bottom right" id="postButton" class="style":visible="fetchProblemsStatus.isCompleted" @click="push"><v-ons-icon icon="md-edit"></v-ons-icon></v-ons-fab>
     <v-ons-popover cancelable :visible="popoverVisible" :target="target" direction="up" :cover-target="false">
       <p style="text-align: center">Let's push the button to post a problem!</p>
     </v-ons-popover>
@@ -92,7 +92,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../config.scss";
+
 .h100 {
   height:100%;
 }
@@ -117,4 +119,10 @@ main {
 .w100 {
   width: 100%;
 }
+
+.style {
+  color: #FFF;
+  background-color: $main-color;
+}
+
 </style>

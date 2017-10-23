@@ -4,7 +4,7 @@
       <photo-thumbnail :thumbnailUrl="thumbnailUrl" class="photo-thumbnail"></photo-thumbnail>
       <div class="content">
           <div class="comment">
-              <p class="limit-comment">{{this.shortComment}}</p>
+              <p class="limit-comment" v-html="this.shortComment"></p>
           </div>
           <div class="date">{{this.updatedTime}}</div>
       </div>

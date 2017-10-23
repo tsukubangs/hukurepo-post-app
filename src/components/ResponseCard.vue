@@ -40,7 +40,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../config.scss";
 .response-card {
   position: relative;
   display: flex;

@@ -162,7 +162,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../config.scss";
+
 .w100{
   width: 100%;
 }
@@ -193,7 +195,7 @@ main {
   border-color: transparent;
 }
 .post-problem-btn {
-  background-color: #01a8ec;
+  background-color: $main-color;
   color: #fff;
   padding-left: 15px;
   padding-right: 15px;

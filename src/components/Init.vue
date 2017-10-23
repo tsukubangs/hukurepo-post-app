@@ -30,7 +30,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../config.scss";
+
 main {
     height: 100%;
     display: flex;          /* 2 */
@@ -55,12 +57,12 @@ main {
 }
 
 .background {
-  background-color: #01a8ec;
+  background-color: $main-color;
 }
 
 .button--outline {
   background-color: white;
-  color: #01a8ec;
+  color: $main-color;
 }
 
 .button--quiet {

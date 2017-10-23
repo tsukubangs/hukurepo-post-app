@@ -50,7 +50,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "./../../config.scss";
+
 #login-form {
   background-color: #FFF;
   width: 250px;
@@ -61,7 +63,7 @@ export default {
 }
 
 .background {
-  background-color: #01a8ec;
+  background-color: $main-color;
 }
 
 </style>
