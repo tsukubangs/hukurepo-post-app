@@ -5,6 +5,7 @@ import {
   FETCH_ALL_PROBLEMS, REFETCH_ALL_PROBLEMS,
   FETCH_ALL_PROBLEMS_START, FETCH_ALL_PROBLEMS_FINISH, FETCH_ALL_PROBLEMS_ERROR,
   SELECT_PROBLEM, SAW_RESPONSES_OF_PROBLEM,
+  FETCH_USER_INFO, FETCH_USER_INFO_FINISH,
 } from './mutation-types';
 
 import { WEB_API_URL } from '../../.env';
@@ -74,5 +75,17 @@ export default {
           console.log(error);
         });
     commit(SAW_RESPONSES_OF_PROBLEM, problem);
+  },
+  [FETCH_USER_INFO]({ commit }) {
+    const token = window.localStorage.getItem('access_token');
+    const config = {
+      headers: { Authorization: token },
+    };
+    axios.get(`${WEB_API_URL}/v1/users/me`, config)
+        .then((response) => {
+          commit(FETCH_USER_INFO_FINISH, response.data);
+        }).catch((error) => {
+          console.log(error);
+        });
   },
 };
