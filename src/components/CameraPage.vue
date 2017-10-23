@@ -120,7 +120,7 @@ function postProblem(priority) {
                     if (window.localStorage.getItem('complete_questionnaire')) {
                       ons.notification.alert({
                         title: 'Thanks for your cooperation!',
-                        message: 'You can receive gifts. Please, check Setting > Get Present.',
+                        message: 'You can receive gifts. Please open the Get present page from the menu icon.',
                       });
                     } else {
                       ons.notification.confirm({
