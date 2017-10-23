@@ -64,9 +64,8 @@ export default {
       this.pageStack.push(PresentPage);
     },
     toQuestionnaire(email) {
-      console.log(email);
       window.localStorage.setItem('complete_questionnaire', true);
-      window.open(QUESTIONNAIRE_URL);
+      window.open(`${QUESTIONNAIRE_URL}=${email}`);
     },
   },
 };
