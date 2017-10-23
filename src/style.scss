@@ -1,5 +1,7 @@
+@import "./../config.scss";
+
 .toolbar {
-    background: #01a8ec;
+    background: $main-color;
     color: #fff;
 }
 

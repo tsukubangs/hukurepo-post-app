@@ -47,7 +47,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../config.scss";
 
 #button {
 text-align:center;
@@ -77,12 +78,12 @@ margin: 0px 20px;
 
 .button--outline {
   background-color: white;
-  color: #01a8ec;
+  color: $main-color;
 }
 
 .blueOutline {
   /*color: #01a8ec;*/
-  border: solid 1px #01a8ec;
+  border: solid 1px $main-color;
 }
 
 </style>
