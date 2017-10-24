@@ -4,6 +4,7 @@ import {
   FETCH_ALL_PROBLEMS_START, FETCH_ALL_PROBLEMS_FINISH, FETCH_ALL_PROBLEMS_ERROR,
   REFETCH_ALL_PROBLEMS,
   SELECT_PROBLEM, SAW_RESPONSES_OF_PROBLEM,
+  FETCH_USER_INFO_START, FETCH_USER_INFO_FINISH, FETCH_USER_INFO_ERROR,
 } from './mutation-types';
 
 /* eslint-disable no-param-reassign */
@@ -56,5 +57,18 @@ export default {
   [SAW_RESPONSES_OF_PROBLEM](state, problem) {
     const problemsNumber = state.problems.indexOf(problem);
     state.problems[problemsNumber].responses_seen = true;
+  },
+  [FETCH_USER_INFO_START](state) {
+    state.userInfo.isError = false;
+    state.userInfo.isCompleted = false;
+  },
+  [FETCH_USER_INFO_FINISH](state, userInfo) {
+    state.userInfo.data = userInfo;
+    state.userInfo.isError = false;
+    state.userInfo.isCompleted = true;
+  },
+  [FETCH_USER_INFO_ERROR](state) {
+    state.userInfo.isError = true;
+    state.userInfo.isCompleted = false;
   },
 };

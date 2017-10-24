@@ -10,7 +10,7 @@
           Privacy Policy
         </div>
       </v-ons-list-item>
-      <v-ons-list-item tappable  @click="toQuestionnaire()">
+      <v-ons-list-item tappable  @click="toQuestionnaire(userInfo.data.email)">
         <div class="left">
           <v-ons-icon icon="ion-clipboard" class="list-item__icon"></v-ons-icon>
         </div>
@@ -31,10 +31,13 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import PrivacyPolicy from './PrivacyPolicy';
 import PresentPage from './PresentPage';
 import CustomToolbar from './CustomToolbar';
 import { QUESTIONNAIRE_URL } from '../../.env';
+
+import { FETCH_USER_INFO } from '../vuex/mutation-types';
 
 export default {
   name: 'setting-page',
@@ -42,16 +45,27 @@ export default {
     CustomToolbar,
   },
   props: ['pageStack'],
+  created() {
+    this.FETCH_USER_INFO();
+  },
+  computed: {
+    ...mapGetters([
+      'userInfo',
+    ]),
+  },
   methods: {
+    ...mapActions([
+      FETCH_USER_INFO,
+    ]),
     toPrivacy() {
       this.pageStack.push(PrivacyPolicy);
     },
     toPresent() {
       this.pageStack.push(PresentPage);
     },
-    toQuestionnaire() {
+    toQuestionnaire(email) {
       window.localStorage.setItem('complete_questionnaire', true);
-      window.open(QUESTIONNAIRE_URL);
+      window.open(`${QUESTIONNAIRE_URL}=${email}`);
     },
   },
 };
