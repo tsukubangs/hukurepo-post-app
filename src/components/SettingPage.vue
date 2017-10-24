@@ -20,9 +20,10 @@
       </v-ons-list-item>
       <v-ons-list-item tappable  @click="toPresent()">
         <div class="left">
-          <v-ons-icon icon="fa-gift" class="list-item__icon"></v-ons-icon>
+          <v-ons-icon icon="fa-gift" class="list-item__icon" v-if="!canGetPresent"></v-ons-icon>
+          <v-ons-icon icon="fa-gift" style="color: red;" class="list-item__icon" v-else></v-ons-icon>
         </div>
-        <div class="center">
+        <div class="center" v-if="!canGetPresent">
           Get Present
         </div>
       </v-ons-list-item>
@@ -52,6 +53,9 @@ export default {
     ...mapGetters([
       'userInfo',
     ]),
+    canGetPresent() {
+      return window.localStorage.getItem('can_get_present');
+    },
   },
   methods: {
     ...mapActions([
