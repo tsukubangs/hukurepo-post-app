@@ -225,21 +225,6 @@ export default {
     (position) => {
       this.latitude = position.coords.latitude;
       this.longitude = position.coords.longitude;
-      axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-        params: {
-          latlng: `${this.latitude},${this.longitude}`,
-          sensor: false,
-          language: 'en',
-        },
-      }).then((response) => {
-        const data = response.data;
-        this.address = data.results[0].formatted_address;
-      }).catch((error) => {
-        ons.notification.alert({
-          title: '',
-          message: error,
-        });
-      });
     },
     () => {
       ons.notification.alert({
