@@ -55,7 +55,6 @@ export default {
               title: '',
               message: 'プレゼントを渡してください',
               callback() {
-                window.localStorage.removeItem('can_get_present');
                 window.localStorage.setItem('got_present', true);
               },
             });

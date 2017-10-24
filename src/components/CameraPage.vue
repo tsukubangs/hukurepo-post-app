@@ -121,9 +121,6 @@ function postProblem(priority) {
                       ons.notification.alert({
                         title: 'Thanks for your cooperation!',
                         messageHTML: '<p>Please, Open present page.</br>Other > Get Present</p>',
-                        callback() {
-                          window.localStorage.setItem('can_get_present', true);
-                        },
                       });
                     } else {
                       ons.notification.confirm({
