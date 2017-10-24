@@ -26,22 +26,24 @@
         </v-ons-list-item>
       </v-ons-list>
     </main>
-    <div class="bottom-bar" v-if="!this.isIOS">
-      <div class="toolbar">
-        <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
-        <div class="toolbar__right">
-          <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
+    <div v-if="selectedProblem.user_id===userInfo.data.id">
+      <div class="bottom-bar" v-if="!this.isIOS">
+        <div class="toolbar">
+          <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
+          <div class="toolbar__right">
+            <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
+          </div>
         </div>
       </div>
+      <v-ons-toolbar class="ios-bottom-bar" style="padding-top: 0;" v-else="this.isIOS">
+        <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
+        <div class="left toolbar-ios"></div>
+        <div class="center toolbar-ios"></div>
+        <div class="right toolbar-ios">
+          <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
+        </div>
+      </v-ons-toolbar>
     </div>
-    <v-ons-toolbar class="ios-bottom-bar" style="padding-top: 0;" v-else="this.isIOS">
-      <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
-      <div class="left toolbar-ios"></div>
-      <div class="center toolbar-ios"></div>
-      <div class="right toolbar-ios">
-        <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
-      </div>
-    </v-ons-toolbar>
     <v-ons-modal :visible="photoModalVisible" @click="photoModalVisible = false">
       <img :src="selectedProblemImage" class="modal-image"/>
     </v-ons-modal>
@@ -49,13 +51,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import axios from 'axios';
 import ons from 'onsenui';
 import CustomToolbar from './CustomToolbar';
 import ResponseCard from './ResponseCard';
 import PhotoThumbnail from './PhotoThumbnail';
 import { WEB_API_URL } from '../../.env';
+
+import { FETCH_USER_INFO } from '../vuex/mutation-types';
 
 function scrollBottom() {
   const pageContents = document.getElementsByClassName('page__content');
@@ -83,6 +87,7 @@ export default {
   computed: {
     ...mapGetters([
       'selectedProblem',
+      'userInfo',
     ]),
     selectedProblemImage() {
       return WEB_API_URL + this.selectedProblem.image_url;
@@ -104,9 +109,13 @@ export default {
     },
   },
   created() {
+    this.FETCH_USER_INFO();
     this.getResponse();
   },
   methods: {
+    ...mapActions([
+      FETCH_USER_INFO,
+    ]),
     loadItem(done) {
       setTimeout(() => {
         this.getResponse();
