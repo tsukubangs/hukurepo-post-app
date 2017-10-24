@@ -34,7 +34,7 @@ export default {
         {
           icon: 'ion-ios-person',
           page: MyProblemsPage,
-          label: 'My',
+          label: 'My Posts',
           props: {
             pageStack: this.pageStack,
           },
@@ -42,7 +42,7 @@ export default {
         {
           icon: 'ion-ios-people-outline',
           page: AllProblemsPage,
-          label: 'All',
+          label: 'Timeline',
           props: {
             pageStack: this.pageStack,
           },
