@@ -58,8 +58,10 @@ export default {
       }, 400);
     },
     loadMore(done) {
-      if (!this.allProblems.loading) {
+      if (!this.allProblems.loading && !this.allProblems.isFinished) {
         this.FETCH_ALL_PROBLEMS({ callback: done });
+      } else {
+        done();
       }
     },
   },

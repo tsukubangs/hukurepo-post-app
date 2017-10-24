@@ -44,6 +44,7 @@ export default {
     const callback = option.callback || (() => {});
     axios.get(`${WEB_API_URL}/v1/problems/?page=${queryPage}&per=10`, config)
             .then((response) => {
+              response.data.isFinished = !response.data.length;
               commit(FETCH_ALL_PROBLEMS_FINISH, response.data);
               callback();
             }).catch(() => {

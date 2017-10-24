@@ -17,6 +17,7 @@ export default new Vuex.Store({
       page: 0,
       loading: false,
       isError: false,
+      isFinished: false,
     },
     selectedProblem: { },
     userInfo: {
