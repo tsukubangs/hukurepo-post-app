@@ -27,8 +27,9 @@ export default {
       state: 'initial',
       tabs: [
         {
-          icon: 'ion-home',
+          icon: 'ion-ios-person',
           page: MyProblemsPage,
+          label: 'My Posts',
           props: {
             pageStack: this.pageStack,
           },
@@ -36,13 +37,16 @@ export default {
         {
           icon: 'ion-ios-people-outline',
           page: AllProblemsPage,
+          label: 'Timeline',
           props: {
             pageStack: this.pageStack,
           },
         },
         {
-          icon: 'ion-navicon-round',
+          icon: 'ion-ios-more',
           page: SettingPage,
+          label: 'Other',
+          badge: null,
           props: {
             pageStack: this.pageStack,
           },
