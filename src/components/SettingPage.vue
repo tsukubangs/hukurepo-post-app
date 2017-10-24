@@ -22,7 +22,7 @@
         <div class="left">
           <v-ons-icon icon="fa-gift" class="list-item__icon"></v-ons-icon>
         </div>
-        <div class="center" v-if="!canGetPresent">
+        <div class="center">
           Get Present
         </div>
       </v-ons-list-item>
