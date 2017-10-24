@@ -27,23 +27,23 @@
       </v-ons-list>
     </main>
     <div v-if="selectedProblem.user_id===userInfo.data.id">
-    <div class="bottom-bar" v-if="!this.isIOS">
-      <div class="toolbar">
-        <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
-        <div class="toolbar__right">
-          <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
+      <div class="bottom-bar" v-if="!this.isIOS">
+        <div class="toolbar">
+          <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
+          <div class="toolbar__right">
+            <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
+          </div>
         </div>
       </div>
+      <v-ons-toolbar class="ios-bottom-bar" style="padding-top: 0;" v-else="this.isIOS">
+        <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
+        <div class="left toolbar-ios"></div>
+        <div class="center toolbar-ios"></div>
+        <div class="right toolbar-ios">
+          <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
+        </div>
+      </v-ons-toolbar>
     </div>
-    <v-ons-toolbar class="ios-bottom-bar" style="padding-top: 0;" v-else="this.isIOS">
-      <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
-      <div class="left toolbar-ios"></div>
-      <div class="center toolbar-ios"></div>
-      <div class="right toolbar-ios">
-        <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
-      </div>
-    </v-ons-toolbar>
-  </div>
     <v-ons-modal :visible="photoModalVisible" @click="photoModalVisible = false">
       <img :src="selectedProblemImage" class="modal-image"/>
     </v-ons-modal>
