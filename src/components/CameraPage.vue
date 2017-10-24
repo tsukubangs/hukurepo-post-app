@@ -120,7 +120,7 @@ function postProblem(priority) {
                     if (window.localStorage.getItem('complete_questionnaire')) {
                       ons.notification.alert({
                         title: 'Thanks for your cooperation!',
-                        message: 'You can receive gifts. Please open the Get present page from the menu icon.',
+                        messageHTML: '<p>Please, Open present page.</br>Other > Get Present</p>',
                       });
                     } else {
                       ons.notification.confirm({
