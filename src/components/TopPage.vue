@@ -1,7 +1,7 @@
 <template id="top-page">
   <v-ons-page>
     <custom-toolbar><div class="title"><img class="title-icon" src="../assets/s_logo.png" /></div></custom-toolbar>
-    <v-ons-tabbar :tabs="tabs" :visible="true" :index="0" @click.update:index="canGetPresent"></v-ons-tabbar>
+    <v-ons-tabbar :tabs="tabs" :visible="true" :index="0"></v-ons-tabbar>
   </v-ons-page>
 </template>
 
@@ -21,11 +21,6 @@ export default {
   },
   created() {
     notification.initialize(this);
-  },
-  methods: {
-    canGetPresent() {
-      this.tabs[2].badge = window.localStorage.getItem('can_get_present') ? '!' : null;
-    },
   },
   data() {
     return {
