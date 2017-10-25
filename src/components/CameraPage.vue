@@ -87,7 +87,6 @@ function takePhoto() {
 }
 
 function postProblem(priority) {
-  this.state = 'posting';
   this.isPosting = true;
   const data = new FormData();
   data.append('problem[comment]', this.postComment);
