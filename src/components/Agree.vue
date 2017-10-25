@@ -14,7 +14,7 @@
           <b>I agree to participate in the research study with the above understanding.</b>
 
           <div id="button">
-            <ons-button style="margin-right: 10%;" modifier="light" @click="toInit()">N O</ons-button>
+            <ons-button style="margin-right: 10%;" modifier="light" @click="toCarousel()">N O</ons-button>
             <ons-button input-id="nextButton" :disabled="!checkOn" modifier="cta" @click="toSignUp()">YES</ons-button>
           </div>
   </div>
@@ -40,8 +40,8 @@ export default {
     toSignUp() {
       router.push('sign-up');
     },
-    toInit() {
-      router.push('init');
+    toCarousel() {
+      router.push('carousel');
     },
   },
 };
