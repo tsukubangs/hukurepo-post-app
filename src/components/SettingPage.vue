@@ -2,14 +2,6 @@
   <v-ons-page>
     <v-ons-list-header class="header">Other</v-ons-list-header>
     <v-ons-list>
-      <v-ons-list-item tappable  @click="toPrivacy()">
-        <div class="left">
-          <v-ons-icon icon="ion-locked" class="list-item__icon"></v-ons-icon>
-        </div>
-        <div class="center">
-          Terms of Service & Privacy Policy
-        </div>
-      </v-ons-list-item>
       <v-ons-list-item tappable  @click="toQuestionnaire(userInfo.data.email)">
         <div class="left">
           <v-ons-icon icon="ion-clipboard" class="list-item__icon"></v-ons-icon>
@@ -24,6 +16,14 @@
         </div>
         <div class="center">
           Get Present
+        </div>
+      </v-ons-list-item>
+      <v-ons-list-item tappable  @click="toPrivacy()">
+        <div class="left">
+          <v-ons-icon icon="ion-locked" class="list-item__icon"></v-ons-icon>
+        </div>
+        <div class="center">
+          Terms of Service & Privacy Policy
         </div>
       </v-ons-list-item>
     </v-ons-list>
@@ -74,5 +74,9 @@ export default {
 <style>
 .header {
   background-color: aliceblue;
+}
+
+.list-item__icon {
+    width: 25px;
 }
 </style>
