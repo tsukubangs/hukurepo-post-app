@@ -1,7 +1,8 @@
 <template id="camera-page">
   <v-ons-page>
     <custom-toolbar></custom-toolbar>
-
+    <ons-progress-bar indeterminate  v-show="this.isPosting === true"></ons-progress-bar>
+    <ons-progress-bar indeterminate  v-show="this.isPosting === true"></ons-progress-bar>
     <textarea id="text-form" class="textarea" rows="5" placeholder="What's your problem?" v-model="postComment" name='description' v-focus v-resize></textarea>
     <div @click="takePhoto" style="display: inline-block" v-if="!this.hasImageData"><camera-button></camera-button></div>
     <div class="photo-block" v-else>
@@ -104,9 +105,11 @@ function postProblem(priority) {
   const config = {
     headers: { Authorization: token },
   };
+
   axios.post(`${WEB_API_URL}/v1/problems`, data, config)
       .then(() => {
         this.FETCH_PROBLEMS();
+        this.isPosting = false;
         ons.notification.alert({
           title: '',
           message: 'Post has been completed.',

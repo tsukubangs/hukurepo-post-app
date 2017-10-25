@@ -4,6 +4,8 @@
       <div class="center">Sign up</div>
       <div class="right"><v-ons-toolbar-button class="white-btn" modifier="outline" @click="toLogin">Log in</v-ons-toolbar-button></div>
     </v-ons-toolbar>
+    <ons-progress-bar indeterminate  v-show="this.signUpPosting === true"></ons-progress-bar>
+    <ons-progress-bar indeterminate  v-show="this.signUpPosting === true"></ons-progress-bar>
     <v-ons-list>
       <v-ons-list-header>
           Email
@@ -131,6 +133,7 @@ function postSignUp() {
   axios.post(`${WEB_API_URL}/v1/users`, data)
         .then((response) => {
           window.localStorage.setItem('access_token', response.data.access_token);
+          this.signUpPosting = false;
           ons.notification.alert({
             title: '',
             message: 'The sign up has been completed.',
