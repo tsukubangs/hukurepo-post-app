@@ -53,6 +53,7 @@
         <splash height="1136" src="res/ios/screen/Default-568h@2x~iphone.png" width="640" />
         <splash height="1334" src="res/ios/screen/Default-568h@2x~iphone.png" width="750" />
     </platform>
+    <preference name="Orientation" value="portrait" />
     <preference name="HideKeyboardFormAccessoryBar" value="true" />
     <preference name="KeyboardShrinksView" value="true" />
     <preference name="ShowSplashScreenSpinner" value="false" />
