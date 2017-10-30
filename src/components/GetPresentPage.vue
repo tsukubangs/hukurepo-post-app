@@ -2,9 +2,9 @@
   <v-ons-page>
     <custom-toolbar></custom-toolbar>
     <div class="box">
-      <p class="campaign-title">
-        "Hukurepo Present Campaign"
-      </p>
+      <h1 class="campaign-title">
+        HukuRepo </br>"Free Gift Promotion"
+      </h1>
       <img id="thanks-img" src="../assets/thanks.png" alt="thanks">
       <p class='note-title'>Notes</p>
       <p class="note-detail">
@@ -97,5 +97,19 @@ export default {
 #thanks-img {
   width: 200px;
   margin-top: 20px;
+}
+h1 {
+position: relative;
+}
+
+h1:after {
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 7px;
+background: -webkit-repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+background: repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
 }
 </style>
