@@ -2,8 +2,8 @@
   <v-ons-page>
     <v-ons-toolbar>
       <div class="right">
-        <ons-toolbar-button modifier="outline" style="backgroundColor: white" @click="carouselIndex=3">
-          Skip
+        <ons-toolbar-button modifier="outline" style="backgroundColor: white" @click="toAgree">
+          Sign up
         </ons-toolbar-button>
       </div>
     </v-ons-toolbar>
@@ -11,10 +11,11 @@
        <v-ons-carousel-item v-for="(value, key) in items" :style="{backgroundColor: value } " >
           <img id="image" src="../../res/instruction/1.png" v-if="value===1">
           <img id="image" src="../../res/instruction/2.png" v-if="value===2">
-          <img id="image" src="../../res/instruction/3.png" v-if="value===3">
-          <div v-if="value===4" class="adjust">
-          <img id="image" src="../../res/instruction/4.png" v-if="value===4">
-          <p><v-ons-button modifier="outline" @click="toAgree()">Sign Up</v-ons-button></p>
+          <img id="image" src="../../res/instruction/5.png" v-if="value===3">
+          <img id="image" src="../../res/instruction/3.png" v-if="value===4">
+          <div v-if="value===5" class="adjust">
+          <img id="image" src="../../res/instruction/4.png" v-if="value===5">
+          <p><v-ons-button modifier="outline" @click="toAgree()">Sign up</v-ons-button></p>
           <p><v-ons-button modifier="quiet" @click="toLogin()">Already have an account</v-ons-button></p>
           </div>
        </v-ons-carousel-item>
@@ -49,6 +50,7 @@ export default {
         Second: 2,
         Third: 3,
         Forth: 4,
+        Fifth: 5,
       },
       dots: {
         textAlign: 'center',
