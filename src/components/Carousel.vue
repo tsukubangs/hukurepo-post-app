@@ -57,7 +57,7 @@ export default {
         fontSize: '30px',
         color: '#01a8ec',
         position: 'absolute',
-        bottom: '10px',
+        bottom: '0px',
         left: 0,
         right: 0,
       },
