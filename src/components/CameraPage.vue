@@ -209,13 +209,18 @@ export default {
         animation: 'default',
         cancelable: true,
         callback(index) {
-          let priority = 'default';
+          let priority;
           if (index === 0) {
             priority = 'high';
+          } else if (index === 1) {
+            priority = 'default';
           } else if (index === 2) {
             priority = 'low';
           }
-          postProblem.call(self, priority);
+
+          if (priority) {
+            postProblem.call(self, priority);
+          }
         },
       });
     },
