@@ -31,7 +31,7 @@
       </v-ons-list-item>
 
       <p class="campaign-map">The exchange place for gifts is <a v-bind:href="present_exchange_place">here</a>.</p>
-      <p class="campaign-expire">The expiration date: November 30, 2017.</p>
+      <p class="campaign-expire">※The expiration date: November 30, 2017.</p>
       <v-ons-button v-if="isPostCountDone && isQuestionnareDone"
                   @click="toGetPresent()"
                   modifier="large"
@@ -116,9 +116,10 @@ export default {
   margin-bottom: 10px;
 }
 .campaign-expire {
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 10px;
   margin-bottom: 30px;
+  color: red;
 }
 h1 {
 position: relative;
