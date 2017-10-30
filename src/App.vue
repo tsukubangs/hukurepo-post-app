@@ -12,7 +12,7 @@ export default {
   created() {
     const hasToken = window.localStorage.getItem('access_token');
     if (!hasToken) {
-      router.push('init');
+      router.push('Carousel');
     } else {
       router.push('/');
     }
