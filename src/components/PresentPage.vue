@@ -2,9 +2,9 @@
   <v-ons-page>
     <custom-toolbar></custom-toolbar>
     <div class="box">
-      <p class="campaign-title">
-        "Hukurepo </br>   Free Gift Promotion"
-      </p>
+      <h1 class="campaign-title">
+        HukuRepo </br>"Free Gift Promotion"
+      </h1>
       <p class="campaign-detail">
         Thank you for using "HukuRepo"</br>
         The problem posted by everyone will be used to make Tsukuba city better. </br>
@@ -119,5 +119,19 @@ export default {
   font-size: 14px;
   margin-top: 10px;
   margin-bottom: 30px;
+}
+h1 {
+position: relative;
+}
+
+h1:after {
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 7px;
+background: -webkit-repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+background: repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
 }
 </style>
