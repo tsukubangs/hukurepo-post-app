@@ -76,13 +76,11 @@ export default {
   margin: auto;
 }
 .campaign-title {
-  font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   margin-top:20px;
   margin-bottom: 0px;
 }
 .note-title {
-  font-size: 14px;
   font-weight: 500;
   margin-bottom: 5px;
   text-align: left;
@@ -108,7 +106,7 @@ position: absolute;
 left: 0;
 bottom: 0;
 width: 100%;
-height: 7px;
+height: 4px;
 background: -webkit-repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
 background: repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
 }
