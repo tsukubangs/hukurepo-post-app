@@ -1,6 +1,6 @@
 <template id="top-page">
   <v-ons-page>
-    <custom-toolbar><div class="title"><img class="title-icon" src="../assets/s_logo.png" /></div></custom-toolbar>
+    <custom-toolbar><div class="title" @click="logout"><img class="title-icon" src="../assets/s_logo.png" /></div></custom-toolbar>
     <v-ons-tabbar :tabs="tabs" :visible="true" :index="0"></v-ons-tabbar>
   </v-ons-page>
 </template>
@@ -11,6 +11,12 @@ import MyProblemsPage from './MyProblemsPage';
 import AllProblemsPage from './AllProblemsPage';
 import SettingPage from './SettingPage';
 import notification from '../function/notification';
+import router from '../router';
+
+function logout() {
+  window.localStorage.removeItem('access_token');
+  router.push('/login');
+}
 
 export default {
   name: 'top-page',
@@ -21,6 +27,9 @@ export default {
   },
   created() {
     notification.initialize(this);
+  },
+  methods: {
+    logout,
   },
   data() {
     return {
