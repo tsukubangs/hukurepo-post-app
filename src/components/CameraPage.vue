@@ -37,7 +37,7 @@ import ons from 'onsenui';
 import CustomToolbar from './CustomToolbar';
 import GoogleMap from './GoogleMap';
 import CameraButton from './CameraButton';
-import { WEB_API_URL, QUESTIONNAIRE_URL } from '../../.env';
+import { WEB_API_URL } from '../../.env';
 import { FETCH_PROBLEMS } from '../vuex/mutation-types';
 
 const focus = {
@@ -115,33 +115,6 @@ function postProblem(priority) {
           message: 'Post has been completed.',
           callback: () => {
             this.pageStack.splice(1, this.pageStack.length - 1);
-            if (!window.localStorage.getItem('got_present')) {
-              setTimeout(() => {
-                axios.get(`${WEB_API_URL}/v1/problems/me/count`, config)
-                .then((response) => {
-                  if (response.data.count % 5 === 0) {
-                    if (window.localStorage.getItem('complete_questionnaire')) {
-                      ons.notification.alert({
-                        title: 'Thanks for your cooperation!',
-                        messageHTML: '<p>Please, Open present page.</br>Other > Get Present</p>',
-                      });
-                    } else {
-                      ons.notification.confirm({
-                        title: 'Please cooperate with the questionnaire.',
-                        message: ' ',
-                        buttonLabels: ['No', 'Yes'],
-                        callback(index) {
-                          if (index === 1) {
-                            window.localStorage.setItem('complete_questionnaire', true);
-                            window.open(QUESTIONNAIRE_URL);
-                          }
-                        },
-                      });
-                    }
-                  }
-                });
-              }, 200);
-            }
           },
         });
       }).catch((error) => {
