@@ -2,22 +2,6 @@
   <v-ons-page>
     <v-ons-list-header class="header">Other</v-ons-list-header>
     <v-ons-list>
-      <v-ons-list-item tappable  @click="toQuestionnaire(userInfo.data.email)">
-        <div class="left">
-          <v-ons-icon icon="ion-clipboard" class="list-item__icon"></v-ons-icon>
-        </div>
-        <div class="center">
-            Questionnaire
-        </div>
-      </v-ons-list-item>
-      <v-ons-list-item tappable  @click="toPresent()">
-        <div class="left">
-          <v-ons-icon icon="fa-gift" class="list-item__icon"></v-ons-icon>
-        </div>
-        <div class="center">
-          Get Present
-        </div>
-      </v-ons-list-item>
       <v-ons-list-item tappable  @click="toPrivacy()">
         <div class="left">
           <v-ons-icon icon="ion-locked" class="list-item__icon"></v-ons-icon>
