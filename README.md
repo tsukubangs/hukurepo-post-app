@@ -44,8 +44,8 @@ $ cordova -v
 
 Google Map APIキーおよびGoogle Translate APIキーは以下のWebサイトを参照して用意してください。
 
-- [キーの取得、認証(Google Map APIキー)[https://developers.google.com/maps/documentation/javascript/get-api-key?hl=ja]](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=ja)
-- [クイックスタート(Google Translate APIキー)[https://cloud.google.com/translate/docs/getting-started?hl=ja]](https://cloud.google.com/translate/docs/getting-started?hl=ja)
+- [キーの取得、認証(Google Map APIキー)](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=ja)
+- [クイックスタート(Google Translate APIキー)](https://cloud.google.com/translate/docs/getting-started?hl=ja)
 
 google-service.jsonおよびGoogleService-Info.plistはFirebase Consoleからプロジェクトファイルを作成し、ダウンロードしてください。
 
@@ -53,8 +53,8 @@ google-service.jsonおよびGoogleService-Info.plistはFirebase Consoleからプ
 
 アプリを利用するにはWeb APIを事前に準備しておく必要があります。
 以下に示すWeb APIの構築方法を参考にして準備してください。
-[ふくレポWeb APIサーバの構築方法](https://github.com/tsukubangs/hukurepo-server
-)
+
+[ふくレポWeb APIサーバの構築方法](https://github.com/tsukubangs/hukurepo-server)
 
 ## 投稿アプリのビルド
 
