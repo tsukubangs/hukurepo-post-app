@@ -1,66 +1,74 @@
 <template>
   <v-ons-page>
     <v-ons-toolbar>
-      <div class="center">Sign up</div>
-      <div class="right"><v-ons-toolbar-button class="white-btn" modifier="outline" @click="toLogin">Log in</v-ons-toolbar-button></div>
+      <div class="left">
+        <v-ons-toolbar-button class="white-btn" modifier="outline" @click="changeLanguage">
+            {{ setLanguage }}
+        </v-ons-toolbar-button>
+      </div>
+      <div class="center">{{ labels.title }}</div>
+      <div class="right">
+        <v-ons-toolbar-button class="white-btn" modifier="outline" @click="toLogin">
+            {{ labels.login }}
+        </v-ons-toolbar-button>
+      </div>
     </v-ons-toolbar>
-    <ons-progress-bar indeterminate  v-show="this.signUpPosting === true"></ons-progress-bar>
     <ons-progress-bar indeterminate  v-show="this.signUpPosting === true"></ons-progress-bar>
     <v-ons-list>
       <v-ons-list-header>
-          Email
+        {{ labels.Email }}
       </v-ons-list-header>
       <v-ons-list-item>
         <div class="center">
-          <v-ons-input class="width100" placeholder="Email" v-model="email" float>
+          <v-ons-input class="width100" v-bind:placeholder="this.placeholders.Email" v-model="email" float>
           </v-ons-input>
         </div>
       </v-ons-list-item>
       <v-ons-list-item class="error-message" v-if="this.emailIsInputted && !validation.emailRequired">
         <div class="right">
-          The email field is required
+          {{ labels.error.emailEmpty }}
         </div>
       </v-ons-list-item>
       <v-ons-list-item class="error-message" v-else-if="this.emailIsInputted && !validation.emailFormat">
         <div class="right">
-          Invalid email address
+          {{ labels.error.emailFormat }}
         </div>
       </v-ons-list-item>
       <v-ons-list-header>
-          Password
+          {{ labels.Password }}
       </v-ons-list-header>
       <v-ons-list-item>
         <div class="center">
-          <v-ons-input class="width100" placeholder="Password" type="password" v-model="password" float>
+          <v-ons-input class="width100" v-bind:placeholder="this.placeholders.Password" type="password" v-model="password" float>
           </v-ons-input>
         </div>
       </v-ons-list-item>
       <v-ons-list-item class="error-message" v-if="this.passwordIsInputted && !validation.passwordRequired">
         <div class="right">
-          The password field is required
+          {{ labels.error.passwordEmpty }}
         </div>
       </v-ons-list-item>
       <v-ons-list-item class="error-message" v-else-if="this.passwordIsInputted && !validation.passwordLength">
         <div class="right">
-          Password length must be between 6 and 29
+          {{ labels.error.passwordFormat }}
         </div>
       </v-ons-list-item>
       <v-ons-list-header>
-          Confirm Password
+          {{ labels.ConfirmPassword }}
       </v-ons-list-header>
       <v-ons-list-item>
         <div class="center">
-          <v-ons-input class="width100" placeholder="Confirm Password" type="password" v-model="confirmPassword" float>
+          <v-ons-input class="width100" v-bind:placeholder="this.placeholders.ConfirmPassword" type="password" v-model="confirmPassword" float>
           </v-ons-input>
         </div>
       </v-ons-list-item>
       <v-ons-list-item class="error-message" v-if="this.confirmPasswordIsInputted && !validation.confirmPasswordMatch">
         <div class="right">
-          Password and Confirm Password don't match
+          {{ labels.error.confirm }}
         </div>
       </v-ons-list-item>
       <v-ons-list-header>
-        Gender
+          {{ labels.Gender }}
       </v-ons-list-header>
       <v-ons-list-item v-for="(gender, $index) in genders" tappable>
         <label class="left">
@@ -69,7 +77,7 @@
         <label :for="'radio-' + $index" class="center">{{ gender }}</label>
       </v-ons-list-item>
       <v-ons-list-header>
-        Age
+          {{ labels.Age }}
       </v-ons-list-header>
       <v-ons-list-item>
         <div class="center">
@@ -79,7 +87,7 @@
         </div>
       </v-ons-list-item>
       <v-ons-list-header>
-        Country of Residence
+          {{ labels.Country }}
       </v-ons-list-header>
       <v-ons-list-item>
         <div class="center">
@@ -90,17 +98,19 @@
       </v-ons-list-item>
     </v-ons-list>
     <section style="margin: 16px">
-      <v-ons-button modifier="large" v-bind:disabled="!this.signUpIsPermitted" @click="confirmDialogVisible = true">Confirm</v-ons-button>
+    <v-ons-button modifier="large" v-bind:disabled="!this.signUpIsPermitted" @click="confirmDialogVisible = true">
+        {{ labels.Confirm }}
+    </v-ons-button>
     </section>
-    <v-ons-alert-dialog modifier="rowfooter" title="Sign up with the following information" :visible.sync="confirmDialogVisible">
-      Email: {{this.email}}<br />
-      Gender: {{this.selectedGender}}<br />
-      Age: {{this.selectedAge.slice(1)}}<br />
-      Nationality: {{this.selectedCountryOfResidence}}
+    <v-ons-alert-dialog modifier="rowfooter" v-bind:title="this.SignUpMessage" :visible.sync="confirmDialogVisible">
+      {{ labels.Email }}: {{this.email}}<br />
+      {{ labels.Gender }}: {{this.selectedGender}}<br />
+      {{ labels.Age }}: {{this.selectedAge.slice(1)}}<br />
+      {{ labels.Country }}: {{this.selectedCountryOfResidence}}
 
       <template slot="footer">
-        <button class="alert-dialog-button" @click="confirmDialogVisible = false">Edit</button>
-        <button class="alert-dialog-button" @click="postSignUp">Sign Up</button>
+        <button class="alert-dialog-button" @click="confirmDialogVisible = false">{{ labels.Edit }}</button>
+        <button class="alert-dialog-button" @click="postSignUp">{{ labels.SignUp }}</button>
       </template>
     </v-ons-alert-dialog>
   </v-ons-page>
@@ -119,6 +129,20 @@ const emailRegExp = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/;
 const passwordMinLength = 6;
 const passwordMaxLength = 29;
 
+function getMessages(lang){
+  const messages = require('../assets/message.json');
+  switch (lang){
+    case 'ja':
+      return messages.ja;
+    case 'ko':
+      return messages.ko;
+    case 'zh':
+      return messages.zh;
+    default:
+      return messages.en;
+  }
+}
+
 function postSignUp() {
   const data = {
     email: this.email,
@@ -136,7 +160,7 @@ function postSignUp() {
           this.signUpPosting = false;
           ons.notification.alert({
             title: '',
-            message: 'The sign up has been completed.',
+            message: this.labels.info.complete,
             callback: () => {
               router.push('/');
             },
@@ -145,11 +169,11 @@ function postSignUp() {
           let title;
           let message;
           if (!error.response) {
-            title = 'Connection error';
-            message = 'Can\'t connect to server';
+            title = this.labels.error.ConnectErrorTitle;
+            message = this.labels.error.ConnectErrorBody;
           } else if (error.response.status === 422) {
-            title = 'Email error';
-            message = 'This email address is already registered.';
+            title = this.labels.error.EmailErrorTitle;
+            message = this.labels.error.EmailErrorBody;
           }
           ons.notification.alert({
             title,
@@ -163,8 +187,8 @@ export default {
   name: 'sign-up',
   data() {
     return {
-      selectedGender: 'male',
-      genders: ['male', 'female'],
+      selectedGender: this.initialSelectedGender(),
+      genders: this.initialGenders(),
       countries,
       selectedCountryOfResidence: 'Japan',
       ages,
@@ -177,6 +201,9 @@ export default {
       confirmPasswordIsInputted: false,
       confirmDialogVisible: false,
       signUpPosting: false,
+      language: this.initialLanguage(),
+      placeholders: this.initialPlaceHolders(),
+      SignUpMessage: this.initialSignUpMessage(),
     };
   },
   computed: {
@@ -195,12 +222,83 @@ export default {
              && this.validation.passwordRequired && this.validation.passwordLength
              && this.validation.confirmPasswordMatch && !this.signUpPosting;
     },
+    labels(){
+      const message = getMessages(this.language.lang);
+      return message.signUp;
+    },
+    setLanguage: function(){
+        return this.language.labelLang;
+    },
   },
   methods: {
     toLogin() {
       router.push('login');
     },
     postSignUp,
+    changeLanguage(){
+      var lang = window.localStorage.getItem('deviceLanguage');
+      if (lang == 'en'){
+        window.localStorage.setItem('deviceLanguage', 'ja');
+        lang = 'ja';
+      }
+      else if(lang == 'ja'){
+        window.localStorage.setItem('deviceLanguage', 'ko');
+        lang = 'ko';
+      }
+      else if(lang == 'ko'){
+        window.localStorage.setItem('deviceLanguage', 'zh');
+        lang = 'zh';
+      }
+      else if(lang == 'zh'){
+        window.localStorage.setItem('deviceLanguage', 'en');
+        lang = 'en';
+      }
+      var labels = getMessages(lang);
+      this.language = {labelLang:labels.labelLang, lang:lang};
+      this.genders = labels.signUp.genders;
+      this.SignUpMessage = labels.signUp.SignUpMessage;
+      this.placeholders = labels.signUp.placeholders;
+    },
+    initialLanguage(){
+      if(window.localStorage.getItem('deviceLanguage') == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+      }
+      const lang = window.localStorage.getItem('deviceLanguage');
+      var labels = getMessages(lang);
+      return {labelLang:labels.labelLang, lang:lang};
+    },
+    initialGenders(){
+      if(window.localStorage.getItem('deviceLanguage') == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+      }
+      const lang = window.localStorage.getItem('deviceLanguage');
+      var labels = getMessages(lang);
+      return labels.signUp.genders;
+    },
+    initialSelectedGender(){
+      if(window.localStorage.getItem('deviceLanguage') == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+      }
+      const lang = window.localStorage.getItem('deviceLanguage');
+      var labels = getMessages(lang);
+      return labels.signUp.genders[0];
+    },
+    initialPlaceHolders(){
+      if(window.localStorage.getItem('deviceLanguage') == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+      }
+      const lang = window.localStorage.getItem('deviceLanguage');
+      var labels = getMessages(lang);
+      return labels.signUp.placeholders;
+    },
+    initialSignUpMessage(){
+      if(window.localStorage.getItem('deviceLanguage') == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+      }
+      const lang = window.localStorage.getItem('deviceLanguage');
+      var labels = getMessages(lang);
+      return labels.signUp.placeholders;
+    },
   },
   created() {
     this.$watch('email', () => {

@@ -1,17 +1,23 @@
 <template>
   <v-ons-page>
+<v-ons-toolbar>
+<div class="left">
+<ons-toolbar-button modifier="outline" style="backgroundColor: white" @click="changeLanguage">
+{{ setLanguage }}
+</ons-toolbar-button>
+</div>
+</v-ons-toolbar>
     <div id="agreement" class="blueOutline">
-      <h1>Agreement</h1>
-        <p>This application is a research entitled “Problem finding and solving for foreign visitors using a smartphone application,” which includes the summary and methods of study, necessity of human subjects’ participation, possible risks and safety issues associated with participation in the study, measures to prevent anticipated harm, and protection of personal information?along with a video recording.<br></p>
-
-        <p>I understand that I will not be penalized in any way if I do not consent to participate in the study, and I am free to withdraw my consent at any time without any penalty. I also understand that I am free to withdraw my consent for any data that I provide for use in this study at any time before the date specified below, even after completion of the study and experiments (if applicable). <br></p>
+      <h1>{{ Agreement.title }}</h1>
+      <p>{{ Agreement.one }}<br></p>
+      <p>{{ Agreement.two }}<br></p>
 
         <v-ons-checkbox
             :value="0"
             v-model="checkOn"
           >
           </v-ons-checkbox>
-          <b>I agree to participate in the research study with the above understanding.</b>
+          <b>{{ Agreement.sign }}</b>
 
           <div id="button">
             <ons-button style="margin-right: 10%;" modifier="light" @click="toCarousel()">N O</ons-button>
@@ -26,13 +32,37 @@
 import router from '../router';
 import CustomToolbar from './CustomToolbar';
 
+function getMessages(lang){
+  const messages = require('../assets/message.json');
+  switch (lang){
+    case 'ja':
+      return messages.ja;
+    case 'ko':
+      return messages.ko;
+    case 'zh':
+      return messages.zh;
+    default:
+      return messages.en;
+  }
+}
+
 export default {
   name: 'agree-page',
   components: {
     CustomToolbar,
   },
+  computed:{
+    setLanguage: function(){
+      return this.language.labelLang;
+    },
+    Agreement: function(){
+      const message = getMessages(this.language.lang);
+      return message.agreement;
+    },
+  },
   data() {
     return {
+      language:this.initialLanguage(),
       checkOn: false,
     };
   },
@@ -42,6 +72,43 @@ export default {
     },
     toCarousel() {
       router.push('carousel');
+    },
+    changeLanguage(){
+      const lang = window.localStorage.getItem('deviceLanguage');
+      if (lang == 'en'){
+        window.localStorage.setItem('deviceLanguage', 'ja');
+        this.language = {labelLang:'日本語', lang:'ja'};
+      }
+      else if(lang == 'ja'){
+        window.localStorage.setItem('deviceLanguage', 'ko');
+        this.language = {labelLang:'한국', lang:'ko'};
+      }
+      else if(lang == 'ko'){
+        window.localStorage.setItem('deviceLanguage', 'zh');
+        this.language = {labelLang:'中国', lang:'zh'};
+      }
+      else if(lang == 'zh'){
+        window.localStorage.setItem('deviceLanguage', 'en');
+        this.language = {labelLang:'English', lang:'en'};
+      }
+    },
+    initialLanguage(){
+      if(window.localStorage.getItem('deviceLanguage') == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+      }
+      const lang = window.localStorage.getItem('deviceLanguage');
+      if (lang == 'ja'){
+        return {labelLang:'日本語', lang:'ja'};
+      }
+      else if(lang == 'ko'){
+        return {labelLang:'한국', lang:'ko'};
+      }
+      else if(lang == 'zh'){
+        return {labelLang:'中国', lang:'zh'};
+      }
+      else if(lang == 'en'){
+        return {labelLang:'English', lang:'en'};
+      }
     },
   },
 };

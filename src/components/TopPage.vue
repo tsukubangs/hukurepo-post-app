@@ -1,11 +1,16 @@
 <template id="top-page">
   <v-ons-page>
-    <custom-toolbar><div class="title"><img class="title-icon" src="../assets/s_logo.png" /></div></custom-toolbar>
+    <custom-toolbar><div class="title"><img class="title-icon" src="../assets/s_logo.png"></div></custom-toolbar>
     <v-ons-tabbar :tabs="tabs" :visible="true" :index="0"></v-ons-tabbar>
   </v-ons-page>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+import { FETCH_PROBLEMS, REFETCH_PROBLEMS } from '../vuex/mutation-types';
+import axios from 'axios';
+import ons from 'onsenui';
+import { WEB_API_URL } from '../../.env';
 import CustomToolbar from './CustomToolbar';
 import MyProblemsPage from './MyProblemsPage';
 import AllProblemsPage from './AllProblemsPage';
@@ -29,7 +34,7 @@ export default {
         {
           icon: 'ion-ios-person',
           page: MyProblemsPage,
-          label: 'My Posts',
+          label: this.myProblem(),
           props: {
             pageStack: this.pageStack,
           },
@@ -37,7 +42,7 @@ export default {
         {
           icon: 'ion-ios-people-outline',
           page: AllProblemsPage,
-          label: 'Timeline',
+          label: this.timeline(),
           props: {
             pageStack: this.pageStack,
           },
@@ -45,7 +50,7 @@ export default {
         {
           icon: 'ion-ios-more',
           page: SettingPage,
-          label: 'Other',
+          label: this.other(),
           badge: null,
           props: {
             pageStack: this.pageStack,
@@ -53,6 +58,26 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    ...mapActions([
+      FETCH_PROBLEMS,
+    ]),
+    myProblem(){
+      const strMessage = window.localStorage.getItem('messages');
+      const message = JSON.parse(strMessage);
+      return message.top.myProblem;
+    },
+    timeline(){
+      const strMessage = window.localStorage.getItem('messages');
+      const message = JSON.parse(strMessage);
+      return message.top.timeline;
+    },
+    other(){
+      const strMessage = window.localStorage.getItem('messages');
+      const message = JSON.parse(strMessage);
+      return message.top.other;
+    },
   },
   props: ['pageStack'],
 };
