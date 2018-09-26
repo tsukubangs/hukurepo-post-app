@@ -1,0 +1,414 @@
+{
+    "ja": {
+        "labelLang":"日本語",
+        "top": {
+            "myProblem": "あなたの投稿",
+            "timeline": "みんなの投稿",
+            "other": "その他"
+        },
+        "agreement": {
+            "title":"同意書",
+            "one":"このアプリケーションは、「スマートフォンアプリケーションを使用して外国人の訪問者の問題を発見し解決する」という研究目的で配布しています。研究には皆様の参加が必要であり、研究への参加に伴うリスクと安全性、予想される障害防止策として、以下文面をお読みになり、個人情報保護の同意をお願いいたします。",
+            "two":"私が研究に参加することに同意しない場合、私はいかなる形でも罰せられないことを理解しており、いつでも罰金なしで同意を取り消すことができます。 また、私が、この研究で使用するために提供したデータについては、研究と実験の完了後であっても、以下の指定日前の任意の時点でいつでも自由に撤回できることを理解します。",
+            "sign":"上記の理解を持って研究に参加することに同意します。"
+        },
+        "signUp": {
+            "title":"登録",
+            "login":"ログイン",
+            "Email":"メールアドレス",
+            "Password":"パスワード",
+            "ConfirmPassword":"パスワード再確認",
+            "Gender":"性別",
+            "Age":"年齢",
+            "Country":"本籍",
+            "Confirm":"確認",
+            "SignUpMessage":"以下の内容で登録します",
+            "genders":["男性", "女性"],
+            "placeholders":{
+                "Email":"メールアドレスを入力してください",
+                "Password":"６文字以上、２９文字以下のパスワード",
+                "ConfirmPassword":"もう一度入力してください"
+            },
+            "error":{
+                "emailEmpty":"メールアドレスが空です",
+                "emailFormat":"メールアドレスに誤りがあります",
+                "passwordEmpty":"パスワードを入力してください",
+                "passwordFormat":"６文字以上、２９文字以下で指定してください",
+                "confirm":"パスワードが一致しません"
+            }
+        },
+        "login": {
+            "login":"ログイン",
+            "SignUp":"新規登録",
+            "placeholders":{
+                "Email":"メールアドレス",
+                "Password":"パスワード"
+            },
+            "error":{
+                "LoginErrorTitle":"ログインエラー",
+                "LoginErrorBody":"Sorry, your password or email was incorrect.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            },
+            "info":{
+                "complete":"The sign up has been completed."
+            }
+        },
+        "settings": {
+            "title":"Other",
+            "policy":"Terms of Service & Privacy Policy",
+            "displayLanguage":"Language",
+            "SignUp":"sign up",
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password"
+            },
+            "error":{
+                "LoginErrorTitle":"Login failed",
+                "LoginErrorBody":"Sorry, your password or email was incorrect.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            }
+        },
+        "privacyPolicy": {
+            "title":"HukuRepo Terms of Service",
+            "article1Title":"Article 1. (Objective)",
+            "lastUpdate":"LastUpdate",
+            "leadSentence":"<p>This application \"HukuRepo\" is provided by Kitagawa-Amagasa Data Engineering Lab. (<a href=\"http://www.kde.cs.tsukuba.ac.jp/\">KDE Lab.</a>) at University of Tsukuba as a part of <a href=\"http://bigclout.eu/\">BigClouT</a>, an EU-Japan collaborative research project supported by NICT (National Institute of Information and Communications Technology).  As this terms of service is applied, please read through this document, and use the application only if you agree on it.  In addition, the terms of service may be changed as necessary.</p>",
+            "article1Body":"<ol>                                                        <li>This terms of service defines necessary matters for the users who use and enjoy the functionality of the application, which has been developed by Kitagawa-Amagasa Data Engineering Lab., University of Tsukuba (hereafter called \"application provider\") and provided as a part of substantiative experiment of participatory sensing in BigClouT project supported by NICT (National Institute of Information and Communications Technology).               </li>                                                       <li>The application provider provides the functionality of the application only for the users who agreed on this term of service. The users may not be able to use it if he/she does not agree on it.</li> </ol>",
+            "article2Title":"Article 2. (Handling of private information)",
+            "article2Body":"<ol>                                                            <li>At the first execution of the application, it collects the following information and send them to the server: 1) living country, 2) gender, 3) age, and 4) contact information (e-mail address).  Besides, when the user wants to submit a problem (hereafter called \"task reply\"), the application collects the following information and sends them to the server: 1) internet domain name, 2) IP address, 3) the username that the user registered at the first execution, 4) password, 5) the photo that the user took, 6) the geographic location of the user when the user submitted the task reply, and 7) the text description of the task reply.</li>                                            <li>The information collected by the application will be handled in accordance with the separately defined \"privacy policy.\"</li> </ol>",
+            "article3Title":"Article 3. (Copyright)",
+            "article3Body":"<ol>                                                        <li>The copyright of images or texts acquired by the application is owned by the original author and is protected by laws of Japan, international treaties, etc.</li>                                   </ol>",
+            "article4Title":"Article 4. (Disclaimer)",
+            "article4Body":"<ol>                                                        <li>The application provider assumes no responsibility for any acts that the user makes based on the information provided by the application except when it shoold be attributed to the application provider.</li>                                              <li>This application provider assumes no responsibility for any damage or loss caused by the user's access of the application, etc. by the user.</li>                                           <li>A content (photo or text) registered by the application may be eliminated without notice under the decision of the application provider when it falls under the following cases: 1) those contrary to public order and morals, 2) those irrelevant to the purpose of the application, 3) those containing harmfol programs or scripts, 4) contents for the purpose of profit, contents to offer personal trading / transfer or advertisement 5) anything else that the application provider deems inappropriate, such as disturbing the administration and operation of the application.  The application provider is not responsible for any damage caused by elimination of these contents, suspension or suspension of operation.</li>                                                   </ol>",
+            "policyTitle":"Privacy Policy",
+            "policyLeadSentence":"<p>Kitagawa-Amagasa Data Engineering Lab. (KDE Lab.) (http://www.kde.cs.tsukuba.ac.jp/) at University of Tsukuba (hereafter called \"application provider\") takes care of the privacy of the users of \"HukuRepo\" (hereafter called \"application\"), and stipolates the privacy policy as follows.</p>",
+            "policyArticle1Title":"Article 1. (Basic policy)",
+            "policyArticle1Body":"<p>The application provider respects the privacy of the users of the application and strives to let the users use the application safely. Regarding the collected data, the application provider will comply with related laws and other norms and handle them appropriately.</p>",
+            "policyArticle2Title":"Article 2. (Scope of information to be collected)",
+            "policyArticle2Body":"<p>In this application, when the users take part in participatory sensing, the application provider will collect the problems (photos, text, tag, etc.)</p>",
+            "policyArticle3Title":"Article 3. (Objective of use)",
+            "policyArticle3Body":"<p>The collected information is used only for academic research and not for other purposes.  If personal information is included in the collected information, it is processed into a form that an individual is not identified, and the part necessary for research purpose will be used.  In addition, data processed into an unidentifiable form may be provided to other organizations within the same research project (Commissariat a l‘energie atomique et aux energies alternatives - Laboratoire d’electronique des technologies de l‘information (CEA-Leti) (France), Engineering Ingegneria Informatica SpA (Italy), ABSISKEY Collaborative Project (France), School of Computing and Communications, Lancaster University (UK), Institute of Communication and Computer System, National Technical University of Athens (Greece), NTT East (Japan), Keio University (Japan), National Institute of Inforamatics (NII) (Japan), or NTT R & D (Japan)) or cities that participate in the project (Tsukuba (Japan), Fujisawa (Japan), Grenoble (France), or Bristol (UK)).</p>",
+            "policyArticle4Title":"Article 4. (Use and provision of personal information)",
+            "policyArticle4Body":"<p>The application provider will use the collected personal information within the range of purpose of use specified above, and will not use for other purposes or provide to third parties except that the application provider obtains the consent of the user or when there is a provision of laws or regolations, etc.  Note that, after statistically processed, the application provider can freely select, modify, edit, delete such information within the scope of research, and may disclose / publish without the user's consent.</p>",
+            "policyArticle5Title":"Article 5. (Management of private information)",
+            "policyArticle5Body":"<p>The collected personal information is strictly managed by the application provider and measures are taken to prevent leakage, loss, falsification, etc.  The information provider deletes personal information responsibly with one year after the end of the research project BigClouT (June 30, 2020).</p>",
+            "policyArticle6Title":"Article 6. (Disclosure of personal information)",
+            "policyArticle6Body":"<p>The application provider will disclose the collected personal information in response to requests from the principal or the agent designated by the principal.</p>",
+            "policyArticle7Title":"Article 7. (Change of privacy policy)",
+            "policyArticle7Body":"<p>To change the contents of this privacy policy, we will pre-post its contents in the application and will not contact you individually.</p>",
+            "policyArticle8Title":"Article 8. (Inquiries about personal information)",
+            "policyArticle8Body":"<p>For inquiries about personal information, its handling and deletion, please contact by email at <a href=\"bigclout@kde.cs.tsukuba.ac.jp\">bigclout@kde.cs.tsukuba.ac.jp</a>.</p>"
+        }
+    },
+    "en": {
+        "labelLang":"English",
+        "top": {
+            "myProblem": "myProblem",
+            "timeline": "Timeline_sample",
+            "other": "Other_sample"
+        },
+        "agreement":{
+            "title":"Agreement",
+            "one":"This application is a research entitled 'Problem finding and solving for foreign visitors using a smartphone application,' which includes the summary and methods of study, necessity of human subjects’ participation, possible risks and safety issues associated with participation in the study, measures to prevent anticipated harm, and protection of personal information?along with a video recording.",
+            "two":"I understand that I will not be penalized in any way if I do not consent to participate in the study, and I am free to withdraw my consent at any time without any penalty. I also understand that I am free to withdraw my consent for any data that I provide for use in this study at any time before the date specified below, even after completion of the study and experiments (if applicable). ",
+            "sign":"I agree to participate in the research study with the above understanding."
+        },
+        "signUp": {
+            "title":"Sign up",
+            "login":"Log in",
+            "Email":"Email",
+            "Password":"Password",
+            "ConfirmPassword":"Confirm Password",
+            "Gender":"Gender",
+            "Age":"Age",
+            "Country":"Country of Residence",
+            "Confirm":"Confirm",
+            "SignUpMessage":"Sign up with the following information",
+            "Edit":"Edit",
+            "SignUp":"Sign Up",
+            "genders":["male", "female"],
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password",
+                "ConfirmPassword":"Confirm Password"
+            },
+            "error":{
+                "emailEmpty":"The email field is required",
+                "emailFormat":"Invalid email address",
+                "passwordEmpty":"The password field is required",
+                "passwordFormat":"Password length must be between 6 and 29",
+                "confirm":"Password and Confirm Password don't match",
+                "EmailErrorTitle":"Email error",
+                "EmailErrorBody":"This email address is already registered.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            },
+            "info":{
+                "complete":"The sign up has been completed."
+            }
+        },
+        "login": {
+            "login":"Login",
+            "SignUp":"sign up",
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password"
+            },
+            "error":{
+                "LoginErrorTitle":"Login failed",
+                "LoginErrorBody":"Sorry, your password or email was incorrect.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            }
+        },
+        "settings": {
+            "title":"Other",
+            "policy":"Terms of Service & Privacy Policy",
+            "displayLanguage":"Language",
+            "SignUp":"sign up",
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password"
+            },
+            "error":{
+                "LoginErrorTitle":"Login failed",
+                "LoginErrorBody":"Sorry, your password or email was incorrect.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            }
+        },
+        "privacyPolicy": {
+            "title":"HukuRepo Terms of Service",
+            "article1Title":"Article 1. (Objective)",
+            "lastUpdate":"LastUpdate",
+            "leadSentence":"<p>This application \"HukuRepo\" is provided by Kitagawa-Amagasa Data Engineering Lab. (<a href=\"http://www.kde.cs.tsukuba.ac.jp/\">KDE Lab.</a>) at University of Tsukuba as a part of <a href=\"http://bigclout.eu/\">BigClouT</a>, an EU-Japan collaborative research project supported by NICT (National Institute of Information and Communications Technology).  As this terms of service is applied, please read through this document, and use the application only if you agree on it.  In addition, the terms of service may be changed as necessary.</p>",
+            "article1Body":"<ol>                                                        <li>This terms of service defines necessary matters for the users who use and enjoy the functionality of the application, which has been developed by Kitagawa-Amagasa Data Engineering Lab., University of Tsukuba (hereafter called \"application provider\") and provided as a part of substantiative experiment of participatory sensing in BigClouT project supported by NICT (National Institute of Information and Communications Technology).               </li>                                                       <li>The application provider provides the functionality of the application only for the users who agreed on this term of service. The users may not be able to use it if he/she does not agree on it.</li> </ol>",
+            "article2Title":"Article 2. (Handling of private information)",
+            "article2Body":"<ol>                                                            <li>At the first execution of the application, it collects the following information and send them to the server: 1) living country, 2) gender, 3) age, and 4) contact information (e-mail address).  Besides, when the user wants to submit a problem (hereafter called \"task reply\"), the application collects the following information and sends them to the server: 1) internet domain name, 2) IP address, 3) the username that the user registered at the first execution, 4) password, 5) the photo that the user took, 6) the geographic location of the user when the user submitted the task reply, and 7) the text description of the task reply.</li>                                            <li>The information collected by the application will be handled in accordance with the separately defined \"privacy policy.\"</li> </ol>",
+            "article3Title":"Article 3. (Copyright)",
+            "article3Body":"<ol>                                                        <li>The copyright of images or texts acquired by the application is owned by the original author and is protected by laws of Japan, international treaties, etc.</li>                                   </ol>",
+            "article4Title":"Article 4. (Disclaimer)",
+            "article4Body":"<ol>                                                        <li>The application provider assumes no responsibility for any acts that the user makes based on the information provided by the application except when it shoold be attributed to the application provider.</li>                                              <li>This application provider assumes no responsibility for any damage or loss caused by the user's access of the application, etc. by the user.</li>                                           <li>A content (photo or text) registered by the application may be eliminated without notice under the decision of the application provider when it falls under the following cases: 1) those contrary to public order and morals, 2) those irrelevant to the purpose of the application, 3) those containing harmfol programs or scripts, 4) contents for the purpose of profit, contents to offer personal trading / transfer or advertisement 5) anything else that the application provider deems inappropriate, such as disturbing the administration and operation of the application.  The application provider is not responsible for any damage caused by elimination of these contents, suspension or suspension of operation.</li>                                                   </ol>",
+            "policyTitle":"Privacy Policy",
+            "policyLeadSentence":"<p>Kitagawa-Amagasa Data Engineering Lab. (KDE Lab.) (http://www.kde.cs.tsukuba.ac.jp/) at University of Tsukuba (hereafter called \"application provider\") takes care of the privacy of the users of \"HukuRepo\" (hereafter called \"application\"), and stipolates the privacy policy as follows.</p>",
+            "policyArticle1Title":"Article 1. (Basic policy)",
+            "policyArticle1Body":"<p>The application provider respects the privacy of the users of the application and strives to let the users use the application safely. Regarding the collected data, the application provider will comply with related laws and other norms and handle them appropriately.</p>",
+            "policyArticle2Title":"Article 2. (Scope of information to be collected)",
+            "policyArticle2Body":"<p>In this application, when the users take part in participatory sensing, the application provider will collect the problems (photos, text, tag, etc.)</p>",
+            "policyArticle3Title":"Article 3. (Objective of use)",
+            "policyArticle3Body":"<p>The collected information is used only for academic research and not for other purposes.  If personal information is included in the collected information, it is processed into a form that an individual is not identified, and the part necessary for research purpose will be used.  In addition, data processed into an unidentifiable form may be provided to other organizations within the same research project (Commissariat a l‘energie atomique et aux energies alternatives - Laboratoire d’electronique des technologies de l‘information (CEA-Leti) (France), Engineering Ingegneria Informatica SpA (Italy), ABSISKEY Collaborative Project (France), School of Computing and Communications, Lancaster University (UK), Institute of Communication and Computer System, National Technical University of Athens (Greece), NTT East (Japan), Keio University (Japan), National Institute of Inforamatics (NII) (Japan), or NTT R & D (Japan)) or cities that participate in the project (Tsukuba (Japan), Fujisawa (Japan), Grenoble (France), or Bristol (UK)).</p>",
+            "policyArticle4Title":"Article 4. (Use and provision of personal information)",
+            "policyArticle4Body":"<p>The application provider will use the collected personal information within the range of purpose of use specified above, and will not use for other purposes or provide to third parties except that the application provider obtains the consent of the user or when there is a provision of laws or regolations, etc.  Note that, after statistically processed, the application provider can freely select, modify, edit, delete such information within the scope of research, and may disclose / publish without the user's consent.</p>",
+            "policyArticle5Title":"Article 5. (Management of private information)",
+            "policyArticle5Body":"<p>The collected personal information is strictly managed by the application provider and measures are taken to prevent leakage, loss, falsification, etc.  The information provider deletes personal information responsibly with one year after the end of the research project BigClouT (June 30, 2020).</p>",
+            "policyArticle6Title":"Article 6. (Disclosure of personal information)",
+            "policyArticle6Body":"<p>The application provider will disclose the collected personal information in response to requests from the principal or the agent designated by the principal.</p>",
+            "policyArticle7Title":"Article 7. (Change of privacy policy)",
+            "policyArticle7Body":"<p>To change the contents of this privacy policy, we will pre-post its contents in the application and will not contact you individually.</p>",
+            "policyArticle8Title":"Article 8. (Inquiries about personal information)",
+            "policyArticle8Body":"<p>For inquiries about personal information, its handling and deletion, please contact by email at <a href=\"bigclout@kde.cs.tsukuba.ac.jp\">bigclout@kde.cs.tsukuba.ac.jp</a>.</p>"
+        }
+    },
+    "ko": {
+        "labelLang":"한국",
+        "top": {
+            "myProblem": "あなたの投稿",
+            "timeline": "みんなの投稿",
+            "other": "その他"
+        },
+        "agreement": {
+            "title":"협정",
+            "one":"韓国語で同意１",
+            "two":"韓国語で同意2",
+            "sign":""
+        },
+        "signUp": {
+            "title":"Sign up",
+            "login":"Log in",
+            "Email":"Email",
+            "Password":"Password",
+            "ConfirmPassword":"Confirm Password",
+            "Gender":"Gender",
+            "Age":"Age",
+            "Country":"Country of Residence",
+            "Confirm":"Confirm",
+            "SignUpMessage":"Sign up with the following information",
+            "genders":["male", "female"],
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password",
+                "ConfirmPassword":"Confirm Password"
+            },
+            "error":{
+                "emailEmpty":"The email field is required",
+                "emailFormat":"Invalid email address",
+                "passwordEmpty":"The password field is required",
+                "passwordFormat":"Password length must be between 6 and 29",
+                "confirm":"Password and Confirm Password don't match"
+            }
+        },
+        "login": {
+            "login":"Login_ko",
+            "SignUp":"sign up",
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password"
+            },
+            "error":{
+                "LoginErrorTitle":"Login failed",
+                "LoginErrorBody":"Sorry, your password or email was incorrect.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            }
+        },
+        "settings": {
+            "title":"Other",
+            "policy":"Terms of Service & Privacy Policy",
+            "displayLanguage":"Language",
+            "SignUp":"sign up",
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password"
+            },
+            "error":{
+                "LoginErrorTitle":"Login failed",
+                "LoginErrorBody":"Sorry, your password or email was incorrect.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            }
+        },
+        "privacyPolicy": {
+            "title":"HukuRepo Terms of Service",
+            "article1Title":"Article 1. (Objective)",
+            "lastUpdate":"LastUpdate",
+            "leadSentence":"<p>This application \"HukuRepo\" is provided by Kitagawa-Amagasa Data Engineering Lab. (<a href=\"http://www.kde.cs.tsukuba.ac.jp/\">KDE Lab.</a>) at University of Tsukuba as a part of <a href=\"http://bigclout.eu/\">BigClouT</a>, an EU-Japan collaborative research project supported by NICT (National Institute of Information and Communications Technology).  As this terms of service is applied, please read through this document, and use the application only if you agree on it.  In addition, the terms of service may be changed as necessary.</p>",
+            "article1Body":"<ol>                                                        <li>This terms of service defines necessary matters for the users who use and enjoy the functionality of the application, which has been developed by Kitagawa-Amagasa Data Engineering Lab., University of Tsukuba (hereafter called \"application provider\") and provided as a part of substantiative experiment of participatory sensing in BigClouT project supported by NICT (National Institute of Information and Communications Technology).               </li>                                                       <li>The application provider provides the functionality of the application only for the users who agreed on this term of service. The users may not be able to use it if he/she does not agree on it.</li> </ol>",
+            "article2Title":"Article 2. (Handling of private information)",
+            "article2Body":"<ol>                                                            <li>At the first execution of the application, it collects the following information and send them to the server: 1) living country, 2) gender, 3) age, and 4) contact information (e-mail address).  Besides, when the user wants to submit a problem (hereafter called \"task reply\"), the application collects the following information and sends them to the server: 1) internet domain name, 2) IP address, 3) the username that the user registered at the first execution, 4) password, 5) the photo that the user took, 6) the geographic location of the user when the user submitted the task reply, and 7) the text description of the task reply.</li>                                            <li>The information collected by the application will be handled in accordance with the separately defined \"privacy policy.\"</li> </ol>",
+            "article3Title":"Article 3. (Copyright)",
+            "article3Body":"<ol>                                                        <li>The copyright of images or texts acquired by the application is owned by the original author and is protected by laws of Japan, international treaties, etc.</li>                                   </ol>",
+            "article4Title":"Article 4. (Disclaimer)",
+            "article4Body":"<ol>                                                        <li>The application provider assumes no responsibility for any acts that the user makes based on the information provided by the application except when it shoold be attributed to the application provider.</li>                                              <li>This application provider assumes no responsibility for any damage or loss caused by the user's access of the application, etc. by the user.</li>                                           <li>A content (photo or text) registered by the application may be eliminated without notice under the decision of the application provider when it falls under the following cases: 1) those contrary to public order and morals, 2) those irrelevant to the purpose of the application, 3) those containing harmfol programs or scripts, 4) contents for the purpose of profit, contents to offer personal trading / transfer or advertisement 5) anything else that the application provider deems inappropriate, such as disturbing the administration and operation of the application.  The application provider is not responsible for any damage caused by elimination of these contents, suspension or suspension of operation.</li>                                                   </ol>",
+            "policyTitle":"Privacy Policy",
+            "policyLeadSentence":"<p>Kitagawa-Amagasa Data Engineering Lab. (KDE Lab.) (http://www.kde.cs.tsukuba.ac.jp/) at University of Tsukuba (hereafter called \"application provider\") takes care of the privacy of the users of \"HukuRepo\" (hereafter called \"application\"), and stipolates the privacy policy as follows.</p>",
+            "policyArticle1Title":"Article 1. (Basic policy)",
+            "policyArticle1Body":"<p>The application provider respects the privacy of the users of the application and strives to let the users use the application safely. Regarding the collected data, the application provider will comply with related laws and other norms and handle them appropriately.</p>",
+            "policyArticle2Title":"Article 2. (Scope of information to be collected)",
+            "policyArticle2Body":"<p>In this application, when the users take part in participatory sensing, the application provider will collect the problems (photos, text, tag, etc.)</p>",
+            "policyArticle3Title":"Article 3. (Objective of use)",
+            "policyArticle3Body":"<p>The collected information is used only for academic research and not for other purposes.  If personal information is included in the collected information, it is processed into a form that an individual is not identified, and the part necessary for research purpose will be used.  In addition, data processed into an unidentifiable form may be provided to other organizations within the same research project (Commissariat a l‘energie atomique et aux energies alternatives - Laboratoire d’electronique des technologies de l‘information (CEA-Leti) (France), Engineering Ingegneria Informatica SpA (Italy), ABSISKEY Collaborative Project (France), School of Computing and Communications, Lancaster University (UK), Institute of Communication and Computer System, National Technical University of Athens (Greece), NTT East (Japan), Keio University (Japan), National Institute of Inforamatics (NII) (Japan), or NTT R & D (Japan)) or cities that participate in the project (Tsukuba (Japan), Fujisawa (Japan), Grenoble (France), or Bristol (UK)).</p>",
+            "policyArticle4Title":"Article 4. (Use and provision of personal information)",
+            "policyArticle4Body":"<p>The application provider will use the collected personal information within the range of purpose of use specified above, and will not use for other purposes or provide to third parties except that the application provider obtains the consent of the user or when there is a provision of laws or regolations, etc.  Note that, after statistically processed, the application provider can freely select, modify, edit, delete such information within the scope of research, and may disclose / publish without the user's consent.</p>",
+            "policyArticle5Title":"Article 5. (Management of private information)",
+            "policyArticle5Body":"<p>The collected personal information is strictly managed by the application provider and measures are taken to prevent leakage, loss, falsification, etc.  The information provider deletes personal information responsibly with one year after the end of the research project BigClouT (June 30, 2020).</p>",
+            "policyArticle6Title":"Article 6. (Disclosure of personal information)",
+            "policyArticle6Body":"<p>The application provider will disclose the collected personal information in response to requests from the principal or the agent designated by the principal.</p>",
+            "policyArticle7Title":"Article 7. (Change of privacy policy)",
+            "policyArticle7Body":"<p>To change the contents of this privacy policy, we will pre-post its contents in the application and will not contact you individually.</p>",
+            "policyArticle8Title":"Article 8. (Inquiries about personal information)",
+            "policyArticle8Body":"<p>For inquiries about personal information, its handling and deletion, please contact by email at <a href=\"bigclout@kde.cs.tsukuba.ac.jp\">bigclout@kde.cs.tsukuba.ac.jp</a>.</p>"
+        }
+    },
+    "zh": {
+        "labelLang":"中国",
+        "top": {
+            "myProblem": "あなたの投稿",
+            "timeline": "みんなの投稿",
+            "other": "その他"
+        },
+        "agreement": {
+            "title":"协议",
+            "one":"中国語で同意１",
+            "two":"中国語で同意2",
+            "sign":""
+        },
+        "signUp": {
+            "title":"Sign up",
+            "login":"Log in",
+            "Email":"Email",
+            "Password":"Password",
+            "ConfirmPassword":"Confirm Password",
+            "Gender":"Gender",
+            "Age":"Age",
+            "Country":"Country of Residence",
+            "Confirm":"Confirm",
+            "SignUpMessage":"Sign up with the following information",
+            "genders":["male", "female"],
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password",
+                "ConfirmPassword":"Confirm Password"
+            },
+            "error":{
+                "emailEmpty":"The email field is required",
+                "emailFormat":"Invalid email address",
+                "passwordEmpty":"The password field is required",
+                "passwordFormat":"Password length must be between 6 and 29",
+                "confirm":"Password and Confirm Password don't match"
+            }
+        },
+        "login": {
+            "login":"Login_zh",
+            "SignUp":"sign up",
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password"
+            },
+            "error":{
+                "LoginErrorTitle":"Login failed",
+                "LoginErrorBody":"Sorry, your password or email was incorrect.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            }
+        },
+        "settings": {
+            "title":"Other",
+            "policy":"Terms of Service & Privacy Policy",
+            "displayLanguage":"Language",
+            "SignUp":"sign up",
+            "placeholders":{
+                "Email":"Email",
+                "Password":"Password"
+            },
+            "error":{
+                "LoginErrorTitle":"Login failed",
+                "LoginErrorBody":"Sorry, your password or email was incorrect.",
+                "ConnectErrorTitle":"Connection error",
+                "ConnectErrorBody":"Can't connect to server"
+            }
+        },
+        "privacyPolicy": {
+            "title":"HukuRepo Terms of Service",
+            "article1Title":"Article 1. (Objective)",
+            "lastUpdate":"LastUpdate",
+            "leadSentence":"<p>This application \"HukuRepo\" is provided by Kitagawa-Amagasa Data Engineering Lab. (<a href=\"http://www.kde.cs.tsukuba.ac.jp/\">KDE Lab.</a>) at University of Tsukuba as a part of <a href=\"http://bigclout.eu/\">BigClouT</a>, an EU-Japan collaborative research project supported by NICT (National Institute of Information and Communications Technology).  As this terms of service is applied, please read through this document, and use the application only if you agree on it.  In addition, the terms of service may be changed as necessary.</p>",
+            "article1Body":"<ol>                                                        <li>This terms of service defines necessary matters for the users who use and enjoy the functionality of the application, which has been developed by Kitagawa-Amagasa Data Engineering Lab., University of Tsukuba (hereafter called \"application provider\") and provided as a part of substantiative experiment of participatory sensing in BigClouT project supported by NICT (National Institute of Information and Communications Technology).               </li>                                                       <li>The application provider provides the functionality of the application only for the users who agreed on this term of service. The users may not be able to use it if he/she does not agree on it.</li> </ol>",
+            "article2Title":"Article 2. (Handling of private information)",
+            "article2Body":"<ol>                                                            <li>At the first execution of the application, it collects the following information and send them to the server: 1) living country, 2) gender, 3) age, and 4) contact information (e-mail address).  Besides, when the user wants to submit a problem (hereafter called \"task reply\"), the application collects the following information and sends them to the server: 1) internet domain name, 2) IP address, 3) the username that the user registered at the first execution, 4) password, 5) the photo that the user took, 6) the geographic location of the user when the user submitted the task reply, and 7) the text description of the task reply.</li>                                            <li>The information collected by the application will be handled in accordance with the separately defined \"privacy policy.\"</li> </ol>",
+            "article3Title":"Article 3. (Copyright)",
+            "article3Body":"<ol>                                                        <li>The copyright of images or texts acquired by the application is owned by the original author and is protected by laws of Japan, international treaties, etc.</li>                                   </ol>",
+            "article4Title":"Article 4. (Disclaimer)",
+            "article4Body":"<ol>                                                        <li>The application provider assumes no responsibility for any acts that the user makes based on the information provided by the application except when it shoold be attributed to the application provider.</li>                                              <li>This application provider assumes no responsibility for any damage or loss caused by the user's access of the application, etc. by the user.</li>                                           <li>A content (photo or text) registered by the application may be eliminated without notice under the decision of the application provider when it falls under the following cases: 1) those contrary to public order and morals, 2) those irrelevant to the purpose of the application, 3) those containing harmfol programs or scripts, 4) contents for the purpose of profit, contents to offer personal trading / transfer or advertisement 5) anything else that the application provider deems inappropriate, such as disturbing the administration and operation of the application.  The application provider is not responsible for any damage caused by elimination of these contents, suspension or suspension of operation.</li>                                                   </ol>",
+            "policyTitle":"Privacy Policy",
+            "policyLeadSentence":"<p>Kitagawa-Amagasa Data Engineering Lab. (KDE Lab.) (http://www.kde.cs.tsukuba.ac.jp/) at University of Tsukuba (hereafter called \"application provider\") takes care of the privacy of the users of \"HukuRepo\" (hereafter called \"application\"), and stipolates the privacy policy as follows.</p>",
+            "policyArticle1Title":"Article 1. (Basic policy)",
+            "policyArticle1Body":"<p>The application provider respects the privacy of the users of the application and strives to let the users use the application safely. Regarding the collected data, the application provider will comply with related laws and other norms and handle them appropriately.</p>",
+            "policyArticle2Title":"Article 2. (Scope of information to be collected)",
+            "policyArticle2Body":"<p>In this application, when the users take part in participatory sensing, the application provider will collect the problems (photos, text, tag, etc.)</p>",
+            "policyArticle3Title":"Article 3. (Objective of use)",
+            "policyArticle3Body":"<p>The collected information is used only for academic research and not for other purposes.  If personal information is included in the collected information, it is processed into a form that an individual is not identified, and the part necessary for research purpose will be used.  In addition, data processed into an unidentifiable form may be provided to other organizations within the same research project (Commissariat a l‘energie atomique et aux energies alternatives - Laboratoire d’electronique des technologies de l‘information (CEA-Leti) (France), Engineering Ingegneria Informatica SpA (Italy), ABSISKEY Collaborative Project (France), School of Computing and Communications, Lancaster University (UK), Institute of Communication and Computer System, National Technical University of Athens (Greece), NTT East (Japan), Keio University (Japan), National Institute of Inforamatics (NII) (Japan), or NTT R & D (Japan)) or cities that participate in the project (Tsukuba (Japan), Fujisawa (Japan), Grenoble (France), or Bristol (UK)).</p>",
+            "policyArticle4Title":"Article 4. (Use and provision of personal information)",
+            "policyArticle4Body":"<p>The application provider will use the collected personal information within the range of purpose of use specified above, and will not use for other purposes or provide to third parties except that the application provider obtains the consent of the user or when there is a provision of laws or regolations, etc.  Note that, after statistically processed, the application provider can freely select, modify, edit, delete such information within the scope of research, and may disclose / publish without the user's consent.</p>",
+            "policyArticle5Title":"Article 5. (Management of private information)",
+            "policyArticle5Body":"<p>The collected personal information is strictly managed by the application provider and measures are taken to prevent leakage, loss, falsification, etc.  The information provider deletes personal information responsibly with one year after the end of the research project BigClouT (June 30, 2020).</p>",
+            "policyArticle6Title":"Article 6. (Disclosure of personal information)",
+            "policyArticle6Body":"<p>The application provider will disclose the collected personal information in response to requests from the principal or the agent designated by the principal.</p>",
+            "policyArticle7Title":"Article 7. (Change of privacy policy)",
+            "policyArticle7Body":"<p>To change the contents of this privacy policy, we will pre-post its contents in the application and will not contact you individually.</p>",
+            "policyArticle8Title":"Article 8. (Inquiries about personal information)",
+            "policyArticle8Body":"<p>For inquiries about personal information, its handling and deletion, please contact by email at <a href=\"bigclout@kde.cs.tsukuba.ac.jp\">bigclout@kde.cs.tsukuba.ac.jp</a>.</p>"
+        }
+    }
+}
