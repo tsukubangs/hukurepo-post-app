@@ -54,6 +54,81 @@
                 "complete":"登録が完了しました。"
             }
         },
+        "AllProblems":{
+            "initial":"一覧の更新",
+            "preaction":"リリースして更新する",
+            "action":"一覧更新中..."
+        },
+        "CameraButton":{
+            "icon":"写真を貼付"
+        },
+        "CameraPage":{
+            "postMessage":"こちらの内容で投稿して良いですか？",
+            "postButtonLabels":["はい、すぐに回答が欲しいです", "はい", "いいえ"],
+            "placeholders":{
+                "postComment":"お困りですか？"
+            },
+            "error":{
+                "post":"申し訳ありません。投稿に失敗しました。",
+                "location":"位置情報を取得できませんでした"
+            },
+            "info":{
+                "post":"投稿完了しました"
+            }
+        },
+        "GetPresentPage":{
+            "campaignTitle":"HukuRepo </br> \"無料ギフトプロモーション\"",
+            "noteTitle":"お知らせ",
+            "noteDetail":"・この画面をつくば市職員に見せてください。</br>・ボタンに触れないでください。（つくば市職員が対応します）",
+            "buttonLabel":{
+                "yet":"受け取る",
+                "already":"既に受け取り済みです"
+            },
+            "inputPassword":"パスワードを入力してください",
+            "sendPresent":"プレゼントを渡してください",
+            "incorrect":"パスワードが違います"
+        },
+        "MyProblems":{
+            "initial":"一覧の更新",
+            "preaction":"リリースして更新する",
+            "action":"一覧更新中...",
+            "leadSentence":"ボタンを押して困っていることを投稿しましょう！",
+            "error":{
+                "connectTitle":"サーバーに接続できません",
+                "connectBody":"再試行します"
+            }
+        },
+        "PresentPage":{
+            "campaignTitle":"HukuRepo </br> \"無料ギフトプロモーション\"",
+            "campaignDetail":"\"HukuRepo\"をご利用いただきありがとうございます。</br>みなさんの投稿は、つくば市をより良くするために使用されます。</br>ご協力いただきありがとうございます。</br>ささやかですがプレゼントを準備しています。以下の条件をクリアし、是非プレゼントをお受け取りください。",
+            "postTerms":"５回投稿する",
+            "questionnareTerms":"アンケートに答える",
+            "campaignMap":"プレゼントの交換場所は<a v-bind:href=\"present_exchange_place\">こちら</a>です。",
+            "campaignExpire":"※有効期限：2017年11月30日（数量限定）",
+            "noteDetail":"・この画面をつくば市職員に見せてください。</br>・ボタンに触れないでください。 （つくば市職員が対応します）",
+            "buttonLabel":{
+                "yet":"受け取る",
+                "already":"既に受け取り済みです"
+            },
+            "error":{
+                "connectTitle":"",
+                "connectBody":"通信状況を確認してください。"
+            }
+        },
+        "ResponsePage":{
+            "initial":"一覧の更新",
+            "preaction":"リリースして更新する",
+            "action":"一覧更新中...",
+            "placeholders":{
+                "reply":"返信する"
+            },
+            "send":"送信する",
+            "error":{
+                "post":"申し訳ありませんが、投稿に失敗しました...",
+                "connectTitle":"サーバーに接続できません",
+                "connectBody":"再試行します"
+            }
+        },
         "settings": {
             "title":"その他",
             "policy":"利用規約とプライバシーポリシー",
@@ -152,6 +227,81 @@
                 "ConnectErrorBody":"Can't connect to server"
             }
         },
+        "AllProblems":{
+            "initial":"Pull to refresh",
+            "preaction":"Release",
+            "action":"Loading..."
+        },
+        "CameraButton":{
+            "icon":"Add Photo"
+        },
+        "CameraPage":{
+            "postMessage":"Do you need help for this problem?",
+            "postButtonLabels":["Yes, immediately", "Yes", "No"],
+            "placeholders":{
+                "postComment":"What's your problem?"
+            },
+            "error":{
+                "post":"Sorry, posting failed...",
+                "location":"can't get your position"
+            },
+            "info":{
+                "post":"Post has been completed."
+            }
+        },
+        "GetPresentPage":{
+            "campaignTitle":"HukuRepo </br>\"Free Gift Promotion\"",
+            "noteTitle":"Notes",
+            "noteDetail":"・Please show this screen to Tsukuba City staff.</br>・Please do not touch the button. (Tsukuba staff will use it)",
+            "buttonLabel":{
+                "yet":"Get Gift!",
+                "already":"You already got a present."
+            },
+            "inputPassword":"input Password",
+            "sendPresent":"プレゼントを渡してください",
+            "incorrect":"incorrect password"
+        },
+        "MyProblems":{
+            "initial":"Pull to refresh",
+            "preaction":"Release",
+            "action":"Loading...",
+            "leadSentence":"Let's push the button to post a problem!",
+            "error":{
+                "connectTitle":"Can't connect to server",
+                "connectBody":"Try again?"
+            }
+        },
+        "PresentPage":{
+            "campaignTitle":"HukuRepo </br>\"Free Gift Promotion\"",
+            "campaignDetail":"Thank you for using \"HukuRepo\"</br> The problem posted by everyone will be used to make Tsukuba city better. </br> Thank you for your cooperation.</br> With all my gratitude, we prepared gift for everyone who has used it. Please clear the following conditions and receive the gift.",
+            "postTerms":"Post 5 times",
+            "questionnareTerms":"Answer the questionnaire",
+            "campaignMap":"The exchange place for gifts is <a v-bind:href=\"present_exchange_place\">here</a>.",
+            "campaignExpire":"※Expiration date: November 30, 2017. (Limited Quantity)",
+            "noteDetail":"・Please show this screen to Tsukuba City staff.</br>・Please do not touch the button. (Tsukuba staff will use it)",
+            "buttonLabel":{
+                "yet":"Get Gift!",
+                "already":"You already got a present."
+            },
+            "error":{
+                "connectTitle":"",
+                "connectBody":"Sorry. Please, check network."
+            }
+        },
+        "ResponsePage":{
+            "initial":"Pull to refresh",
+            "preaction":"Release",
+            "action":"Loading...",
+            "placeholders":{
+                "reply":"Reply message"
+            },
+            "send":"Send",
+            "error":{
+                "post":"Sorry, posting failed...",
+                "connectTitle":"Can't connect to server",
+                "connectBody":"Try again?"
+            }
+        },
         "settings": {
             "title":"Other",
             "policy":"Terms of Service & Privacy Policy",
@@ -248,6 +398,81 @@
                 "LoginErrorBody":"죄송합니다. 비밀번호 또는 이메일이 잘못되었습니다.",
                 "ConnectErrorTitle":"연결 오류",
                 "ConnectErrorBody":"서버에 연결할 수 없습니다."
+            }
+        },
+        "AllProblems":{
+            "initial":"Pull to refresh",
+            "preaction":"Release",
+            "action":"Loading..."
+        },
+        "CameraButton":{
+            "icon":"Add Photo"
+        },
+        "CameraPage":{
+            "postMessage":"Do you need help for this problem?",
+            "postButtonLabels":["Yes, immediately", "Yes", "No"],
+            "placeholders":{
+                "postComment":"What's your problem?"
+            },
+            "error":{
+                "post":"Sorry, posting failed...",
+                "location":"can't get your position"
+            },
+            "info":{
+                "post":"Post has been completed."
+            }
+        },
+        "GetPresentPage":{
+            "campaignTitle":"HukuRepo </br>\"Free Gift Promotion\"",
+            "noteTitle":"Notes",
+            "noteDetail":"・Please show this screen to Tsukuba City staff.</br>・Please do not touch the button. (Tsukuba staff will use it)",
+            "buttonLabel":{
+                "yet":"交換する",
+                "already":"You already got a present."
+            },
+            "inputPassword":"input Password",
+            "sendPresent":"プレゼントを渡してください",
+            "incorrect":"incorrect password"
+        },
+        "MyProblems":{
+            "initial":"Pull to refresh",
+            "preaction":"Release",
+            "action":"Loading...",
+            "leadSentence":"Let's push the button to post a problem!",
+            "error":{
+                "connectTitle":"Can't connect to server",
+                "connectBody":"Try again?"
+            }
+        },
+        "PresentPage":{
+            "campaignTitle":"HukuRepo </br>\"Free Gift Promotion\"",
+            "campaignDetail":"Thank you for using \"HukuRepo\"</br> The problem posted by everyone will be used to make Tsukuba city better. </br> Thank you for your cooperation.</br> With all my gratitude, we prepared gift for everyone who has used it. Please clear the following conditions and receive the gift.",
+            "postTerms":"Post 5 times",
+            "questionnareTerms":"Answer the questionnaire",
+            "campaignMap":"The exchange place for gifts is <a v-bind:href=\"present_exchange_place\">here</a>.",
+            "campaignExpire":"※Expiration date: November 30, 2017. (Limited Quantity)",
+            "noteDetail":"・Please show this screen to Tsukuba City staff.</br>・Please do not touch the button. (Tsukuba staff will use it)",
+            "buttonLabel":{
+                "yet":"Get Gift!",
+                "already":"You already got a present."
+            },
+            "error":{
+                "connectTitle":"",
+                "connectBody":"Sorry. Please, check network."
+            }
+        },
+        "ResponsePage":{
+            "initial":"Pull to refresh",
+            "preaction":"Release",
+            "action":"Loading...",
+            "placeholders":{
+                "reply":"Reply message"
+            },
+            "send":"Send",
+            "error":{
+                "post":"Sorry, posting failed...",
+                "connectTitle":"Can't connect to server",
+                "connectBody":"Try again?"
             }
         },
         "settings": {
@@ -357,6 +582,81 @@
                 "LoginErrorBody":"对不起，您的密码或电子邮件不正确。",
                 "ConnectErrorTitle":"连接错误",
                 "ConnectErrorBody":"无法连接到服务器"
+            }
+        },
+        "AllProblems":{
+            "initial":"拉动刷新",
+            "preaction":"发布",
+            "action":"载入中..."
+        },
+        "CameraButton":{
+            "icon":"添加照片"
+        },
+        "CameraPage":{
+            "postMessage":"你需要帮助解决这个问题吗？",
+            "postButtonLabels":["是的，马上", "是", "没有"],
+            "placeholders":{
+                "postComment":"你怎么了？"
+            },
+            "error":{
+                "post":"对不起，发帖失败了......",
+                "location":"无法得到你的位置"
+            },
+            "info":{
+                "post":"邮政已经完成。"
+            }
+        },
+        "GetPresentPage":{
+            "campaignTitle":"HukuRepo </ br> \“免费礼品促销\”",
+            "noteTitle":"笔记",
+            "noteDetail":"·请将此画面显示给筑波市工作人员。</ br>·请不要触摸按钮。 （筑波工作人员将使用它）",
+            "buttonLabel":{
+                "yet":"要交换",
+                "already":"你已经有礼物了。"
+            },
+            "inputPassword":"输入密码",
+            "sendPresent":"请给我一份礼物",
+            "incorrect":"密码错误"
+        },
+        "MyProblems":{
+            "initial":"拉动刷新",
+            "preaction":"发布",
+            "action":"载入中...",
+            "leadSentence":"我们按下按钮发布问题！",
+            "error":{
+                "connectTitle":"无法连接到服务器",
+                "connectBody":"再试一次？"
+            }
+        },
+        "PresentPage":{
+            "campaignTitle":"HukuRepo </ br> \“免费礼品促销\”",
+            "campaignDetail":"感谢您使用\"HukuRepo\"</br>每个人发布的问题将用于改善筑波市。 </br>感谢您的合作。</br>感谢您，我们为使用过它的每个人准备了礼物。 请清除以下条件并领取礼物。",
+            "postTerms":"发帖5次",
+            "questionnareTerms":"回答问卷",
+            "campaignMap":"礼品的交换地点为<a v-bind:href=\"present_exchange_place\">此处</a>.",
+            "campaignExpire":"※有效期：2017年11月30日。（数量有限）",
+            "noteDetail":"·请将此画面显示给筑波市工作人员。</ br>·请不要触摸按钮。 （筑波工作人员将使用它）",
+            "buttonLabel":{
+                "yet":"要交换",
+                "already":"你已经有礼物了。"
+            },
+            "error":{
+                "connectTitle":"",
+                "connectBody":"抱歉。 请检查网络。"
+            }
+        },
+        "ResponsePage":{
+            "initial":"拉动刷新",
+            "preaction":"发布",
+            "action":"载入中...",
+            "placeholders":{
+                "reply":"回复消息"
+            },
+            "send":"发送",
+            "error":{
+                "post":"对不起，发帖失败了......",
+                "connectTitle":"无法连接到服务器",
+                "connectBody":"再试一次？"
             }
         },
         "settings": {
