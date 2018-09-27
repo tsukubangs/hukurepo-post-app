@@ -65,6 +65,9 @@
         "CameraPage":{
             "postMessage":"こちらの内容で投稿して良いですか？",
             "postButtonLabels":["はい、すぐに回答が欲しいです", "はい", "いいえ"],
+            "buttonLabel":{
+                "post":"投稿"
+            },
             "placeholders":{
                 "postComment":"お困りですか？"
             },
@@ -74,7 +77,8 @@
             },
             "info":{
                 "post":"投稿完了しました"
-            }
+            },
+            
         },
         "GetPresentPage":{
             "campaignTitle":"HukuRepo </br> \"無料ギフトプロモーション\"",
@@ -237,6 +241,9 @@
         },
         "CameraPage":{
             "postMessage":"Do you need help for this problem?",
+            "buttonLabel":{
+                "post":"Post"
+            },
             "postButtonLabels":["Yes, immediately", "Yes", "No"],
             "placeholders":{
                 "postComment":"What's your problem?"
@@ -401,78 +408,81 @@
             }
         },
         "AllProblems":{
-            "initial":"Pull to refresh",
-            "preaction":"Release",
-            "action":"Loading..."
+            "initial":"당겨 새로 고침",
+            "preaction":"해제",
+            "action":"로드 중 ..."
         },
         "CameraButton":{
-            "icon":"Add Photo"
+            "icon":"사진 추가"
         },
         "CameraPage":{
-            "postMessage":"Do you need help for this problem?",
-            "postButtonLabels":["Yes, immediately", "Yes", "No"],
+            "postMessage":"이 문제에 도움이 필요합니까?",
+            "buttonLabel":{
+                "post":"게시하다"
+            },
+            "postButtonLabels":["예, 즉시", "예", "아니"],
             "placeholders":{
-                "postComment":"What's your problem?"
+                "postComment":"무엇이 문제입니다?"
             },
             "error":{
-                "post":"Sorry, posting failed...",
-                "location":"can't get your position"
+                "post":"죄송합니다. 게시가 실패했습니다 ...",
+                "location":"당신의 위치를 얻을 수 없습니다."
             },
             "info":{
-                "post":"Post has been completed."
+                "post":"게시물이 완료되었습니다."
             }
         },
         "GetPresentPage":{
-            "campaignTitle":"HukuRepo </br>\"Free Gift Promotion\"",
-            "noteTitle":"Notes",
-            "noteDetail":"・Please show this screen to Tsukuba City staff.</br>・Please do not touch the button. (Tsukuba staff will use it)",
+            "campaignTitle":"HukuRepo </br> \"무료 선물 프로모션\"",
+            "noteTitle":"노트",
+            "noteDetail":"·이 화면을 쓰쿠바시 직원에게 보여주십시오. </br> · 버튼을 만지지 마십시오. (쓰쿠바 직원이 사용합니다)",
             "buttonLabel":{
-                "yet":"交換する",
-                "already":"You already got a present."
+                "yet":"교환",
+                "already":"이미 선물이 있어요."
             },
-            "inputPassword":"input Password",
+            "inputPassword":"입력 암호",
             "sendPresent":"プレゼントを渡してください",
-            "incorrect":"incorrect password"
+            "incorrect":"잘못된 비밀번호"
         },
         "MyProblems":{
-            "initial":"Pull to refresh",
-            "preaction":"Release",
-            "action":"Loading...",
-            "leadSentence":"Let's push the button to post a problem!",
+            "initial":"당겨 새로 고침",
+            "preaction":"해제",
+            "action":"로드 중 ...",
+            "leadSentence":"문제를 게시하려면 버튼을 누르십시오!",
             "error":{
-                "connectTitle":"Can't connect to server",
-                "connectBody":"Try again?"
+                "connectTitle":"서버에 연결할 수 없습니다.",
+                "connectBody":"다시 시도해 볼까요?"
             }
         },
         "PresentPage":{
-            "campaignTitle":"HukuRepo </br>\"Free Gift Promotion\"",
-            "campaignDetail":"Thank you for using \"HukuRepo\"</br> The problem posted by everyone will be used to make Tsukuba city better. </br> Thank you for your cooperation.</br> With all my gratitude, we prepared gift for everyone who has used it. Please clear the following conditions and receive the gift.",
-            "postTerms":"Post 5 times",
-            "questionnareTerms":"Answer the questionnaire",
-            "campaignMap":"The exchange place for gifts is <a v-bind:href=\"present_exchange_place\">here</a>.",
-            "campaignExpire":"※Expiration date: November 30, 2017. (Limited Quantity)",
-            "noteDetail":"・Please show this screen to Tsukuba City staff.</br>・Please do not touch the button. (Tsukuba staff will use it)",
+            "campaignTitle":"HukuRepo </br> \"무료 선물 프로모션\"",
+            "campaignDetail":"\"HukuRepo\"를 이용해 주셔서 감사합니다. </br> 모든 사람이 게시 한 문제는 쓰쿠바시를 더 잘 만들어주는 데 사용될 것입니다. </ br> 협조 해 주셔서 감사합니다. </br> 감사의 말씀을 전한 모든 분들께 선물을 준비했습니다. 다음 조건을 지우고 선물을 받으십시오.",
+            "postTerms":"5 번 게시",
+            "questionnareTerms":"설문지에 답하십시오.",
+            "campaignMap":"선물 교환 장소는 <a v-bind:href=\"present_exchange_place\"> 여기 </a>입니다.",
+            "campaignExpire":"※ 유효 기간 : 2017 년 11 월 30 일. (수량 한정)",
+            "noteDetail":"·이 화면을 쓰쿠바시 직원에게 보여주십시오. </br> · 버튼을 만지지 마십시오. (쓰쿠바 직원이 사용합니다)",
             "buttonLabel":{
-                "yet":"Get Gift!",
-                "already":"You already got a present."
+                "yet":"선물을 얻으십시오!",
+                "already":"이미 선물이 있어요."
             },
             "error":{
                 "connectTitle":"",
-                "connectBody":"Sorry. Please, check network."
+                "connectBody":"죄송합니다. 네트워크를 확인하십시오."
             }
         },
         "ResponsePage":{
-            "initial":"Pull to refresh",
-            "preaction":"Release",
-            "action":"Loading...",
+            "initial":"당겨 새로 고침",
+            "preaction":"해제",
+            "action":"로드 중 ...",
             "placeholders":{
-                "reply":"Reply message"
+                "reply":"댓글"
             },
-            "send":"Send",
+            "send":"보내다",
             "error":{
-                "post":"Sorry, posting failed...",
-                "connectTitle":"Can't connect to server",
-                "connectBody":"Try again?"
+                "post":"죄송합니다. 게시가 실패했습니다 ...",
+                "connectTitle":"서버에 연결할 수 없습니다.",
+                "connectBody":"다시 시도해 볼까요?"
             }
         },
         "settings": {
@@ -594,6 +604,9 @@
         },
         "CameraPage":{
             "postMessage":"你需要帮助解决这个问题吗？",
+            "buttonLabel":{
+                "post":"投稿"
+            },
             "postButtonLabels":["是的，马上", "是", "没有"],
             "placeholders":{
                 "postComment":"你怎么了？"
@@ -615,7 +628,7 @@
                 "already":"你已经有礼物了。"
             },
             "inputPassword":"输入密码",
-            "sendPresent":"请给我一份礼物",
+            "sendPresent":"プレゼントを渡してください",
             "incorrect":"密码错误"
         },
         "MyProblems":{
