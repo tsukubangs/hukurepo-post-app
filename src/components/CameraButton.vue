@@ -1,13 +1,25 @@
 <template>
     <div class="frame">
-        <v-ons-icon icon="ion-ios-camera-outline" size="200px" style="margin: -20px 0;" class="style"></v-ons-icon>
-        <p>Add Photo</p>
+        <v-ons-icon icon="ion-ios-camera-outline" size="200px" style="margin: -20px 0;" class="style">
+        </v-ons-icon>
+        <p>{{ this.messages.icon }}</p>
     </div>
 </template>
 
 <script>
 export default {
   name: 'camera-button',
+  data() {
+    return {
+      messages: this.getMessages(),
+    };
+  },
+  methods:{
+    getMessages(){
+      const messages = window.localStorage.getItem('messages');
+      return JSON.parse(messages).CameraButton;
+    },
+  },
 };
 </script>
 

@@ -1,9 +1,9 @@
 <template>
   <v-ons-page :infinite-scroll="loadMore">
     <v-ons-pull-hook :action="loadItem" @changestate="state = $event.state">
-      <span v-show="state === 'initial'"> Pull to refresh </span>
-      <span v-show="state === 'preaction'"> Release </span>
-      <span v-show="state === 'action'"> Loading... </span>
+      <span v-show="state === 'initial'"> {{ this.messages.initial }} </span>
+      <span v-show="state === 'preaction'"> {{ this.messages.preaction }} </span>
+      <span v-show="state === 'action'"> {{ this.messages.action }} </span>
     </v-ons-pull-hook>
     <main class="h100">
       <ul class="card-list">
@@ -34,6 +34,7 @@ export default {
   data() {
     return {
       state: 'initial',
+      messages: this.getMessages(),
     };
   },
   computed: {
@@ -63,6 +64,10 @@ export default {
       } else {
         done();
       }
+    },
+    getMessages(){
+      const messages = window.localStorage.getItem('messages');
+      return JSON.parse(messages).AllProblems;
     },
   },
 };

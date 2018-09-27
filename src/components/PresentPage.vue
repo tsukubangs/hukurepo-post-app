@@ -3,42 +3,33 @@
     <custom-toolbar></custom-toolbar>
     <div class="box">
       <h1 class="campaign-title">
-        HukuRepo </br>"Free Gift Promotion"
+        <span v-html="this.messages.campaignTitle"></span>
       </h1>
-      <p class="campaign-detail">
-        Thank you for using "HukuRepo"</br>
-        The problem posted by everyone will be used to make Tsukuba city better. </br>
-        Thank you for your cooperation.</br>
-        With all my gratitude, we prepared gift for everyone who has used it.
-        Please clear the following conditions and receive the gift.</p>
+      <p class="campaign-detail"><span v-html="this.messages.campaignDetail"></span>
       <v-ons-list-item>
         <div class="left">
           <v-ons-icon icon="fa-check-circle" class="list-item__icon" v-if="isPostCountDone"></v-ons-icon>
           <v-ons-icon icon="fa-check-circle" class="list-item__icon" style="color:white" v-else></v-ons-icon>
         </div>
-        <div class="center">
-          Post 5 times
-        </div>
+        <div class="center"> {{ this.messages.postTerms }} </div>
       </v-ons-list-item>
       <v-ons-list-item>
         <div class="left">
           <v-ons-icon icon="fa-check-circle" class="list-item__icon" v-if="isQuestionnareDone"></v-ons-icon>
           <v-ons-icon icon="fa-check-circle" class="list-item__icon" style="color:white" v-else></v-ons-icon>
         </div>
-        <div class="center">
-          Answer the questionnaire
-        </div>
+        <div class="center"> {{ this.messages.questionnareTerms }} </div>
       </v-ons-list-item>
 
-      <p class="campaign-map">The exchange place for gifts is <a v-bind:href="present_exchange_place">here</a>.</p>
-      <p class="campaign-expire">※Expiration date: November 30, 2017. (Limited Quantity)</p>
+      <p class="campaign-map"><span v-html="this.messages.campaignMap"></span></p>
+      <p class="campaign-expire"> {{ this.messages.campaignExpire }} </p>
       <v-ons-button v-if="isPostCountDone && isQuestionnareDone"
                   @click="toGetPresent()"
                   modifier="large"
                   style="margin: 6px 0">
-                  Get Gift!
+                  {{ this.messages.buttonLabel.yet }}
       </v-ons-button>
-      <v-ons-button v-else disabled modifier="large" style="margin: 6px 0">Get Gift!</v-ons-button>
+      <v-ons-button v-else disabled modifier="large" style="margin: 6px 0">{{ this.messages.buttonLabel.already }}</v-ons-button>
     </div>
   </v-ons-page>
 </template>
@@ -63,6 +54,7 @@ export default {
       isPostCountDone: false,
       isQuestionnareDone: false,
       present_exchange_place: PRESENT_EXCHANGE_PLACE,
+      messages: this.getMessages(),
     };
   },
   created() {
@@ -81,14 +73,18 @@ export default {
     .catch((error) => {
       console.log(error);
       ons.notification.alert({
-        title: '',
-        message: 'Sorry. Please, check network.',
+        title: this.messages.error.connectTitle,
+        message: this.messages.error.connectBody,
       });
     });
   },
   methods: {
     toGetPresent() {
       this.pageStack.push(GetPresentPage);
+    },
+    getMessages(){
+      const messages = window.localStorage.getItem('messages');
+      return JSON.parse(messages).PresentPage;
     },
   },
 };

@@ -3,7 +3,7 @@
     <custom-toolbar></custom-toolbar>
     <ons-progress-bar indeterminate  v-show="this.isPosting === true"></ons-progress-bar>
     <ons-progress-bar indeterminate  v-show="this.isPosting === true"></ons-progress-bar>
-    <textarea id="text-form" class="textarea" rows="5" placeholder="What's your problem?" v-model="postComment" name='description' v-focus v-resize></textarea>
+    <textarea id="text-form" class="textarea" rows="5" v-bind:placeholder="this.messages.placeholders.postComment" v-model="postComment" name='description' v-focus v-resize></textarea>
     <div @click="takePhoto" style="display: inline-block" v-if="!this.hasImageData"><camera-button></camera-button></div>
     <div class="photo-block" v-else>
         <img :src="imageData" class="photo">
@@ -16,7 +16,10 @@
         <div class="toolbar__center">
         </div>
         <div class="toolbar__right mr10">
-            <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="selectPriority"><ons-icon icon="ion-compose" size="25px"></ons-icon> Post</span>
+        <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="selectPriority">
+          <ons-icon icon="ion-compose" size="25px"></ons-icon>
+          {{ this.messages.buttonLabel.post }}
+        </span>
         </div>
       </div>
     </div>
@@ -112,7 +115,7 @@ function postProblem(priority) {
         this.isPosting = false;
         ons.notification.alert({
           title: '',
-          message: 'Post has been completed.',
+          message: this.messages.info.post,
           callback: () => {
             this.pageStack.splice(1, this.pageStack.length - 1);
           },
@@ -122,7 +125,7 @@ function postProblem(priority) {
         console.log(error);
         ons.notification.alert({
           title: '',
-          message: 'Sorry, posting failed...',
+          message: this.messages.error.post,
         });
       });
 }
@@ -145,6 +148,7 @@ export default {
       postComment: '',
       imageData: '',
       isPosting: false,
+      messages: this.getMessages(),
     };
   },
   computed: {
@@ -176,9 +180,9 @@ export default {
     selectPriority() {
       const self = this;
       ons.notification.confirm({
-        title: 'Do you need help for this problem?',
+        title: this.messages.postMessage,
         messageHTML: ' ',
-        buttonLabels: ['Yes, immediately', 'Yes', 'No'],
+        buttonLabels: this.messages.postButtonLabels,
         animation: 'default',
         cancelable: true,
         callback(index) {
@@ -197,6 +201,10 @@ export default {
         },
       });
     },
+    getMessages(){
+      const messages = window.localStorage.getItem('messages');
+      return JSON.parse(messages).CameraPage;
+    },
   },
   created() {
     navigator.geolocation.getCurrentPosition(
@@ -207,7 +215,7 @@ export default {
     () => {
       ons.notification.alert({
         title: '',
-        message: "can't get your position",
+        message: this.messages.error.location,
       });
       this.isMapError = true;
     });

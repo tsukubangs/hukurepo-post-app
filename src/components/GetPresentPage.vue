@@ -3,20 +3,19 @@
     <custom-toolbar></custom-toolbar>
     <div class="box">
       <h1 class="campaign-title">
-        HukuRepo </br>"Free Gift Promotion"
+        <span v-html="this.messages.campaignTitle"></span>
       </h1>
       <img id="thanks-img" src="../assets/thanks.png" alt="thanks">
-      <p class='note-title'>Notes</p>
+      <p class='note-title'>{{ this.messages.noteTitle }}</p>
       <p class="note-detail">
-        ・Please show this screen to Tsukuba City staff.</br>
-        ・Please do not touch the button. (Tsukuba staff will use it)</p>
-      <v-ons-button v-if="!isPresentReceived"
-                  @click="checkPass()"
-                  modifier="large"
-                  style="margin: 6px 0">
-                  交換する
+        <span v-html="this.messages.noteDetail"></span>
+      </p>
+      <v-ons-button v-if="!isPresentReceived" @click="checkPass()" modifier="large" style="margin: 6px 0">
+        {{ this.messages.buttonLabel.yet }}
       </v-ons-button>
-      <v-ons-button v-else disabled modifier="large" style="margin: 6px 0">You already got a present.</v-ons-button>
+      <v-ons-button v-else disabled modifier="large" style="margin: 6px 0">
+        {{ this.messages.buttonLabel.already }}
+      </v-ons-button>
     </div>
   </v-ons-page>
 </template>
@@ -35,6 +34,7 @@ export default {
     return {
       isPresentReceived: false,
       password: '',
+      messages: this.getMessages(),
     };
   },
   created() {
@@ -44,8 +44,8 @@ export default {
     checkPass() {
       ons.notification.prompt({
         inputType: 'number',
-        title: 'パスワードを入力してください',
-        message: 'Input Password.',
+        title: '',
+        message: this.messages.inputPassword,
       })
         .then((response) => {
           if (response === PRESENT_PASSWORD) {
@@ -53,18 +53,22 @@ export default {
             this.isPresentReceived = window.localStorage.getItem('got_present');
             ons.notification.alert({
               title: '',
-              message: 'プレゼントを渡してください',
+              message: this.messages.sendPresent,
               callback() {
                 window.localStorage.setItem('got_present', true);
               },
             });
           } else {
             ons.notification.alert({
-              title: 'パスワードが違います',
-              message: 'incorrect password',
+              title: '',
+              message: this.messages.incorrect,
             });
           }
         });
+    },
+    getMessages(){
+      const messages = window.localStorage.getItem('messages');
+      return JSON.parse(messages).GetPresentPage;
     },
   },
 };

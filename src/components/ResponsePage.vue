@@ -6,9 +6,9 @@
       :action="loadItem"
       @changestate="state = $event.state"
     >
-      <span v-show="state === 'initial'"> Pull to refresh </span>
-      <span v-show="state === 'preaction'"> Release </span>
-      <span v-show="state === 'action'"> Loading... </span>
+      <span v-show="state === 'initial'"> {{this.messages.initial}} </span>
+      <span v-show="state === 'preaction'"> {{this.messages.preaction}} </span>
+      <span v-show="state === 'action'"> {{this.messages.action}} </span>
     </v-ons-pull-hook>
 
     <main>
@@ -29,18 +29,18 @@
     <div v-if="selectedProblem.user_id===userInfo.data.id">
       <div class="bottom-bar" v-if="!this.isIOS">
         <div class="toolbar">
-          <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
+            <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" v-bind:placeholder="this.messages.placeholders.reply" v-model="replyComment" name='description' ></textarea>
           <div class="toolbar__right">
-            <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
+            <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">{{ this.messages.send }}</span>
           </div>
         </div>
       </div>
       <v-ons-toolbar class="ios-bottom-bar" style="padding-top: 0;" v-else="this.isIOS">
-        <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" placeholder="Reply message" v-model="replyComment" name='description' ></textarea>
+        <textarea id="text-form" class="textarea bottom-bar-textarea" rows="1" v-bind:placeholder="this.messages.placeholders.reply" v-model="replyComment" name='description' ></textarea>
         <div class="left toolbar-ios"></div>
         <div class="center toolbar-ios"></div>
         <div class="right toolbar-ios">
-          <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">Send</span>
+          <span class="toolbar-button post-problem-btn" v-bind:disabled="!this.postEnabled" @click="postResponse">{{ this.messages.send }}</span>
         </div>
       </v-ons-toolbar>
     </div>
@@ -82,6 +82,7 @@ export default {
       replyComment: '',
       isPosting: false,
       photoModalVisible: false,
+      messages: this.getMessages(),
     };
   },
   computed: {
@@ -142,7 +143,7 @@ export default {
         console.log(error);
         ons.notification.alert({
           title: '',
-          message: 'Sorry, posting failed...',
+          message: this.messages.error.post,
         });
         this.isPosting = false;
       });
@@ -160,11 +161,15 @@ export default {
       .catch((error) => {
         console.log(error);
         ons.notification.alert({
-          title: 'Can\'t connect to server',
-          message: 'Try again?',
+          title: this.messages.error.connectTitle,
+          message: this.messages.error.connectBody,
           callback: this.getResponse,
         });
       });
+    },
+    getMessages(){
+      const messages = window.localStorage.getItem('messages');
+      return JSON.parse(messages).ResponsePage;
     },
   },
   props: ['pageStack'],

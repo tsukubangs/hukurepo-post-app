@@ -1,9 +1,9 @@
 <template>
   <v-ons-page>
     <v-ons-pull-hook :action="loadItem" @changestate="state = $event.state">
-      <span v-show="state === 'initial'"> Pull to refresh </span>
-      <span v-show="state === 'preaction'"> Release </span>
-      <span v-show="state === 'action'"> Loading... </span>
+      <span v-show="state === 'initial'"> {{ this.messages.initial }} </span>
+      <span v-show="state === 'preaction'"> {{ this.messages.preaction }} </span>
+      <span v-show="state === 'action'"> {{ this.messages.action }} </span>
     </v-ons-pull-hook>
     <a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/momiji_festival"><img src="./../assets/banner.png" alt="BANNER"  width="100%" border="0"></a>
     <main class="h100">
@@ -41,8 +41,8 @@ export default {
     this.$store.watch(state => state.fetchProblemsStatus.isError, (isError) => {
       if (isError) {
         ons.notification.alert({
-          title: 'Can\'t connect to server',
-          message: 'Try again?',
+          title: this.messages.error.connectTitle,
+          message: this.messages.error.connectBody,
           callback: this.FETCH_PROBLEMS,
         });
       }
@@ -54,12 +54,14 @@ export default {
     return {
       state: 'initial',
       target: '#postButton',
+      messages: this.getMessages(),
     };
   },
   computed: {
     ...mapGetters([
       'problems',
       'fetchProblemsStatus',
+      'userInfo',
     ]),
     popoverVisible() {
       return this.problems.length === 0 && this.fetchProblemsStatus.isCompleted;
@@ -87,6 +89,10 @@ export default {
         this.REFETCH_PROBLEMS();
         done();
       }, 400);
+    },
+    getMessages(){
+      const messages = window.localStorage.getItem('messages');
+      return JSON.parse(messages).MyProblems;
     },
   },
 };
