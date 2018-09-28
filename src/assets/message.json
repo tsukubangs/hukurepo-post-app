@@ -22,6 +22,8 @@
             "Age":"年齢",
             "Country":"本籍",
             "Confirm":"確認",
+            "Edit":"戻る",
+            "SignUp":"OK",
             "SignUpMessage":"以下の内容で登録します",
             "genders":["男性", "女性"],
             "placeholders":{
@@ -107,11 +109,11 @@
             "postTerms":"５回投稿する",
             "questionnareTerms":"アンケートに答える",
             "campaignMap":"プレゼントの交換場所は<a v-bind:href=\"present_exchange_place\">こちら</a>です。",
-            "campaignExpire":"※有効期限：2017年11月30日（数量限定）",
+            "campaignExpire":"※有効期限：2018年8月26日（数量限定）",
             "noteDetail":"・この画面をつくば市職員に見せてください。</br>・ボタンに触れないでください。 （つくば市職員が対応します）",
             "buttonLabel":{
                 "yet":"受け取る",
-                "already":"既に受け取り済みです"
+                "already":"受け取る"
             },
             "error":{
                 "connectTitle":"",
@@ -135,7 +137,13 @@
         "settings": {
             "title":"その他",
             "policy":"利用規約とプライバシーポリシー",
-            "displayLanguage":"表示言語"
+            "displayLanguage":"表示言語",
+            "selectLanguage":"日本語",
+            "questionnaire":"アンケート",
+            "getPresent":"プレゼント",
+            "info":{
+                "change":"言語が変更されたため、再起動します"
+            }
         },
         "privacyPolicy": {
             "title":"HukuRepo利用規約",
@@ -156,7 +164,7 @@
             "policyArticle2Title":"第2条（収集すべき情報の範囲）",
             "policyArticle2Body":"<p>このアプリケーションでは、ユーザーが参加型センシングに参加することで、アプリケーション提供者は写真、テキスト、タグなどの情報を収集します。</p>",
             "policyArticle3Title":"第3条（使用の目的）",
-            "policyArticle3Body":"<p>収集された情報は、学術研究にのみ使用され、他の目的では使用されません。 収集された情報に個人情報が含まれている場合は、個人が特定されない形式に処理され、研究目的に必要な部分が使用されます。また、個人が特定されない形式に処理されたデータは、同じ研究プロジェクト内の他の組織に提供される可能性があります。本プロジェクトにはCEA-Leti（フランス）、Engineering Ingegneria Informatica SpA（イタリア）、ABSISKEY共同プロジェクト（フランス）、ランカスター大学コンピューティング・コミュニケーション学部（英国）、アテネ国立技術大学（ギリシャ）の通信コンピュータシステム研究所、NTT東日本、慶應義塾大学、国立情報学研究所（NII）、NTT R＆D（日本）などの研究機関の他、筑波（日本）、藤沢（日本）、グルノーブル（フランス）、ブリストル（英国）などの都市が参加しています。",
+            "policyArticle3Body":"<p>収集した情報は，学術研究もしくはつくば市の市政改善のためにのみ使用し，それ以外の目的には使用しません．収集した情報に個人情報が含まれる場合は，個人が特定できない形に加工した上で，研究の目的に必要な部分に限って使用します．例えば，困りごとを地図上にプロットする，投稿された時間帯を分析する，など．また，個人が特定できない形に加工したデータは，同一研究プロジェクト内の別の団体（Commissariat á l‘énergie atomique et aux energies alternatives - Laboratoire d’électronique des technologies de l‘information（CEA-Leti）（フランス）、Engineering Ingegneria Informatica SpA（イタリア）、ABSISKEY Collaborative Project（フランス）、School of Computing and Communications, Lancaster University（イギリス）、Institute of Communication and Computer System, National Technical University of Athens（ギリシャ）、Grenoble市（フランス）、Bristol市（イギリス）、東日本電信電話株式会社、学校法人　慶應義塾大学SFC研究所、大学共同利用機関法人情報・システム研究機構 国立情報学研究所、日本電信電話株式会社（未来ねっと研究所），茨城県つくば市，神奈川県藤沢市）に提供される場合があります．</p>",
             "policyArticle4Title":"第4条（個人情報の利用及び提供）",
             "policyArticle4Body":"<p>アプリケーション提供者は、収集した個人情報を上記の使用目的の範囲内で使用し、他の目的で使用したり、第三者に提供したりすることはありません。ただし、アプリケーション提供者がユーザーの同意を得るか、 統計処理後、アプリケーション提供者は調査範囲内で自由に選択、変更、編集、削除することができ、ユーザーの同意なしに開示/公開することができます。</p>",
             "policyArticle5Title":"第5条（個人情報の管理）",
@@ -283,11 +291,11 @@
             "postTerms":"Post 5 times",
             "questionnareTerms":"Answer the questionnaire",
             "campaignMap":"The exchange place for gifts is <a v-bind:href=\"present_exchange_place\">here</a>.",
-            "campaignExpire":"※Expiration date: November 30, 2017. (Limited Quantity)",
+            "campaignExpire":"※Expiration date: August 26, 2018. (Limited Quantity)",
             "noteDetail":"・Please show this screen to Tsukuba City staff.</br>・Please do not touch the button. (Tsukuba staff will use it)",
             "buttonLabel":{
                 "yet":"Get Gift!",
-                "already":"You already got a present."
+                "already":"Get Gift!"
             },
             "error":{
                 "connectTitle":"",
@@ -311,7 +319,13 @@
         "settings": {
             "title":"Other",
             "policy":"Terms of Service & Privacy Policy",
-            "displayLanguage":"Language"
+            "displayLanguage":"Language",
+            "selectLanguage":"English",
+            "questionnaire":"Questionnaire",
+            "getPresent":"get Present",
+            "info":{
+                "change":"Restart because language changed"
+            }
         },
         "privacyPolicy": {
             "title":"HukuRepo Terms of Service",
@@ -332,7 +346,7 @@
             "policyArticle2Title":"Article 2. (Scope of information to be collected)",
             "policyArticle2Body":"<p>In this application, when the users take part in participatory sensing, the application provider will collect the problems (photos, text, tag, etc.)</p>",
             "policyArticle3Title":"Article 3. (Objective of use)",
-            "policyArticle3Body":"<p>The collected information is used only for academic research and not for other purposes.  If personal information is included in the collected information, it is processed into a form that an individual is not identified, and the part necessary for research purpose will be used.  In addition, data processed into an unidentifiable form may be provided to other organizations within the same research project (Commissariat a l‘energie atomique et aux energies alternatives - Laboratoire d’electronique des technologies de l‘information (CEA-Leti) (France), Engineering Ingegneria Informatica SpA (Italy), ABSISKEY Collaborative Project (France), School of Computing and Communications, Lancaster University (UK), Institute of Communication and Computer System, National Technical University of Athens (Greece), NTT East (Japan), Keio University (Japan), National Institute of Inforamatics (NII) (Japan), or NTT R & D (Japan)) or cities that participate in the project (Tsukuba (Japan), Fujisawa (Japan), Grenoble (France), or Bristol (UK)).</p>",
+            "policyArticle3Body":"<p>The collected information is used only for academic research or for improving operations of Tsukuba City, and and not for other purposes. If personal information is included in the collected information, it is processed into a form that an individual is not identified, and the part necessary for research purpose will be used, e.g., plotting problems on map, temporal analysis of submission time, etc.  In addition, data processed into an unidentifiable form may be provided to other organizations within the same research project (Commissariat a l‘energie atomique et aux energies alternatives - Laboratoire d’electronique des technologies de l‘information (CEA-Leti) (France), Engineering Ingegneria Informatica SpA (Italy), ABSISKEY Collaborative Project (France), School of Computing and Communications, Lancaster University (UK), Institute of Communication and Computer System, National Technical University of Athens (Greece), NTT East (Japan), Keio University (Japan), National Institute of Inforamatics (NII) (Japan), or NTT R & D (Japan)) or cities that participate in the project (Tsukuba (Japan), Fujisawa (Japan), Grenoble (France), or Bristol (UK))</p>",
             "policyArticle4Title":"Article 4. (Use and provision of personal information)",
             "policyArticle4Body":"<p>The application provider will use the collected personal information within the range of purpose of use specified above, and will not use for other purposes or provide to third parties except that the application provider obtains the consent of the user or when there is a provision of laws or regolations, etc.  Note that, after statistically processed, the application provider can freely select, modify, edit, delete such information within the scope of research, and may disclose / publish without the user's consent.</p>",
             "policyArticle5Title":"Article 5. (Management of private information)",
@@ -459,11 +473,11 @@
             "postTerms":"5 번 게시",
             "questionnareTerms":"설문지에 답하십시오.",
             "campaignMap":"선물 교환 장소는 <a v-bind:href=\"present_exchange_place\"> 여기 </a>입니다.",
-            "campaignExpire":"※ 유효 기간 : 2017 년 11 월 30 일. (수량 한정)",
+            "campaignExpire":"※ 유효 기간 : 2018 년 8 월 26 일. (수량 한정)",
             "noteDetail":"·이 화면을 쓰쿠바시 직원에게 보여주십시오. </br> · 버튼을 만지지 마십시오. (쓰쿠바 직원이 사용합니다)",
             "buttonLabel":{
                 "yet":"선물을 얻으십시오!",
-                "already":"이미 선물이 있어요."
+                "already":"선물을 얻으십시오!"
             },
             "error":{
                 "connectTitle":"",
@@ -488,16 +502,11 @@
             "title":"다른",
             "policy":"서비스 약관 및 개인 정보 취급 방침",
             "displayLanguage":"언어",
-            "SignUp":"가입하다",
-            "placeholders":{
-                "Email":"이메일",
-                "Password":"암호"
-            },
-            "error":{
-                "LoginErrorTitle":"로그인 실패",
-                "LoginErrorBody":"죄송합니다. 비밀번호 또는 이메일이 잘못되었습니다.",
-                "ConnectErrorTitle":"연결 오류",
-                "ConnectErrorBody":"서버에 연결할 수 없습니다."
+            "selectLanguage":"韓国語",
+            "questionnaire":"질문 사항",
+            "getPresent":"선물 받기",
+            "info":{
+                "change":"언어가 변경 되었기 때문에 다시 시작합니다"
             }
         },
         "privacyPolicy": {
@@ -519,7 +528,7 @@
             "policyArticle2Title":"제 2 조 (수집 정보의 범위)",
             "policyArticle2Body":"<p>이 응용 프로그램에서 사용자가 참여 감지에 참여하면 응용 프로그램 공급자는 문제 (사진, 텍스트, 태그 등)를 수집하고,</p>",
             "policyArticle3Title":"제 3 조 (사용 목적)",
-            "policyArticle3Body":"<p>수집 된 정보는 학술 연구에만 사용되며 다른 목적으로는 사용되지 않습니다. 수집 된 정보에 개인 정보가 포함되어있는 경우 개인을 식별 할 수없는 형태로 처리되며 연구 목적으로 필요한 부분이 사용됩니다. 또한 식별 불가능한 형태로 가공 된 데이터는 동일한 연구 프로젝트 (Commissariat al'energie atomique et aux energies alternatives - CEA-Leti) (프랑스) 내의 다른 조직에 제공 될 수있다. Engineering Ingegneria Informatica SpA (이탈리아), ABSICKEY Collaborative Project (프랑스), Lancaster University (영국), 아테네 국립 기술 대학 (그리스), NTT East (일본), Keio 쓰쿠바 (일본), 후지사와 (일본), 그르노블 (프랑스) 또는 브리스톨 (독일)의 프로젝트에 참여하는 도시 (일본), 국립 정보 연구소 (일본) 또는 NTT R & D (영국)).</p>",
+            "policyArticle3Body":"<p>수집된 정보는 학문적 연구나 쓰쿠바 시의 운영을 개선하기 위한 목적으로만 사용되며, 다른 목적으로는 사용되지 않습니다. 수집된 정보에 개인 정보가 포함된 경우, 개인이 식별되지 않는 형태로 처리되며, 연구 목적에 필요한 부분이 사용될 수 있습니다. 예를 들어 지도상에 문제를 띄우는 것, 자료 제출 시간대에 대한 임시적인 분석 등이 제공될 수 있습니다. 동일 연구 프로젝트 내의 다른 단체(Commissariat á l‘énergie atomique et aux energies alternatives - Laboratoire d’électronique des technologies de l‘information(CEA-Leti)(프랑스), Engineering Ingegneria Informatica SpA(이탈리아), ABSISKEY Collaborative Project(프랑스), School of Computing and Communications, Lancaster University(영국), Institute of Communication and Computer System, National Technical University(그리스), 그레노블시(프랑스), 브리스톨시(영국), NTT 동일본(일본), 게이오대학(일본), 국립 정보학 연구소(NII)(일본), NTT R&D(일본), 또는 이 프로젝트에 참여하는 도시(쓰쿠바(일본), 후지사와(일본), 그레노블(프랑스), 브리스톨(영국))에 제공될 수 있습니다.</p>",
             "policyArticle4Title":"제 4 조 (개인 정보의 사용 및 제공)",
             "policyArticle4Body":"<p>애플리케이션 제공 업체는 수집 된 개인 정보를 위에 명시된 사용 목적 범위 내에서 사용하며 애플리케이션 제공 업체가 사용자의 동의를 얻거나 법률 조항이있는 경우를 제외하고는 다른 목적으로 사용하거나 제 3 자에게 제공하지 않습니다 통계 처리 된 후 응용 프로그램 제공자는 연구 범위 내에서 그러한 정보를 자유롭게 선택, 수정, 삭제할 수 있으며 사용자의 동의없이 공개 / 게시 할 수 있습니다.</p>",
             "policyArticle5Title":"제 5 조 (개인 정보 관리)",
@@ -605,6 +614,9 @@
         "CameraPage":{
             "postMessage":"这些内容，可以提交吗？",
             "postButtonLabels":["是，想立刻得到回答", "是", "否"],
+            "buttonLabel":{
+                "post":"贡献"
+            },
             "placeholders":{
                 "postComment":"是不是很困惑？"
             },
@@ -644,11 +656,11 @@
             "postTerms":"5次提问",
             "questionnareTerms":"完成问卷调查",
             "campaignMap":"领取礼物之处<a v-bind:href=\"present_exchange_place\">在这里</a>",
-            "campaignExpire":"截至期限：2017年11月30日（数量有限）",
+            "campaignExpire":"截至期限：2018年8月26日（数量有限）",
             "noteDetail":"请把该画面给筑波市的职员看。</br>请不要触摸按键（筑波市的职员处理）",
             "buttonLabel":{
                 "yet":"接受",
-                "already":"已经接受完毕"
+                "already":"接受"
             },
             "error":{
                 "connectTitle":"",
@@ -672,7 +684,13 @@
         "settings": {
             "title":"其他",
             "policy":"服务条款和隐私政策",
-            "displayLanguage":"显示语言"
+            "displayLanguage":"显示语言",
+            "selectLanguage":"中国語",
+            "questionnaire":"调查问卷",
+            "getPresent":"得到礼物",
+            "info":{
+                "change":"语言已被更换，请重启"
+            }
         },
         "privacyPolicy": {
             "title":"HukuRepo使用规约",
@@ -693,7 +711,7 @@
             "policyArticle2Title":"第2条。（收集的信息范围）",
             "policyArticle2Body":"<p>在此应用程序中，当用户参与参与式环节时，应用程序提供商将收集问题（照片，文本，标签等）</p>",
             "policyArticle3Title":"第3条。（使用目的）",
-            "policyArticle3Body":"<p>收集的信息仅用于学术研究，不用于其他目的。如果收集的信息中包含个人隐私信息，则会过滤掉个人特定信息，只使用研究所需的部分。此外，处理后的数据可能会提供给同一研究项目内的其他组织。CEA-Leti（法国）， Engineering Ingegneria Informatica SpA（意大利），ABSISKEY协作项目（法国），计算与通信学院，兰卡斯特大学（英国），通信与计算机系统研究所，雅典国立技术大学（希腊），NTT East（日本），庆应大学（日本），国立情报学研究所（NII）（日本）或NTT R＆D（日本））或参与该项目的城市（筑波（日本），藤泽（日本），格勒诺布尔（法国）或布里斯托尔（UK））等城市都参与了这项目。</p>",
+            "policyArticle3Body":"<p>收集到的信息仅用于学术研究或改良筑波市的市政工作，不用于其他目的。另外对于信息中包含个人隐私的部分，则会过滤掉个人特定信息，只取用研究所需要的部分。例如，根据收集的信息可以在地图上标绘出问题多发的区域，对提问时间段进行分析等。此外，处理后的数据可能会提供给同一研究项目内的其他组织。（ CEA-Leti（法国）， Engineering Ingegneria Informatica SpA（意大利），ABSISKEY协作项目（法国），计算与通信学院，兰卡斯特大学（英国），通信与计算机系统研究所，雅典国立技术大学（希腊），格勒诺布尔市（法国），布里斯托尔市（英国），东日本电信有限公司（日本），庆应大学SFC研究所（日本），国立情报学研究所（日本），日本电信电话有限公司（未来网络研究所），筑波（日本），神奈川县藤泽市（日本））</p>",
             "policyArticle4Title":"第4条（使用和提供个人信息）",
             "policyArticle4Body":"<p>应用程序提供商将在上述使用目的范围内使用收集的个人信息，不会将其用于其他目的或提供给第三方，但是，在用户同意的前提下，统计处理后，应用程序提供商可以在研究范围内自由选择，修改，编辑，删除此类信息，并且可以在未经用户同意的情况下进行披露/发布。</p>",
             "policyArticle5Title":"第5条（私人信息管理）",
