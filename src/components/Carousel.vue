@@ -1,11 +1,12 @@
 <template>
   <v-ons-page>
     <v-ons-toolbar>
-      <div class="left">
+<!--      <div class="left">
         <ons-toolbar-button modifier="outline" style="backgroundColor: white" @click="changeLanguage">
           {{ setLanguage }}
         </ons-toolbar-button>
       </div>
+-->
       <div class="right">
         <ons-toolbar-button modifier="outline" style="backgroundColor: white" @click="toAgree">
           Sign up
@@ -53,11 +54,11 @@ document.addEventListener("deviceready", function () {
 
 export default {
   name: 'init-page',
-  computed:{
-    setLanguage: function(){
-      return this.labelLang;
-    },
-  },
+//  computed:{
+//    setLanguage: function(){
+//      return this.labelLang;
+//    },
+//  },
   methods: {
     toLogin() {
       router.push('login');
@@ -65,48 +66,48 @@ export default {
     toAgree() {
       router.push('agree');
     },
-    changeLanguage(){
-      const lang = window.localStorage.getItem('deviceLanguage');
-      if (lang == 'en'){
-        window.localStorage.setItem('deviceLanguage', 'ja');
-        this.labelLang = '日本語';
-      }
-      else if(lang == 'ja'){
-        window.localStorage.setItem('deviceLanguage', 'ko');
-        this.labelLang = '한국';
-      }
-      else if(lang == 'ko'){
-        window.localStorage.setItem('deviceLanguage', 'zh');
-        this.labelLang = '中国';
-      }
-      else if(lang == 'zh'){
-        window.localStorage.setItem('deviceLanguage', 'en');
-        this.labelLang = 'English';
-      }
-    },
-initialLanguage(){
-  if(window.localStorage.getItem('deviceLanguage') == null){
-    window.localStorage.setItem('deviceLanguage', 'en');
-  }
-  const lang = window.localStorage.getItem('deviceLanguage');
-  if (lang == 'ja'){
-    return '日本語';
-  }
-  else if(lang == 'ko'){
-    return '한국';
-  }
-  else if(lang == 'zh'){
-    return '中国';
-  }
-  else if(lang == 'en'){
-    return 'English';
-  }
-},
+//    changeLanguage(){
+//      const lang = window.localStorage.getItem('deviceLanguage');
+//      if (lang == 'en'){
+//        window.localStorage.setItem('deviceLanguage', 'ja');
+//        this.labelLang = '日本語';
+//      }
+//      else if(lang == 'ja'){
+//        window.localStorage.setItem('deviceLanguage', 'ko');
+//        this.labelLang = '한국';
+//      }
+//      else if(lang == 'ko'){
+//        window.localStorage.setItem('deviceLanguage', 'zh');
+//        this.labelLang = '中国';
+//      }
+//      else if(lang == 'zh'){
+//        window.localStorage.setItem('deviceLanguage', 'en');
+//        this.labelLang = 'English';
+//      }
+//    },
+//    initialLanguage(){
+//      if(window.localStorage.getItem('deviceLanguage') == null){
+//        window.localStorage.setItem('deviceLanguage', 'en');
+//      }
+//      const lang = window.localStorage.getItem('deviceLanguage');
+//      if (lang == 'ja'){
+//        return '日本語';
+//      }
+//      else if(lang == 'ko'){
+//        return '한국';
+//      }
+//      else if(lang == 'zh'){
+//        return '中国';
+//      }
+//      else if(lang == 'en'){
+//        return 'English';
+//      }
+//    },
   },
   data() {
     return {
       carouselIndex: 0,
-      labelLang: this.initialLanguage(),
+//      labelLang: this.initialLanguage(),
       items: {
         First: 1,
         Second: 2,
