@@ -6,18 +6,17 @@
         HukuRepo </br>"Free Gift Promotion"
       </h1>
       <p class="campaign-detail">
-        Thank you for using "HukuRepo"</br>
-        The problem posted by everyone will be used to make Tsukuba city better. </br>
-        Thank you for your cooperation.</br>
-        With all my gratitude, we prepared gift for everyone who has used it.
-        Please clear the following conditions and receive the gift.</p>
+        Thank you for using "HukuRepo".<br />
+        Your posts will contribute to improve Tsukuba city.<br />
+	By making the following contributions, you will get small gifts.
+	</p>
       <v-ons-list-item>
         <div class="left">
           <v-ons-icon icon="fa-check-circle" class="list-item__icon" v-if="isPostCountDone"></v-ons-icon>
           <v-ons-icon icon="fa-check-circle" class="list-item__icon" style="color:white" v-else></v-ons-icon>
         </div>
         <div class="center">
-          Post 5 times
+          Post one problem.
         </div>
       </v-ons-list-item>
       <v-ons-list-item>
@@ -26,12 +25,12 @@
           <v-ons-icon icon="fa-check-circle" class="list-item__icon" style="color:white" v-else></v-ons-icon>
         </div>
         <div class="center">
-          Answer the questionnaire
+          Answer the questionnaire.
         </div>
       </v-ons-list-item>
 
-      <p class="campaign-map">The exchange place for gifts is <a v-bind:href="present_exchange_place">here</a>.</p>
-      <p class="campaign-expire">※Expiration date: November 30, 2017. (Limited Quantity)</p>
+      <p class="campaign-map">You can get the gifts <a v-bind:href="present_exchange_place">here</a>.</p>
+      <p class="campaign-expire">※Expiration date: August 26, 2018. (Limited Quantity)</p>
       <v-ons-button v-if="isPostCountDone && isQuestionnareDone"
                   @click="toGetPresent()"
                   modifier="large"
@@ -74,7 +73,7 @@ export default {
     axios.get(`${WEB_API_URL}/v1/problems/me/count`, config)
     .then((response) => {
       this.count = response.data.count;
-      if (this.count >= 5) {
+      if (this.count >= 1) {
         this.isPostCountDone = true;
       }
     })
