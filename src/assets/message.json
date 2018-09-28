@@ -77,8 +77,7 @@
             },
             "info":{
                 "post":"投稿完了しました"
-            },
-            
+            }
         },
         "GetPresentPage":{
             "campaignTitle":"HukuRepo </br> \"無料ギフトプロモーション\"",
@@ -174,8 +173,8 @@
         "labelLang":"English",
         "top": {
             "myProblem": "myProblem",
-            "timeline": "Timeline_sample",
-            "other": "Other_sample"
+            "timeline": "Timeline",
+            "other": "Other"
         },
         "agreement":{
             "title":"Agreement",
@@ -589,7 +588,7 @@
                 "LoginErrorBody":"对不起，您的密码或电子邮件不正确。",
                 "ConnectErrorTitle":"连接错误",
                 "ConnectErrorBody":"无法连接到服务器"
-            }，
+            },
             "info":{
                 "complete":"注册已完成。"
             }
