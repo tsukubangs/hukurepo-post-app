@@ -66,7 +66,7 @@ export default {
     axios.get(`${WEB_API_URL}/v1/problems/me/count`, config)
     .then((response) => {
       this.count = response.data.count;
-      if (this.count >= 5) {
+      if (this.count >= 1) {
         this.isPostCountDone = true;
       }
     })

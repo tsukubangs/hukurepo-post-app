@@ -10,13 +10,30 @@
           {{ labels.policy }}
         </div>
       </v-ons-list-item>
-      <v-ons-list-item tappable  @click="changeLanguage()">
+      <v-ons-list-item tappable  @click="toQuestionnaire(userInfo.data.email)">
         <div class="left">
-          {{ labels.displayLanguage }}
+          <v-ons-icon icon="ion-clipboard" class="list-item__icon"></v-ons-icon>
         </div>
-        <div class="right">
-          {{ setLanguage }}
+        <div class="center">
+          {{ labels.questionnaire }}
         </div>
+      </v-ons-list-item>
+      <v-ons-list-item tappable  @click="toPresent()">
+        <div class="left">
+          <v-ons-icon icon="fa-gift" class="list-item__icon"></v-ons-icon>
+        </div>
+        <div class="center">
+          {{ labels.getPresent }}
+        </div>
+      </v-ons-list-item>
+      <v-ons-list-header>
+        {{ labels.displayLanguage }}
+      </v-ons-list-header>
+      <v-ons-list-item v-for="(language, $index) in languages" tappable>
+        <label class="left">
+          <v-ons-radio :input-id="'radio-' + $index" :value="language" v-model="selectedLanguage" v-on:change="changeLanguage"></v-ons-radio>
+        </label>
+        <label :for="'radio-' + $index" class="center">{{ language }}</label>
       </v-ons-list-item>
     </v-ons-list>
   </v-ons-page>
@@ -58,6 +75,8 @@ export default {
   data() {
     return {
       language: this.initialLanguage(),
+      languages: ['English','日本語','韓国語','中国語'],
+      selectedLanguage:this.initialSelectedLanguage(),
     };
   },
   computed: {
@@ -86,30 +105,29 @@ export default {
       window.localStorage.setItem('complete_questionnaire', true);
       window.open(`${QUESTIONNAIRE_URL}=${email}`);
     },
-    changeLanguage(){
+    changeLanguage(event){
+      const selectLanguage = event.target.value;
+      const changeInfo = this.labels.info.change;
       var lang = window.localStorage.getItem('deviceLanguage');
-      if (lang == 'en'){
-        window.localStorage.setItem('deviceLanguage', 'ja');
-        lang = 'ja';
-      }
-      else if(lang == 'ja'){
-        window.localStorage.setItem('deviceLanguage', 'ko');
-        lang = 'ko';
-      }
-      else if(lang == 'ko'){
-        window.localStorage.setItem('deviceLanguage', 'zh');
-        lang = 'zh';
-      }
-      else if(lang == 'zh'){
-        window.localStorage.setItem('deviceLanguage', 'en');
+      if (selectLanguage == 'English'){
         lang = 'en';
       }
+      else if(selectLanguage == '日本語'){
+        lang = 'ja';
+      }
+      else if(selectLanguage == '韓国語'){
+        lang = 'ko';
+      }
+      else if(selectLanguage == '中国語'){
+        lang = 'zh';
+      }
       var labels = getMessages(lang);
+      window.localStorage.setItem('deviceLanguage', lang);
       window.localStorage.setItem('messages', JSON.stringify(labels));
       this.language = {labelLang:labels.labelLang, lang:lang};
       ons.notification.alert({
-        title:window.localStorage.getItem('deviceLanguage'),
-        message:'言語が変わったので再起動します',
+        title: changeInfo,
+        message: this.selectedLanguage + '⇨' + selectLanguage,
         callback: ()=>{
             navigator.app.loadUrl(
               "file:///android_asset/www/index.html",
@@ -121,6 +139,14 @@ export default {
             );
         },
       });
+    },
+    initialSelectedLanguage(){
+      if(window.localStorage.getItem('deviceLanguage') == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+      }
+      const lang = window.localStorage.getItem('deviceLanguage');
+      var labels = getMessages(lang);
+      return labels.settings.selectLanguage;
     },
     initialLanguage(){
       if(window.localStorage.getItem('deviceLanguage') == null){

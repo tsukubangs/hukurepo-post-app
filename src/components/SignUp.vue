@@ -224,10 +224,11 @@ export default {
     },
     labels(){
       const message = getMessages(this.language.lang);
+      window.localStorage.setItem('messages',JSON.stringify(message));
       return message.signUp;
     },
     setLanguage: function(){
-        return this.language.labelLang;
+      return this.language.labelLang;
     },
   },
   methods: {
@@ -255,7 +256,14 @@ export default {
       }
       var labels = getMessages(lang);
       this.language = {labelLang:labels.labelLang, lang:lang};
+      const tmpGenders = this.genders;
       this.genders = labels.signUp.genders;
+      if (this.selectedGender == tmpGenders[0]){
+        this.selectedGender = labels.signUp.genders[0];
+      }
+      else{
+        this.selectedGender = labels.signUp.genders[1];
+      }
       this.SignUpMessage = labels.signUp.SignUpMessage;
       this.placeholders = labels.signUp.placeholders;
     },
@@ -297,7 +305,7 @@ export default {
       }
       const lang = window.localStorage.getItem('deviceLanguage');
       var labels = getMessages(lang);
-      return labels.signUp.placeholders;
+      return labels.signUp.SignUpMessage;
     },
   },
   created() {

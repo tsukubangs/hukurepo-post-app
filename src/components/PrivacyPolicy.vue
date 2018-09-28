@@ -33,7 +33,7 @@
       <span v-html="this.messages.policyArticle7Body"></span>
       <h2>{{ this.messages.policyArticle8Title }}</h2>
       <span v-html="this.messages.policyArticle8Body"></span>
-      {{ this.messages.lastUpdate }}: October 12th, 2017.
+      {{ this.messages.lastUpdate }}: September 28th, 2018.
     </div>
   </v-ons-page>
 </template>
