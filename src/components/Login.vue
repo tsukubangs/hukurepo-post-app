@@ -12,7 +12,7 @@
       <p><v-ons-input id="email" modifier="underbar" v-bind:placeholder="this.placeholders.Email" v-model="email" float></v-ons-input></p>
       <p><v-ons-input id="password" modifier="underbar" type="password" v-bind:placeholder="this.placeholders.Password" v-model="password" float></v-ons-input></p>
       <p style="margin-top: 30px;">
-<v-ons-button @click="login()">{{ labels.login }}</v-ons-button>
+        <v-ons-button @click="login()">{{ labels.login }}</v-ons-button>
       </p>
       <p><v-ons-button modifier="quiet" @click="toSignUp()">{{ labels.SignUp }}</v-ons-button></p>
     </div>
@@ -67,16 +67,16 @@ export default {
       await axios.post(`${WEB_API_URL}/v1/login`, data)
           .then((response) => {
             window.localStorage.setItem('access_token', response.data.access_token);
+            const lang = window.localStorage.getItem('deviceLanguage');
+            const messages = getMessages(lang);
+            window.localStorage.setItem('messages', JSON.stringify(messages));
+            router.push('/');
           }).catch(() => {
             ons.notification.alert({
-              title: 'Login failed',
-              message: 'Sorry, your password or email was incorrect.',
+              title: this.labels.error.LoginErrorTitle,
+              message: this.labels.error.LoginErrorBody,
             });
           });
-      const lang = window.localStorage.getItem('deviceLanguage');
-      const messages = getMessages(lang);
-      window.localStorage.setItem('messages', JSON.stringify(messages));
-      router.push('/');
     },
     toSignUp() {
       router.push('agree');
@@ -84,22 +84,20 @@ export default {
     changeLanguage(){
       var lang = window.localStorage.getItem('deviceLanguage');
       if (lang == 'en'){
-        window.localStorage.setItem('deviceLanguage', 'ja');
         lang = 'ja';
       }
       else if(lang == 'ja'){
-        window.localStorage.setItem('deviceLanguage', 'ko');
         lang = 'ko';
       }
       else if(lang == 'ko'){
-        window.localStorage.setItem('deviceLanguage', 'zh');
         lang = 'zh';
       }
       else if(lang == 'zh'){
-        window.localStorage.setItem('deviceLanguage', 'en');
         lang = 'en';
       }
+      window.localStorage.setItem('deviceLanguage', lang);
       var labels = getMessages(lang);
+      window.localStorage.setItem('messages', JSON.stringify(labels));
       this.language = {labelLang:labels.labelLang, lang:lang};
       this.placeholders = labels.login.placeholders;
     },
@@ -109,6 +107,7 @@ export default {
       }
       const lang = window.localStorage.getItem('deviceLanguage');
       var labels = getMessages(lang);
+      window.localStorage.setItem('messages', JSON.stringify(labels));
       return {labelLang:labels.labelLang, lang:lang};
     },
     initialPlaceHolders(){
