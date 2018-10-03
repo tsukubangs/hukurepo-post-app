@@ -17,6 +17,20 @@ import AllProblemsPage from './AllProblemsPage';
 import SettingPage from './SettingPage';
 import notification from '../function/notification';
 
+function getMessages(lang){
+  const messages = require('../assets/message.json');
+  switch (lang){
+    case 'ja':
+      return messages.ja;
+    case 'ko':
+      return messages.ko;
+    case 'zh':
+      return messages.zh;
+    default:
+      return messages.en;
+  }
+}
+
 export default {
   name: 'top-page',
   components: {
@@ -64,17 +78,32 @@ export default {
       FETCH_PROBLEMS,
     ]),
     myProblem(){
-      const strMessage = window.localStorage.getItem('messages');
+      var strMessage = window.localStorage.getItem('messages');
+      if (strMessage == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+        strMessage = JSON.stringify(getMessages('en'));
+        window.localStorage.setItem('messages', strMessage);
+      }
       const message = JSON.parse(strMessage);
       return message.top.myProblem;
     },
     timeline(){
-      const strMessage = window.localStorage.getItem('messages');
+      var strMessage = window.localStorage.getItem('messages');
+      if (strMessage == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+        strMessage = JSON.stringify(getMessages('en'));
+        window.localStorage.setItem('messages', strMessage);
+      }
       const message = JSON.parse(strMessage);
       return message.top.timeline;
     },
     other(){
-      const strMessage = window.localStorage.getItem('messages');
+      var strMessage = window.localStorage.getItem('messages');
+      if (strMessage == null){
+        window.localStorage.setItem('deviceLanguage', 'en');
+        strMessage = JSON.stringify(getMessages('en'));
+        window.localStorage.setItem('messages', strMessage);
+      }
       const message = JSON.parse(strMessage);
       return message.top.other;
     },
