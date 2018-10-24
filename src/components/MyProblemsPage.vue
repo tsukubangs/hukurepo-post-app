@@ -5,7 +5,7 @@
       <span v-show="state === 'preaction'"> {{ this.messages.preaction }} </span>
       <span v-show="state === 'action'"> {{ this.messages.action }} </span>
     </v-ons-pull-hook>
-    <a href="http://www.kde.cs.tsukuba.ac.jp/~amagasa/work/matsuritsukuba_map.jpg"><img src="./../assets/banner.png" alt="BANNER"  width="100%" border="0"></a>
+    <a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img src="./../assets/banner.png" alt="BANNER"  width="100%" border="0"></a>
     <main class="h100">
       <div class="centering h100" v-if="!fetchProblemsStatus.isCompleted">
         <v-ons-progress-circular indeterminate ></v-ons-progress-circular>
