@@ -10,20 +10,20 @@
           {{ labels.policy }}
         </div>
       </v-ons-list-item>
-      <v-ons-list-item tappable  @click="toQuestionnaire(userInfo.data.email)">
-        <div class="left">
-          <v-ons-icon icon="ion-clipboard" class="list-item__icon"></v-ons-icon>
-        </div>
-        <div class="center">
-          {{ labels.questionnaire }}
-        </div>
-      </v-ons-list-item>
       <v-ons-list-item tappable  @click="toPresent()">
         <div class="left">
-          <v-ons-icon icon="fa-gift" class="list-item__icon"></v-ons-icon>
+          <v-ons-icon icon="ion-happy" class="list-item__icon"></v-ons-icon>
         </div>
         <div class="center">
           {{ labels.getPresent }}
+        </div>
+      </v-ons-list-item>
+      <v-ons-list-item tappable  @click="toQuestionnaire()">
+        <div class="left">
+          <v-ons-icon icon="fa-check-circle" class="list-item__icon"></v-ons-icon>
+        </div>
+        <div class="center">
+          {{ labels.questionnaire }}
         </div>
       </v-ons-list-item>
       <v-ons-list-header>
@@ -75,7 +75,7 @@ export default {
   data() {
     return {
       language: this.initialLanguage(),
-      languages: ['English','日本語','韓国語','中国語'],
+      languages: ['English','日本語','한국','中国'],
       selectedLanguage:this.initialSelectedLanguage(),
     };
   },
@@ -115,10 +115,10 @@ export default {
       else if(selectLanguage == '日本語'){
         lang = 'ja';
       }
-      else if(selectLanguage == '韓国語'){
+      else if(selectLanguage == '한국'){
         lang = 'ko';
       }
-      else if(selectLanguage == '中国語'){
+      else if(selectLanguage == '中国'){
         lang = 'zh';
       }
       var labels = getMessages(lang);
