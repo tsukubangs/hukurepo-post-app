@@ -129,14 +129,19 @@ export default {
         title: changeInfo,
         message: this.selectedLanguage + '⇨' + selectLanguage,
         callback: ()=>{
-            navigator.app.loadUrl(
-              "file:///android_asset/www/index.html",
-              {
-                wait:1000,
-                loadingDialog:"Wait,Loading App",
-                loadUrlTimeoutValue: 5000
-              }
-            );
+            if (device.platform == 'Android'){
+                navigator.app.loadUrl(
+                "file:///android_asset/www/index.html",
+                {
+                    wait:1000,
+                    loadingDialog:"Wait,Loading App",
+                    loadUrlTimeoutValue: 5000
+                }
+                );
+            }
+            else{
+                window.location = "index.html";
+            }
         },
       });
     },
