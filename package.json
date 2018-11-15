@@ -9,7 +9,7 @@
         "dev": "node build/dev-server.js",
         "build": "node build/build.js",
         "build:hybrid": "node build/build_hybrid.js",
-        "android": "rm -r ./www && node build/build_hybrid.js && cordova run android",
+        "android": "node build/build_hybrid.js && cordova run android",
         "build:android": "node build/build_hybrid.js && cordova build android",
         "build:ios": "node build/build_hybrid.js && cordova build ios",
         "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
@@ -23,7 +23,7 @@
         "cordova-android": "^7.0.0",
         "cordova-banner-notification": "^0.1.6",
         "cordova-browser": "^5.0.4",
-        "cordova-ios": "^4.5.4",
+        "cordova-ios": "^4.5.5",
         "cordova-plugin-camera": "^2.4.1",
         "cordova-plugin-compat": "^1.2.0",
         "cordova-plugin-customurlscheme": "^4.3.0",
@@ -38,11 +38,11 @@
         "cordova-plugin-whitelist": "^1.3.3",
         "jquery": "^3.2.1",
         "lodash": "^4.17.4",
-        "onsenui": "~2.5.3",
+        "onsenui": "^2.5.3",
         "trunk8": "^0.0.1",
         "vue": "^2.1.10",
         "vue-i18n": "git+https://github.com/kazupon/vue-i18n.git",
-        "vue-onsenui": "~2.1.1",
+        "vue-onsenui": "^2.1.1",
         "vue-router": "^2.5.3",
         "vue2-google-maps": "^0.7.5",
         "vuex": "^2.3.1"
@@ -114,6 +114,20 @@
     "engines": {
         "node": ">= 4.0.0",
         "npm": ">= 3.0.0"
+    },
+    "ios": {
+        "debug": {
+            "codeSignIdentity": "iPhone Developer",
+            "provisioningProfile": "0a9e100f-784f-4313-90fa-ca13e5c902ca",
+            "developmentTeam": "TV8BM9U9CK",
+            "packageType": "development"
+        },
+        "release": {
+            "codeSignIdentity": "iPhone Distribution",
+            "provisioningProfile": "cfebf0af-dfdb-4840-9844-354906c9d530",
+            "developmentTeam": "TV8BM9U9CK",
+            "packageType": "app-store"
+        }
     },
     "cordova": {
         "plugins": {
