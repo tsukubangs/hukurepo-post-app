@@ -152,6 +152,16 @@ function postSignUp() {
     age: this.selectedAge.split('-')[0].slice(1),
     role: USER_ROLE,
   };
+  if (this.selectedCountryOfResidence == ''){
+    data.country_of_residence = 'iosDummy';
+  }
+  if (this.selectedAge == ''){
+    data.age = 'iosDummy';
+  }
+  if (this.selectedGender == ''){
+    data.gender = 'iosDummy';
+  }
+
   this.confirmDialogVisible = false;
   this.signUpPosting = true;
   axios.post(`${WEB_API_URL}/v1/users`, data)
@@ -190,9 +200,9 @@ export default {
       selectedGender: this.initialSelectedGender(),
       genders: this.initialGenders(),
       countries,
-      selectedCountryOfResidence: 'Japan',
+      selectedCountryOfResidence: this.initialSelectedCountryOfResidence(),
       ages,
-      selectedAge: 'a20-29',
+      selectedAge: this.initialSelectedAge(),
       email: '',
       password: '',
       confirmPassword: '',
@@ -283,7 +293,22 @@ export default {
       var labels = getMessages(lang);
       return labels.signUp.genders;
     },
+    initialSelectedCountryOfResidence(){
+      if(cordova.platformId == 'ios'){
+        return '';
+      }
+      return 'Japan';
+    },
+    initialSelectedAge(){
+      if(cordova.platformId == 'ios'){
+        return '';
+      }
+        return 'a20-29';
+    },
     initialSelectedGender(){
+      if(cordova.platformId == 'ios'){
+        return '';
+      }
       if(window.localStorage.getItem('deviceLanguage') == null){
         window.localStorage.setItem('deviceLanguage', 'en');
       }
@@ -292,6 +317,9 @@ export default {
       return labels.signUp.genders[0];
     },
     initialPlaceHolders(){
+      if(cordova.platformId == 'ios'){
+        return '';
+      }
       if(window.localStorage.getItem('deviceLanguage') == null){
         window.localStorage.setItem('deviceLanguage', 'en');
       }
