@@ -1,0 +1,158 @@
+<template>
+<v-ons-page>
+<a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img src="./../assets/banner.png" alt="BANNER"  width="100%" border="0"></a>
+<main class="h100">
+<h1><font size="3" color="blue"><strong>Nearby shops you might be interested in.</strong></font></h1>
+<div id="myDIV" v-html="recommendStakeholders"></div>
+
+</main>
+</v-ons-page>
+</template>
+
+<script>
+import { mapActions } from 'vuex';
+import axios from 'axios';
+import ons from 'onsenui';
+import CustomToolbar from './CustomToolbar';
+import GoogleMap from './GoogleMap';
+import { WEB_API_URL } from '../../.env';
+import { FETCH_PROBLEMS } from '../vuex/mutation-types';
+import stakeholders from '../assets/stakeholders';
+
+
+
+function getTopKStakeholders(ltd, lng, stakeholders, k)
+{
+    var scores = [];
+    for(var stakeholder in stakeholders)
+    {
+        scores.push(
+        {
+            key: stakeholders[stakeholder].stakeholder,
+            url_link: stakeholders[stakeholder].url_link,
+            value: Math.round(getDistanceFromLatLonInKm(ltd, lng, stakeholders[stakeholder].Position.Latitude, stakeholders[stakeholder].Position.Longitude)*100)/100
+        }
+        );
+    }
+    scores.sort(function (a, b) {
+        return a.value - b.value
+    });
+    return scores.slice(0, k);
+}
+
+
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1);
+    var a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c; // Distance in km
+    return d;
+}
+function deg2rad(deg) {
+return deg * (Math.PI/180)
+}
+
+export default {
+  name: 'camera-page',
+  components: {
+    CustomToolbar,
+    GoogleMap,
+  },
+  props: ['pageStack'],
+  data() {
+    return {
+      latitude: '',
+      longitude: '',
+      isMapError: false,
+      stakeholders,
+    };
+  },
+  computed: {
+    isIOS() {
+      /* eslint-disable no-undef */
+      try {
+        return device.platform === 'iOS';
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
+    recommendStakeholders()
+    {
+        var topk = [];
+        topk = getTopKStakeholders(this.latitude, this.longitude, stakeholders, 3);
+        var tmpcmt;
+
+        if(this.latitude != null && this.latitude !='')
+        {
+        tmpcmt = '<table border="1" cellspacing="0" cellpadding="0" bordercolor="red"><tr><td><font size="3" color="green"><strong>Nearby Shops</strong></font></td><td><font size="3" color="green"><strong>Distance, km</strong></font></td></tr>';
+        for (var j = 0; j < topk.length; j++)
+        {
+        tmpcmt = tmpcmt + '<tr><td align="left">';
+        tmpcmt = tmpcmt + '<a href='+ topk[j].url_link + '>' + topk[j].key + '</a>';
+        tmpcmt = tmpcmt + '</td>';
+        tmpcmt = tmpcmt + '<td>';
+        tmpcmt = tmpcmt + topk[j].value;
+        tmpcmt = tmpcmt + '</td></tr>';
+        }
+        tmpcmt = tmpcmt + '</table>';
+
+        return tmpcmt;
+        }
+    },
+  },
+  methods: {
+
+  },
+  created() {
+    navigator.geolocation.getCurrentPosition(
+    (position) => {
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+    });
+  },
+};
+
+</script>
+
+<style lang="scss" scoped>
+@import "./../../config.scss";
+
+.h100 {
+height:100%;
+}
+main {
+padding: 5px;
+box-sizing: border-box;
+}
+.centering {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.card-list {
+margin: 0;
+padding: 0;
+list-style-type: none;
+padding-bottom: 100px;
+}
+.card-list > li {
+margin: 10px 0;
+}
+.w100 {
+width: 100%;
+}
+
+.style {
+color: #FFF;
+background-color: $main-color;
+}
+
+</style>
+
