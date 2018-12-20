@@ -14,6 +14,7 @@ import { WEB_API_URL } from '../../.env';
 import CustomToolbar from './CustomToolbar';
 import MyProblemsPage from './MyProblemsPage';
 import AllProblemsPage from './AllProblemsPage';
+import RecommendPage from './RecommendPage';
 import SettingPage from './SettingPage';
 import notification from '../function/notification';
 
@@ -37,6 +38,7 @@ export default {
     CustomToolbar,
     MyProblemsPage,
     AllProblemsPage,
+    RecommendPage,
   },
   created() {
     notification.initialize(this);
@@ -52,6 +54,14 @@ export default {
           props: {
             pageStack: this.pageStack,
           },
+        },
+        {
+            icon: 'ion-ios-person',
+            page: RecommendPage,
+            label: this.recommendation(),
+            props: {
+                pageStack: this.pageStack,
+            },
         },
         {
           icon: 'ion-ios-people-outline',
@@ -96,6 +106,16 @@ export default {
       }
       const message = JSON.parse(strMessage);
       return message.top.timeline;
+    },
+    recommendation(){
+        var strMessage = window.localStorage.getItem('messages');
+        if (strMessage == null){
+            window.localStorage.setItem('deviceLanguage', 'en');
+            strMessage = JSON.stringify(getMessages('en'));
+            window.localStorage.setItem('messages', strMessage);
+        }
+        const message = JSON.parse(strMessage);
+        return message.top.recommendation;
     },
     other(){
       var strMessage = window.localStorage.getItem('messages');
