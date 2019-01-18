@@ -18,7 +18,7 @@
     </tr>
     <tr>
       <th>名称 / Name</th>
-      <td>おみやげ・お食事処　神田屋 / KANDAYA</td>
+      <td>おみやげ・お食事処　神田家 / KANDAYA</td>
     </tr>
     <tr>
       <td colspan="2" class="coupon-title">
@@ -90,7 +90,7 @@
     <tr>
       <th>Tel / E-mail</th>
       <td>
-	029-876-5050 / info@lakesaide-tsukuba.jp
+	029-876-5050 / info@lakeside-tsukuba.jp
       </td>
     </tr>
     <tr>
