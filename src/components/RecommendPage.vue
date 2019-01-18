@@ -1,10 +1,9 @@
 <template>
 <v-ons-page>
-<a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img src="./../assets/banner.png" alt="BANNER"  width="100%" border="0"></a>
+<a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
 <main class="h100">
 <h1><font size="3" color="blue"><strong>Nearby shops you might be interested in.</strong></font></h1>
 <div id="myDIV" v-html="recommendStakeholders"></div>
-
 </main>
 </v-ons-page>
 </template>
@@ -58,6 +57,20 @@ function deg2rad(deg) {
 return deg * (Math.PI/180)
 }
 
+function getMessages(lang){
+    const messages = require('../assets/message.json');
+    switch (lang){
+    case 'ja':
+        return messages.ja;
+    case 'ko':
+        return messages.ko;
+    case 'zh':
+        return messages.zh;
+    default:
+        return messages.en;
+    }
+}
+
 export default {
   name: 'camera-page',
   components: {
@@ -71,6 +84,7 @@ export default {
       longitude: '',
       isMapError: false,
       stakeholders,
+      language: this.initialLanguage(),
     };
   },
   computed: {
@@ -106,9 +120,28 @@ export default {
         return tmpcmt;
         }
     },
+    getImage(){
+        switch (this.language.lang){
+            case 'ja':
+                return require('./../assets/jbanner.png');
+            case 'ko':
+                return require('./../assets/kbanner.png');
+            case 'zh':
+                return require('./../assets/cbanner.png');
+            default:
+                return require('./../assets/banner.png');
+        }
+    },
   },
   methods: {
-
+    initialLanguage(){
+        if(window.localStorage.getItem('deviceLanguage') == null){
+            window.localStorage.setItem('deviceLanguage', 'en');
+        }
+        const lang = window.localStorage.getItem('deviceLanguage');
+        var labels = getMessages(lang);
+        return {labelLang:labels.labelLang, lang:lang};
+    },
   },
   created() {
     navigator.geolocation.getCurrentPosition(

@@ -7,6 +7,7 @@
               <p class="limit-comment" v-html="this.shortComment"></p>
           </div>
           <div class="date">{{this.updatedTime}}</div>
+          <div id="output">{{this.detectLanguage}}</div>
       </div>
   </div>
 </template>
@@ -15,6 +16,8 @@
 import { WEB_API_URL } from '../../.env';
 import PhotoThumbnail from './PhotoThumbnail';
 import formatDateTime from '../function/formatDateTime';
+import _languagedetect from '../lib_languages_detect/_languageData';
+import languagedetect from '../lib_languages_detect/guessLanguage';
 
 export default {
   name: 'problem-card',
@@ -42,6 +45,15 @@ export default {
     updatedTime() {
       return formatDateTime(this.problem.updated_at);
     },
+
+detectLanguage() {
+    var language;
+    languagedetect.info(this.problem.comment, function(info) {
+        language = info[2];
+    });
+    return language;
+},
+
   },
 };
 </script>

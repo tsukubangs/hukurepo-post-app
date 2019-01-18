@@ -5,7 +5,7 @@
       <span v-show="state === 'preaction'"> {{ this.messages.preaction }} </span>
       <span v-show="state === 'action'"> {{ this.messages.action }} </span>
     </v-ons-pull-hook>
-    <a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img src="./../assets/banner.png" alt="BANNER"  width="100%" border="0"></a>
+    <a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
     <main class="h100">
       <div class="centering h100" v-if="!fetchProblemsStatus.isCompleted">
         <v-ons-progress-circular indeterminate ></v-ons-progress-circular>
@@ -30,6 +30,19 @@ import ProblemCard from './ProblemCard';
 import CameraPage from './CameraPage';
 import ResponsePage from './ResponsePage';
 import { FETCH_PROBLEMS, REFETCH_PROBLEMS, SELECT_PROBLEM, SAW_RESPONSES_OF_PROBLEM } from '../vuex/mutation-types';
+function getMessages(lang){
+    const messages = require('../assets/message.json');
+    switch (lang){
+    case 'ja':
+        return messages.ja;
+    case 'ko':
+        return messages.ko;
+    case 'zh':
+        return messages.zh;
+    default:
+        return messages.en;
+    }
+}
 
 export default {
   name: 'my-problems-page',
@@ -55,6 +68,7 @@ export default {
       state: 'initial',
       target: '#postButton',
       messages: this.getMessages(),
+      language: this.initialLanguage(),
     };
   },
   computed: {
@@ -64,6 +78,18 @@ export default {
     ]),
     popoverVisible() {
       return this.problems.length === 0 && this.fetchProblemsStatus.isCompleted;
+    },
+    getImage(){
+        switch (this.language.lang){
+            case 'ja':
+                return require('./../assets/jbanner.png');
+            case 'ko':
+                return require('./../assets/kbanner.png');
+            case 'zh':
+                return require('./../assets/cbanner.png');
+            default:
+                return require('./../assets/banner.png');
+        }
     },
   },
   methods: {
@@ -92,6 +118,14 @@ export default {
     getMessages(){
       const messages = window.localStorage.getItem('messages');
       return JSON.parse(messages).MyProblems;
+    },
+    initialLanguage(){
+        if(window.localStorage.getItem('deviceLanguage') == null){
+            window.localStorage.setItem('deviceLanguage', 'en');
+        }
+        const lang = window.localStorage.getItem('deviceLanguage');
+        var labels = getMessages(lang);
+        return {labelLang:labels.labelLang, lang:lang};
     },
   },
 };
