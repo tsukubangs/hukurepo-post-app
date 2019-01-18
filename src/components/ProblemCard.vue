@@ -7,7 +7,7 @@
               <p class="limit-comment" v-html="this.shortComment"></p>
           </div>
           <div class="date">{{this.updatedTime}}</div>
-          <div id="output">{{this.detectLanguage}}</div>
+          <!--<div id="output">{{this.detectLanguage}}</div>-->
       </div>
   </div>
 </template>

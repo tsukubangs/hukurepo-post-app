@@ -253,7 +253,7 @@
             "buttonLabel":{
                 "post":"Post"
             },
-            "postButtonLabels":["Yes, immediately savong dayo", "Yes", "No"],
+            "postButtonLabels":["Yes, immediately", "Yes", "No"],
             "placeholders":{
                 "postComment":"What's your problem?"
             },
