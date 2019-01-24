@@ -1,11 +1,11 @@
 <template>
 <v-ons-page>
-<a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
+<a href="http://www.mt-tsukuba.com/?p=1723"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
 <main class="h100">
-<h1 v-if="this.language.lang=='ja'"><font size="3" color="blue"><strong>あなたに近くのお店:</strong></font></h1>
-<h1 v-else-if="this.language.lang=='ko'"><font size="3" color="blue"><strong>당신에게 가까이 가게:</strong></font></h1>
-<h1 v-else-if="this.language.lang=='zh'"><font size="3" color="blue"><strong>你附近的一家商店:</strong></font></h1>
-<h1 v-else="this.language.lang=='en'"><font size="3" color="blue"><strong>Nearby shops for you:</strong></font></h1>
+<h1 v-if="this.language.lang=='ja'"><font size="3" color="#7f7f7f"><strong>あなたに近くのお店:</strong></font></h1>
+<h1 v-else-if="this.language.lang=='ko'"><font size="3" color="#7f7f7f"><strong>당신에게 가까이 가게:</strong></font></h1>
+<h1 v-else-if="this.language.lang=='zh'"><font size="3" color="#7f7f7f"><strong>你附近的一家商店:</strong></font></h1>
+<h1 v-else="this.language.lang=='en'"><font size="3" color="#7f7f7f"><strong>Nearby shops for you:</strong></font></h1>
 <div id="myDIV" v-html="recommendStakeholders"></div>
 </main>
 </v-ons-page>
@@ -134,7 +134,7 @@ export default {
 
 //alert(shopLang+distanceLang);
 
-        tmpcmt = '<table border="1" cellspacing="0" cellpadding="0" bordercolor="red"><tr><td><font size="3" color="green"><strong>'+shopLang+'</strong></font></td><td><font size="3" color="green"><strong>'+distanceLang+', km</strong></font></td></tr>';
+        tmpcmt = '<table border="1" cellspacing="0" cellpadding="0" bordercolor="black"><tr><td><font size="3" color="#7f7f7f"><strong>'+shopLang+'</strong></font></td><td><font size="3" color="#7f7f7f"><strong>'+distanceLang+', km</strong></font></td></tr>';
         for (var j = 0; j < topk.length; j++)
         {
         tmpcmt = tmpcmt + '<tr><td align="left">';
@@ -214,6 +214,14 @@ width: 100%;
 .style {
 color: #FFF;
 background-color: $main-color;
+}
+
+.comment {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-grow: 9;
+color: #7f7f7f;
 }
 
 </style>

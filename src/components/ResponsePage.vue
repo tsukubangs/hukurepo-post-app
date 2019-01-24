@@ -3,10 +3,10 @@
     <!--<custom-toolbar>Response Page </custom-toolbar> -->
 
 <v-ons-toolbar>
-<div class="center" v-if="this.language.lang=='ja'">あなたのページ</div>
-<div class="center" v-else-if="this.language.lang=='ko'">내 페이지</div>
-<div class="center" v-else-if="this.language.lang=='zh'">你的页面</div>
-<div class="center" v-else>My Page</div>
+<div class="center" v-if="this.language.lang=='ja'">回答</div>
+<div class="center" v-else-if="this.language.lang=='ko'">답변</div>
+<div class="center" v-else-if="this.language.lang=='zh'">答案</div>
+<div class="center" v-else>Response</div>
 
 <div class="right" v-if="this.language.lang=='ja'">
 <select class="select" v-model="targetLang">

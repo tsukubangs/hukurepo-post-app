@@ -7,10 +7,10 @@
     </v-ons-pull-hook>
 
 <v-ons-toolbar>
-<div class="center" v-if="this.language.lang=='ja'">あなたのページ</div>
-<div class="center" v-else-if="this.language.lang=='ko'">내 페이지</div>
-<div class="center" v-else-if="this.language.lang=='zh'">你的页面</div>
-<div class="center" v-else>My Page</div>
+<div class="center" v-if="this.language.lang=='ja'">あなたの投稿</div>
+<div class="center" v-else-if="this.language.lang=='ko'">당신의 게시물</div>
+<div class="center" v-else-if="this.language.lang=='zh'">你的帖子</div>
+<div class="center" v-else>My Problem</div>
 
 <div class="right" v-if="this.language.lang=='ja'">
 <select class="select" v-model="targetLang">
@@ -58,7 +58,7 @@
 </div>
 </v-ons-toolbar>
 
-    <a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
+    <a href="http://www.mt-tsukuba.com/?p=1723"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
     <main class="h100">
       <div class="centering h100" v-if="!fetchProblemsStatus.isCompleted">
         <v-ons-progress-circular indeterminate ></v-ons-progress-circular>

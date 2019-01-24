@@ -56,20 +56,20 @@ export default {
           },
         },
         {
-            icon: 'ion-ios-person',
-            page: RecommendPage,
-            label: this.recommendation(),
-            props: {
-                pageStack: this.pageStack,
-            },
-        },
-        {
           icon: 'ion-ios-people-outline',
           page: AllProblemsPage,
           label: this.timeline(),
           props: {
             pageStack: this.pageStack,
           },
+        },
+        {
+            icon: 'ion-android-cart',
+            page: RecommendPage,
+            label: this.recommendation(),
+            props: {
+                pageStack: this.pageStack,
+            },
         },
         {
           icon: 'ion-ios-more',

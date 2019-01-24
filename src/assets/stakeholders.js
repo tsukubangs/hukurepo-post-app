@@ -1,6 +1,6 @@
 export default [
                 {
-                "stakeholder": "おみやげ・お食事処　神田屋",
+                "stakeholder": "おみやげ・お食事処　神田家",
                 "url_link": "http://www.kandaya.info/",
                 "Position": {
                     "Latitude": 36.212783,
