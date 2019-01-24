@@ -10,7 +10,7 @@
 
 <div class="right" v-if="this.language.lang=='ja'">
 <select class="select" v-model="targetLang">
-<option value="" disabled selected>言語</option>
+<option value="" disabled selected>翻訳</option>
 <option value="original">元言語</option>
 <option value="en">英語</option>
 <option value="ja">日本語</option>
@@ -21,7 +21,7 @@
 
 <div class="right" v-else-if="this.language.lang=='ko'">
 <select class="select" v-model="targetLang">
-<option value="" disabled selected>언어</option>
+<option value="" disabled selected>번역</option>
 <option value="original">원래 언어</option>
 <option value="en">영어</option>
 <option value="ja">일본어</option>
@@ -32,7 +32,7 @@
 
 <div class="right" v-else-if="this.language.lang=='zh'">
 <select class="select" v-model="targetLang">
-<option value="" disabled selected>语言</option>
+<option value="" disabled selected>翻訳</option>
 <option value="original">源语言</option>
 <option value="en">英语</option>
 <option value="ja">日本</option>
@@ -44,7 +44,7 @@
 
 <div class="right" v-else>
 <select class="select" v-model="targetLang">
-<option value="" disabled selected>Language</option>
+<option value="" disabled selected>Translate</option>
 <option value="original">Original</option>
 <option value="en">English</option>
 <option value="ja">Japanese</option>

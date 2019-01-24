@@ -107,10 +107,10 @@
         "PresentPage":{
             "campaignTitle":"HukuRepo </br> \"無料ギフトプロモーション\"",
             "campaignDetail":"\"HukuRepo\"をご利用いただきありがとうございます。</br>みなさんの投稿は、つくば市をより良くするために使用されます。</br>ご協力いただきありがとうございます。</br>ささやかですがプレゼントを準備しています。以下の条件をクリアし、是非プレゼントをお受け取りください。",
-            "postTerms":"５回投稿する",
+            "postTerms":"1回投稿する",
             "questionnareTerms":"アンケートに答える",
             "campaignMap":"プレゼントの交換場所は<a v-bind:href=\"present_exchange_place\">こちら</a>です。",
-            "campaignExpire":"※有効期限：2018年8月26日（数量限定）",
+            "campaignExpire":"※有効期限：2019年2月28日（数量限定）",
             "noteDetail":"・この画面をつくば市職員に見せてください。</br>・ボタンに触れないでください。 （つくば市職員が対応します）",
             "buttonLabel":{
                 "yet":"受け取る",
@@ -290,10 +290,10 @@
         "PresentPage":{
             "campaignTitle":"HukuRepo </br>\"Free Gift Promotion\"",
             "campaignDetail":"Thank you for using \"HukuRepo\"</br> The problem posted by everyone will be used to make Tsukuba city better. </br> Thank you for your cooperation.</br> With all my gratitude, we prepared gift for everyone who has used it. Please clear the following conditions and receive the gift.",
-            "postTerms":"Post 5 times",
+            "postTerms":"Post 1 time",
             "questionnareTerms":"Answer the questionnaire",
             "campaignMap":"The exchange place for gifts is <a v-bind:href=\"present_exchange_place\">here</a>.",
-            "campaignExpire":"※Expiration date: August 26, 2018. (Limited Quantity)",
+            "campaignExpire":"※Expiration date: February 28, 2019. (Limited Quantity)",
             "noteDetail":"・Please show this screen to Tsukuba City staff.</br>・Please do not touch the button. (Tsukuba staff will use it)",
             "buttonLabel":{
                 "yet":"Get Gift!",
@@ -473,10 +473,10 @@
         "PresentPage":{
             "campaignTitle":"HukuRepo </br> \"무료 선물 프로모션\"",
             "campaignDetail":"\"HukuRepo\"를 이용해 주셔서 감사합니다. </br> 모든 사람이 게시 한 문제는 쓰쿠바시를 더 잘 만들어주는 데 사용될 것입니다. </ br> 협조 해 주셔서 감사합니다. </br> 감사의 말씀을 전한 모든 분들께 선물을 준비했습니다. 다음 조건을 지우고 선물을 받으십시오.",
-            "postTerms":"5 번 게시",
+            "postTerms":"1 번 게시",
             "questionnareTerms":"설문지에 답하십시오.",
             "campaignMap":"선물 교환 장소는 <a v-bind:href=\"present_exchange_place\"> 여기 </a>입니다.",
-            "campaignExpire":"※ 유효 기간 : 2018 년 8 월 26 일. (수량 한정)",
+            "campaignExpire":"※ 유효 기간 : 2019 년 2 월 28 일. (수량 한정)",
             "noteDetail":"·이 화면을 쓰쿠바시 직원에게 보여주십시오. </br> · 버튼을 만지지 마십시오. (쓰쿠바 직원이 사용합니다)",
             "buttonLabel":{
                 "yet":"선물을 얻으십시오!",
@@ -657,10 +657,10 @@
         "PresentPage":{
             "campaignTitle":"HukuRepo </br> \"免费广告礼品\"",
             "campaignDetail":"感谢使用\"HukuRepo\"。</br>大家提交的内容使得筑波市更好地发展。</br>非常感谢。</br>正在准备小礼物。请完成以下的要求后领取礼物。",
-            "postTerms":"5次提问",
+            "postTerms":"1次提问",
             "questionnareTerms":"完成问卷调查",
             "campaignMap":"领取礼物之处<a v-bind:href=\"present_exchange_place\">在这里</a>",
-            "campaignExpire":"截至期限：2018年8月26日（数量有限）",
+            "campaignExpire":"截至期限：2019年2月28日（数量有限）",
             "noteDetail":"请把该画面给筑波市的职员看。</br>请不要触摸按键（筑波市的职员处理）",
             "buttonLabel":{
                 "yet":"接受",

@@ -64,7 +64,7 @@ export default {
           },
         },
         {
-            icon: 'ion-android-cart',
+            icon: 'ion-android-restaurant',//<ion-icon name="restaurant"></ion-icon>
             page: RecommendPage,
             label: this.recommendation(),
             props: {
