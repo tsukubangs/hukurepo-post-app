@@ -1,6 +1,60 @@
 <template>
   <v-ons-page>
-    <custom-toolbar>Response Page</custom-toolbar>
+    <!--<custom-toolbar>Response Page </custom-toolbar> -->
+
+<v-ons-toolbar>
+<div class="center" v-if="this.language.lang=='ja'">あなたのページ</div>
+<div class="center" v-else-if="this.language.lang=='ko'">내 페이지</div>
+<div class="center" v-else-if="this.language.lang=='zh'">你的页面</div>
+<div class="center" v-else>My Page</div>
+
+<div class="right" v-if="this.language.lang=='ja'">
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>言語</option>
+<option value="original">元言語</option>
+<option value="en">英語</option>
+<option value="ja">日本語</option>
+<option value="zh">中国語</option>
+<option value="ko">韓国語</option>
+</select>
+</div>
+
+<div class="right" v-else-if="this.language.lang=='ko'">
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>언어</option>
+<option value="original">원래 언어</option>
+<option value="en">영어</option>
+<option value="ja">일본어</option>
+<option value="zh">중국</option>
+<option value="ko">한국</option>
+</select>
+</div>
+
+<div class="right" v-else-if="this.language.lang=='zh'">
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>语言</option>
+<option value="original">源语言</option>
+<option value="en">英语</option>
+<option value="ja">日本</option>
+<option value="zh">中国</option>
+<option value="ko">朝鲜的</option>
+</select>
+</div>
+
+
+<div class="right" v-else>
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>Language</option>
+<option value="original">Original</option>
+<option value="en">English</option>
+<option value="ja">Japanese</option>
+<option value="zh">Chinese</option>
+<option value="ko">Korean</option>
+</select>
+</div>
+</v-ons-toolbar>
+
+
 
     <v-ons-pull-hook
       :action="loadItem"
@@ -14,14 +68,14 @@
     <main>
       <v-ons-list modifier="noborder">
         <v-ons-list-item modifier="nodivider">
-          <response-card :response="selectedProblem" :is-my-response="true" class="w100">
+          <response-card :response="selectedProblem" :is-my-response="true" :isLanguage="targetLang" class="w100">
             <div @click="photoModalVisible = true">
               <photo-thumbnail :thumbnailUrl="selectedProblemThumbnailImage" v-if="!!selectedProblem.image_url" class="thumbnail" ></photo-thumbnail>
             </div>
           </response-card>
         </v-ons-list-item>
         <v-ons-list-item v-for="response in responses" modifier="nodivider">
-          <response-card :response="response" :is-my-response="selectedProblem.user_id == response.user_id" class="w100">
+          <response-card :response="response" :is-my-response="selectedProblem.user_id == response.user_id" :isLanguage="targetLang" class="w100">
           </response-card>
         </v-ons-list-item>
       </v-ons-list>
@@ -52,14 +106,30 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import axios from 'axios';
-import ons from 'onsenui';
 import CustomToolbar from './CustomToolbar';
 import ResponseCard from './ResponseCard';
 import PhotoThumbnail from './PhotoThumbnail';
-import { WEB_API_URL } from '../../.env';
-
+import {WEB_API_URL} from '../../.env';
+//import autolinker from 'autolinker';
+import axios from 'axios';
+import ons from 'onsenui';
 import { FETCH_USER_INFO } from '../vuex/mutation-types';
+
+function getMessages(lang){
+    const messages = require('../assets/message.json');
+    switch (lang){
+        case 'ja':
+            return messages.ja;
+        case 'ko':
+            return messages.ko;
+        case 'zh':
+            return messages.zh;
+        default:
+            return messages.en;
+    }
+}
+
+
 
 function scrollBottom() {
   const pageContents = document.getElementsByClassName('page__content');
@@ -83,6 +153,9 @@ export default {
       isPosting: false,
       photoModalVisible: false,
       messages: this.getMessages(),
+      comment: '',
+      targetLang: '',
+      language: this.initialLanguage(),
     };
   },
   computed: {
@@ -171,6 +244,14 @@ export default {
       const messages = window.localStorage.getItem('messages');
       return JSON.parse(messages).ResponsePage;
     },
+    initialLanguage(){
+        if(window.localStorage.getItem('deviceLanguage') == null){
+            window.localStorage.setItem('deviceLanguage', 'en');
+        }
+        const lang = window.localStorage.getItem('deviceLanguage');
+        var labels = getMessages(lang);
+        return {labelLang:labels.labelLang, lang:lang};
+    },
   },
   props: ['pageStack'],
 };
@@ -223,4 +304,14 @@ main {
   width: 100%;
   object-fit: contain;
 }
+.select {
+background-color: #FFF;
+color: #2bb46e;
+padding-left: 10px;
+padding-right: 10px;
+margin-right: 15px;
+/*margin: auto 8px;*/
+border-radius: 15px;
+}
+
 </style>

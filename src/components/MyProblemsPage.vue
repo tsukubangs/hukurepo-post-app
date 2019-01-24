@@ -5,14 +5,72 @@
       <span v-show="state === 'preaction'"> {{ this.messages.preaction }} </span>
       <span v-show="state === 'action'"> {{ this.messages.action }} </span>
     </v-ons-pull-hook>
+
+<v-ons-toolbar>
+<div class="center" v-if="this.language.lang=='ja'">あなたのページ</div>
+<div class="center" v-else-if="this.language.lang=='ko'">내 페이지</div>
+<div class="center" v-else-if="this.language.lang=='zh'">你的页面</div>
+<div class="center" v-else>My Page</div>
+
+<div class="right" v-if="this.language.lang=='ja'">
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>言語</option>
+<option value="original">元言語</option>
+<option value="en">英語</option>
+<option value="ja">日本語</option>
+<option value="zh">中国語</option>
+<option value="ko">韓国語</option>
+</select>
+</div>
+
+<div class="right" v-else-if="this.language.lang=='ko'">
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>언어</option>
+<option value="original">원래 언어</option>
+<option value="en">영어</option>
+<option value="ja">일본어</option>
+<option value="zh">중국</option>
+<option value="ko">한국</option>
+</select>
+</div>
+
+<div class="right" v-else-if="this.language.lang=='zh'">
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>语言</option>
+<option value="original">源语言</option>
+<option value="en">英语</option>
+<option value="ja">日本</option>
+<option value="zh">中国</option>
+<option value="ko">朝鲜的</option>
+</select>
+</div>
+
+
+<div class="right" v-else>
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>Language</option>
+<option value="original">Original</option>
+<option value="en">English</option>
+<option value="ja">Japanese</option>
+<option value="zh">Chinese</option>
+<option value="ko">Korean</option>
+</select>
+</div>
+</v-ons-toolbar>
+
     <a href="https://bigclout-api.kde.cs.tsukuba.ac.jp/event/"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
     <main class="h100">
       <div class="centering h100" v-if="!fetchProblemsStatus.isCompleted">
         <v-ons-progress-circular indeterminate ></v-ons-progress-circular>
       </div>
       <ul class="card-list">
-        <li v-for="problem in problems" @click="toResponse(problem)">
+        <!--<li v-for="problem in problems" @click="toResponse(problem)">
           <problem-card :problem="problem" :useUnReadNotification="true" class="w100"></problem-card>
+        </li>-->
+        <li v-for="(problem, index) in problems">
+            <div @click="toResponse(problem)">
+            <problem-card :problem="problem" :useUnReadNotification="true" :isLanguage="targetLang" class="w100"></problem-card>
+            </div>
         </li>
       </ul>
     </main>
@@ -44,6 +102,7 @@ function getMessages(lang){
     }
 }
 
+
 export default {
   name: 'my-problems-page',
   components: {
@@ -69,6 +128,7 @@ export default {
       target: '#postButton',
       messages: this.getMessages(),
       language: this.initialLanguage(),
+      targetLang: '',
     };
   },
   computed: {
@@ -162,6 +222,18 @@ main {
 .style {
   color: #FFF;
   background-color: $main-color;
+}
+.select1 {
+    background-color: #3498DB;
+}
+.select {
+background-color: #FFF;
+color: #2bb46e;
+padding-left: 10px;
+padding-right: 10px;
+margin-right: 15px;
+/*margin: auto 8px;*/
+border-radius: 15px;
 }
 
 </style>
