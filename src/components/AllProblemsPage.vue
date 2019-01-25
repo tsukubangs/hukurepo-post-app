@@ -7,9 +7,9 @@
     </v-ons-pull-hook>
 
 <v-ons-toolbar>
-<div class="center" v-if="this.language.lang=='ja'">みんなのページ</div>
-<div class="center" v-if="this.language.lang=='ko'">모두의 페이지</div>
-<div class="center" v-if="this.language.lang=='zh'">每个人的页面</div>
+<div class="center" v-if="this.language.lang=='ja'">みんなの投稿</div>
+<div class="center" v-if="this.language.lang=='ko'">모두의 게시물</div>
+<div class="center" v-if="this.language.lang=='zh'">每个人的帖子</div>
 <div class="center" v-if="this.language.lang=='en'">Timeline</div>
 
 <div class="right" v-if="this.language.lang=='ja'">
