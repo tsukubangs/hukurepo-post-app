@@ -20,7 +20,7 @@
     "dependencies": {
         "autolinker": "^1.4.3",
         "axios": "^0.16.1",
-        "cordova-android": "^7.0.0",
+        "cordova-android": "^7.1.4",
         "cordova-banner-notification": "^0.1.6",
         "cordova-browser": "^5.0.4",
         "cordova-ios": "^4.5.5",

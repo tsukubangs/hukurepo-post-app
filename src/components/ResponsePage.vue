@@ -2,13 +2,16 @@
   <v-ons-page>
     <!--<custom-toolbar>Response Page </custom-toolbar> -->
 
-<v-ons-toolbar>
-<div class="center" v-if="this.language.lang=='ja'">回答</div>
+<!--<v-ons-toolbar>-->
+<custom-toolbar>
+<!--<div class="center" v-if="this.language.lang=='ja'">回答</div>
 <div class="center" v-else-if="this.language.lang=='ko'">답변</div>
 <div class="center" v-else-if="this.language.lang=='zh'">答案</div>
-<div class="center" v-else>Response</div>
+<div class="center" v-else>Response</div>-->
+
 
 <div class="right" v-if="this.language.lang=='ja'">
+回答
 <select class="select" v-model="targetLang">
 <option value="" disabled selected>翻訳</option>
 <option value="original">元言語</option>
@@ -20,6 +23,7 @@
 </div>
 
 <div class="right" v-else-if="this.language.lang=='ko'">
+답변
 <select class="select" v-model="targetLang">
 <option value="" disabled selected>번역</option>
 <option value="original">원래 언어</option>
@@ -31,6 +35,7 @@
 </div>
 
 <div class="right" v-else-if="this.language.lang=='zh'">
+答案
 <select class="select" v-model="targetLang">
 <option value="" disabled selected>翻訳</option>
 <option value="original">源语言</option>
@@ -43,6 +48,7 @@
 
 
 <div class="right" v-else>
+Response
 <select class="select" v-model="targetLang">
 <option value="" disabled selected>Translate</option>
 <option value="original">Original</option>
@@ -52,7 +58,8 @@
 <option value="ko">Korean</option>
 </select>
 </div>
-</v-ons-toolbar>
+</custom-toolbar>
+<!--</v-ons-toolbar>-->
 
 
 
