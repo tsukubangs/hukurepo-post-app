@@ -1,6 +1,6 @@
 <template>
 <v-ons-page>
-<a href="http://www.mt-tsukuba.com/?p=1723"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
+<a href="http://umematsuri.jp/"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
 <main class="h100">
 <h1 v-if="this.language.lang=='ja'"><font size="3" color="#7f7f7f"><strong>あなたに近くのお店:</strong></font></h1>
 <h1 v-else-if="this.language.lang=='ko'"><font size="3" color="#7f7f7f"><strong>당신에게 가까이 가게:</strong></font></h1>
