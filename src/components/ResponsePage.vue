@@ -212,6 +212,7 @@ export default {
       const data = {
         comment: this.replyComment,
       };
+
       axios.post(`${WEB_API_URL}/v1/problems/${this.selectedProblem.id}/responses`, data, config)
       .then((response) => {
         this.responses.push(response.data);
@@ -227,8 +228,11 @@ export default {
         });
         this.isPosting = false;
       });
+
     },
     getResponse() {
+//alert(this.responses.length);
+//alert(config.headers.Authorization);
       const token = window.localStorage.getItem('access_token');
       const config = {
         headers: { Authorization: token },
