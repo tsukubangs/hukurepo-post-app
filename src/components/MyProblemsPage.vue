@@ -58,7 +58,7 @@
 </div>
 </v-ons-toolbar>
 
-    <a href="http://www.mt-tsukuba.com/?p=1723"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
+    <a href="http://umematsuri.jp/"><img :src="getImage" alt="BANNER"  width="100%" border="0"></a>
     <main class="h100">
       <div class="centering h100" v-if="!fetchProblemsStatus.isCompleted">
         <v-ons-progress-circular indeterminate ></v-ons-progress-circular>
