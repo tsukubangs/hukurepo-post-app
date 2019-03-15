@@ -212,7 +212,7 @@ function getPastAnswer(config, new_problem_num, postComment, problemData,topk, k
 
     for(var i=0;i<similarQuestion.length;i++)
     {
-        if(similarQuestion[i].value>0.6)
+        if(similarQuestion[i].value>0.7)
         if(similarQuestion[i].ShopSpots == 1)
         {
             var problem_num = new_problem_num+1;
