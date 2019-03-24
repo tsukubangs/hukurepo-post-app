@@ -128,12 +128,14 @@ function postProblem(priority) {
           message: this.messages.error.post,
         });
       });
-
     //added by savong testing 2019311
     axios.get(`${WEB_API_URL}/v1/problems`, config)
         .then((problem) => {
             console.log(problem);
-            auto_response(this.postComment, problem.data, config, problem.data.length);
+            //auto_response(this.postComment, problem.data, config, problem.data.length);
+            auto_response(this.postComment, problem.data, config, problem.data[0].id);
+//alert(problem.data.length);
+//alert(problem.data[0].id);
         })
         .catch((error) => {
             console.log(error);
