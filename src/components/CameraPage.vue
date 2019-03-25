@@ -132,8 +132,8 @@ function postProblem(priority) {
     axios.get(`${WEB_API_URL}/v1/problems`, config)
         .then((problem) => {
             console.log(problem);
-            //auto_response(this.postComment, problem.data, config, problem.data.length);
-            auto_response(this.postComment, problem.data, config, problem.data[0].id);
+            auto_response(this.postComment, problem.data, config, problem.data.length+29);
+            //auto_response(this.postComment, problem.data, config, problem.data[0].id);
 //alert(problem.data.length);
 //alert(problem.data[0].id);
         })
@@ -145,6 +145,9 @@ function postProblem(priority) {
             });
         });
     //ended added by savong testing 2019311
+
+
+
 }
 //added by savong testing 2019311
 function auto_response(postComment, problemData, config, new_problem_num)
