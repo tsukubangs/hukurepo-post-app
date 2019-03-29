@@ -26,6 +26,14 @@
           {{ labels.questionnaire }}
         </div>
       </v-ons-list-item>
+      <v-ons-list-item tappable  @click="toCoupon()">
+        <div class="left">
+          <v-ons-icon icon="ion-happy" class="list-item__icon"></v-ons-icon>
+        </div>
+        <div class="center">
+          Coupon / クーポン
+        </div>
+      </v-ons-list-item>
       <v-ons-list-header>
         {{ labels.displayLanguage }}
       </v-ons-list-header>
@@ -44,6 +52,7 @@ import { mapActions, mapGetters } from 'vuex';
 import ons from 'onsenui';
 import PrivacyPolicy from './PrivacyPolicy';
 import PresentPage from './PresentPage';
+import Coupon from './Coupon';
 import CustomToolbar from './CustomToolbar';
 import { QUESTIONNAIRE_URL } from '../../.env';
 
@@ -104,6 +113,9 @@ export default {
     toQuestionnaire(email) {
       window.localStorage.setItem('complete_questionnaire', true);
       window.open(`${QUESTIONNAIRE_URL}=${email}`);
+    },
+    toCoupon() {
+      this.pageStack.push(Coupon);
     },
     changeLanguage(event){
       const selectLanguage = event.target.value;

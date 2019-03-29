@@ -70,6 +70,7 @@ export default {
             const lang = window.localStorage.getItem('deviceLanguage');
             const messages = getMessages(lang);
             window.localStorage.setItem('messages', JSON.stringify(messages));
+            window.localStorage.setItem('hiddenUsers', '');
             router.push('/');
           }).catch(() => {
             ons.notification.alert({

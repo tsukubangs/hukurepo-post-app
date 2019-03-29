@@ -42,6 +42,7 @@ import GoogleMap from './GoogleMap';
 import CameraButton from './CameraButton';
 import { WEB_API_URL } from '../../.env';
 import { FETCH_PROBLEMS } from '../vuex/mutation-types';
+import TsukubaSpots from '../assets/TsukubaSpots';
 
 const focus = {
   inserted(el) {
@@ -108,7 +109,6 @@ function postProblem(priority) {
   const config = {
     headers: { Authorization: token },
   };
-
   axios.post(`${WEB_API_URL}/v1/problems`, data, config)
       .then(() => {
         this.FETCH_PROBLEMS();
@@ -128,7 +128,212 @@ function postProblem(priority) {
           message: this.messages.error.post,
         });
       });
+    //added by savong testing 2019311
+    axios.get(`${WEB_API_URL}/v1/problems`, config)
+        .then((problem) => {
+            console.log(problem);
+            auto_response(this.postComment, problem.data, config, problem.data.length+29);
+            //auto_response(this.postComment, problem.data, config, problem.data[0].id);
+//alert(problem.data.length);
+//alert(problem.data[0].id);
+        })
+        .catch((error) => {
+            console.log(error);
+            ons.notification.alert({
+                title: this.messages.error.connectTitle,
+                message: this.messages.error.connectBody,
+            });
+        });
+    //ended added by savong testing 2019311
+
+
+
 }
+//added by savong testing 2019311
+function auto_response(postComment, problemData, config, new_problem_num)
+{
+    var topk = [];
+    topk = getTopKTsukubaSpots(config, postComment, TsukubaSpots, 1);
+    var topk1 = [];
+    topk1 = getPastAnswer(config, new_problem_num, postComment, problemData, topk, 1);
+}
+function getTopKTsukubaSpots(config, postComment, TsukubaSpots, k)
+{
+    var scores = [];
+    for(var TsukubaSpot in TsukubaSpots)
+    {
+        scores.push(
+        {
+            Name: "[AUTO-RESPONSE]: " + TsukubaSpots[TsukubaSpot].Name+" is strongly recommended. "+ "The detail can be found here: "+ TsukubaSpots[TsukubaSpot].url_link +".",
+            ShopSpots: 1,
+            //url_link: TsukubaSpots[TsukubaSpot].url_link,
+            value: Math.round(similarity(postComment, TsukubaSpots[TsukubaSpot].Category)*100)/100
+        }
+        );
+    }
+    return scores;
+}
+
+/*function getTopKTsukubaSpots(config, postComment, TsukubaSpots, k)
+{
+    var scores = [];
+    for(var TsukubaSpot in TsukubaSpots)
+    {
+        scores.push(
+        {
+            Name: TsukubaSpots[TsukubaSpot].Name,
+            url_link: TsukubaSpots[TsukubaSpot].url_link,
+            value: Math.round(similarity(postComment, TsukubaSpots[TsukubaSpot].Category)*100)/100
+        }
+        );
+    }
+    scores.sort(function (a, b) {
+        return b.value - a.value
+    });
+    return scores.slice(0, k);
+}*/
+
+function getPastAnswer(config, new_problem_num, postComment, problemData,topk, k)
+{
+    var scores = [];
+    scores = topk;
+    for(var i=0;i<problemData.length;i++)
+    {
+        scores.push(
+        {
+            Name: problemData[i].id,
+            Problem: problemData[i].comment,
+            ShopSpots: 0,
+            value: Math.round(similarity(postComment, problemData[i].comment)*100)/100
+        }
+        );
+    }
+    scores.sort(function (a, b) {
+        return b.value - a.value
+    });
+
+    var similarQuestion = [];
+    similarQuestion = scores.slice(0, k);
+
+    for(var i=0;i<similarQuestion.length;i++)
+    {
+        if(similarQuestion[i].value>0.7)
+        if(similarQuestion[i].ShopSpots == 1)
+        {
+            var problem_num = new_problem_num+1;
+            const autoresponse = {
+                comment: similarQuestion[i].Name,
+            };
+            axios.post(`${WEB_API_URL}/v1/problems/${problem_num}/responses`, autoresponse, config)
+                .then((response) => {
+                    this.responses.push(response.data);
+                    this.replyComment = '';
+                    this.isPosting = false;
+                    scrollBottom();
+                })
+                .catch((error) => {
+                    console.log(error);
+                    ons.notification.alert({
+                        title: '',
+                        message: this.messages.error.post,
+                    });
+                    this.isPosting = false;
+                });
+        }
+        else if(similarQuestion[i].ShopSpots == 0)
+        {
+             axios.get(`${WEB_API_URL}/v1/problems/${similarQuestion[i].Name}/responses`, config)
+                .then((response) => {
+                    console.log(response);
+                    if(response.data.length>0)
+                    {
+                        var pastResponse="";
+                        for(var i=0;i<response.data.length;i++)
+                        {
+                            if(response.data[i].comment!=null)
+                                pastResponse = pastResponse + response.data[i].comment + "; ";
+                        }
+
+                        if(pastResponse.indexOf("[AUTO-RESPONSE]: ") == -1 )
+                        {
+                            pastResponse = "[AUTO-RESPONSE]: " + pastResponse;
+                        }
+
+                        var problem_num = new_problem_num+1;
+                        const autoresponse = {
+                            comment: pastResponse,
+                        };
+                        axios.post(`${WEB_API_URL}/v1/problems/${problem_num}/responses`, autoresponse, config)
+                        .then((response) => {
+                            this.responses.push(response.data);
+                            this.replyComment = '';
+                            this.isPosting = false;
+                            scrollBottom();
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            ons.notification.alert({
+                                title: '',
+                                message: this.messages.error.post,
+                            });
+                            this.isPosting = false;
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    ons.notification.alert({
+                        title: this.messages.error.connectTitle,
+                        message: this.messages.error.connectBody,
+                        callback: this.getResponse,
+                    });
+                });
+        }
+    }
+
+    return scores.slice(0, k);
+}
+
+function similarity(s1, s2) {
+    var longer = s1;
+    var shorter = s2;
+    if (s1.length < s2.length) {
+        longer = s2;
+        shorter = s1;
+    }
+    var longerLength = longer.length;
+    if (longerLength == 0) {
+        return 1.0;
+    }
+    return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+}
+
+function editDistance(s1, s2) {
+    s1 = s1.toLowerCase();
+    s2 = s2.toLowerCase();
+
+    var costs = new Array();
+    for (var i = 0; i <= s1.length; i++) {
+        var lastValue = i;
+        for (var j = 0; j <= s2.length; j++) {
+            if (i == 0)
+                costs[j] = j;
+            else {
+                if (j > 0) {
+                    var newValue = costs[j - 1];
+                    if (s1.charAt(i - 1) != s2.charAt(j - 1))
+                        newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                    costs[j - 1] = lastValue;
+                    lastValue = newValue;
+                }
+            }
+        }
+        if (i > 0)
+        costs[s2.length] = lastValue;
+    }
+    return costs[s2.length];
+}
+//ended added by savong testing 2019311
 
 export default {
   name: 'camera-page',
@@ -149,6 +354,7 @@ export default {
       imageData: '',
       isPosting: false,
       messages: this.getMessages(),
+      TsukubaSpots,
     };
   },
   computed: {
@@ -171,6 +377,7 @@ export default {
   methods: {
     takePhoto,
     postProblem,
+    auto_response,
     cancelPhoto() {
       this.imageData = '';
     },

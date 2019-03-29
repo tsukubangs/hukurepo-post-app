@@ -1,6 +1,91 @@
 <template>
   <v-ons-page>
-    <custom-toolbar>Response Page</custom-toolbar>
+    <!--<custom-toolbar>Response Page </custom-toolbar> -->
+
+<!--<v-ons-toolbar>-->
+<custom-toolbar>
+<!--<div class="center" v-if="this.language.lang=='ja'">回答</div>
+<div class="left" v-else-if="this.language.lang=='ko'">답변</div>
+<div class="left" v-else-if="this.language.lang=='zh'">答案</div>
+<div class="left" v-else>Response</div>-->
+
+<div class="center" v-if="this.language.lang=='ja'">
+回答
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>翻訳</option>
+<option value="original">元言語</option>
+<option value="en">英語</option>
+<option value="ja">日本語</option>
+<option value="zh">中国語</option>
+<option value="ko">韓国語</option>
+</select>
+<select class="select" v-model="showSetting" v-on:change="showSettings(this.value)">
+<option value="0" disabled selected>投稿非表示設定</option>
+<option value="1">この投稿を非表示</option>
+<option value="2">投稿したユーザ単位で非表示</option>
+<option value="3">不適切な投稿として通報</option>
+</select>
+</div>
+
+<div class="center" v-else-if="this.language.lang=='ko'">
+답변
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>번역</option>
+<option value="original">원래 언어</option>
+<option value="en">영어</option>
+<option value="ja">일본어</option>
+<option value="zh">중국</option>
+<option value="ko">한국</option>
+</select>
+<select class="select" v-model="showSetting" v-on:change="showSettings(this.value)">
+<option value="0" disabled selected>비 표시 설정</option>
+<option value="1">이 게시물을 숨기기</option>
+<option value="2">올린 사용자 단위로 숨기기</option>
+<option value="3">부적절한 게시물로 통보</option>
+</select>
+</div>
+
+<div class="center" v-else-if="this.language.lang=='zh'">
+答案
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>翻訳</option>
+<option value="original">源语言</option>
+<option value="en">英语</option>
+<option value="ja">日本</option>
+<option value="zh">中国</option>
+<option value="ko">朝鲜的</option>
+</select>
+<select class="select" v-model="showSetting" v-on:change="showSettings(this.value)">
+<option value="0" disabled selected>隐藏的设置</option>
+<option value="1">隐藏此帖子</option>
+<option value="2">隐藏每个发布的用户</option>
+<option value="3">举报不合适内容</option>
+</select>
+</div>
+
+
+<div class="center" v-else>
+Response
+<select class="select" v-model="targetLang">
+<option value="" disabled selected>Translate</option>
+<option value="original">Original</option>
+<option value="en">English</option>
+<option value="ja">Japanese</option>
+<option value="zh">Chinese</option>
+<option value="ko">Korean</option>
+</select>
+<select class="select" v-model="showSetting" v-on:change="showSettings(this.value)">
+<option value="0" disabled selected>Hidden setting</option>
+<option value="1">Hide this post</option>
+<option value="2">Hide per posted user</option>
+<option value="3">Report as inappropriate post</option>
+</select>
+</div>
+
+</custom-toolbar>
+<!--</v-ons-toolbar>-->
+
+
 
     <v-ons-pull-hook
       :action="loadItem"
@@ -14,14 +99,14 @@
     <main>
       <v-ons-list modifier="noborder">
         <v-ons-list-item modifier="nodivider">
-          <response-card :response="selectedProblem" :is-my-response="true" class="w100">
+          <response-card :response="selectedProblem" :is-my-response="true" :isLanguage="targetLang" class="w100">
             <div @click="photoModalVisible = true">
               <photo-thumbnail :thumbnailUrl="selectedProblemThumbnailImage" v-if="!!selectedProblem.image_url" class="thumbnail" ></photo-thumbnail>
             </div>
           </response-card>
         </v-ons-list-item>
         <v-ons-list-item v-for="response in responses" modifier="nodivider">
-          <response-card :response="response" :is-my-response="selectedProblem.user_id == response.user_id" class="w100">
+          <response-card :response="response" :is-my-response="selectedProblem.user_id == response.user_id" :isLanguage="targetLang" class="w100">
           </response-card>
         </v-ons-list-item>
       </v-ons-list>
@@ -52,14 +137,30 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import axios from 'axios';
-import ons from 'onsenui';
 import CustomToolbar from './CustomToolbar';
 import ResponseCard from './ResponseCard';
 import PhotoThumbnail from './PhotoThumbnail';
-import { WEB_API_URL } from '../../.env';
-
+import {WEB_API_URL} from '../../.env';
+//import autolinker from 'autolinker';
+import axios from 'axios';
+import ons from 'onsenui';
 import { FETCH_USER_INFO } from '../vuex/mutation-types';
+
+function getMessages(lang){
+    const messages = require('../assets/message.json');
+    switch (lang){
+        case 'ja':
+            return messages.ja;
+        case 'ko':
+            return messages.ko;
+        case 'zh':
+            return messages.zh;
+        default:
+            return messages.en;
+    }
+}
+
+
 
 function scrollBottom() {
   const pageContents = document.getElementsByClassName('page__content');
@@ -83,6 +184,10 @@ export default {
       isPosting: false,
       photoModalVisible: false,
       messages: this.getMessages(),
+      comment: '',
+      targetLang: '',
+      language: this.initialLanguage(),
+      showSetting: '0',
     };
   },
   computed: {
@@ -171,6 +276,46 @@ export default {
       const messages = window.localStorage.getItem('messages');
       return JSON.parse(messages).ResponsePage;
     },
+    initialLanguage(){
+        if(window.localStorage.getItem('deviceLanguage') == null){
+            window.localStorage.setItem('deviceLanguage', 'en');
+        }
+        const lang = window.localStorage.getItem('deviceLanguage');
+        var labels = getMessages(lang);
+        return {labelLang:labels.labelLang, lang:lang};
+    },
+    showSettings(value){
+        if(this.showSetting === '1'){
+            var hiddenDatas = window.localStorage.getItem('hiddenDatas');
+            if (hiddenDatas != "" && hiddenDatas != null){
+                hiddenDatas = hiddenDatas + ',' + this.selectedProblem.id;
+            }
+            else{
+                hiddenDatas = this.selectedProblem.id;
+            }
+            window.localStorage.setItem('hiddenDatas', hiddenDatas);
+        }
+        else if(this.showSetting === '2'){
+            var hiddenUsers = window.localStorage.getItem('hiddenUsers');
+            if (hiddenUsers != "" && hiddenUsers != null){
+                hiddenUsers = hiddenUsers + ',' + this.selectedProblem.user_id;
+            }
+            else{
+                hiddenUsers = this.selectedProblem.user_id;
+            }
+            window.localStorage.setItem('hiddenUsers', hiddenUsers);
+        }
+        else if(this.showSetting === '3'){
+            cordova.plugins.email.open({
+                to: 'tsukuba.ngs@gmail.com',
+                subject: this.messages.report.title,
+                body:this.messages.report.body + '     \r\n'
+                    + 'postID:' + this.selectedProblem.id + '     \r\n'
+                    + 'title:' + this.selectedProblem.comment + '     \r\n'
+                    + 'postUserID:' + this.selectedProblem.user_id
+            });
+        }
+    }
   },
   props: ['pageStack'],
 };
@@ -223,4 +368,14 @@ main {
   width: 100%;
   object-fit: contain;
 }
+.select {
+background-color: #FFF;
+color: #2bb46e;
+padding-left: 10px;
+padding-right: 10px;
+margin-right: 15px;
+/*margin: auto 8px;*/
+border-radius: 15px;
+}
+
 </style>
