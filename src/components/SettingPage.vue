@@ -10,14 +10,6 @@
           {{ labels.policy }}
         </div>
       </v-ons-list-item>
-      <v-ons-list-item tappable  @click="toPresent()">
-        <div class="left">
-          <v-ons-icon icon="ion-happy" class="list-item__icon"></v-ons-icon>
-        </div>
-        <div class="center">
-          {{ labels.getPresent }}
-        </div>
-      </v-ons-list-item>
       <v-ons-list-item tappable  @click="toQuestionnaire()">
         <div class="left">
           <v-ons-icon icon="fa-check-circle" class="list-item__icon"></v-ons-icon>
